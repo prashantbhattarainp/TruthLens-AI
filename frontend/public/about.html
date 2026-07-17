@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="The vision, architecture, and development approach behind TruthLens AI."
+    />
+    <title>About | TruthLens AI</title>
+    <link rel="stylesheet" href="../src/css/tokens.css" />
+    <link rel="stylesheet" href="../src/css/base.css" />
+    <link rel="stylesheet" href="../src/css/layout.css" />
+    <link rel="stylesheet" href="../src/css/components.css" />
+    <link rel="stylesheet" href="../src/css/pages.css" />
+  </head>
+  <body data-page="about">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div data-component="navigation"></div>
+
+    <main id="main-content">
+      <header class="page-header">
+        <div class="container page-header__content">
+          <p class="eyebrow">About the platform</p>
+          <h1>Building a credible foundation for AI and media research</h1>
+          <p>
+            TruthLens AI connects a usable web experience with independent platform and machine
+            learning services, keeping research workflows clear, maintainable, and extensible.
+          </p>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="vision-title">
+        <div class="container content-grid content-grid--two-column">
+          <div>
+            <p class="eyebrow">Project vision</p>
+            <h2 id="vision-title">Move from a classifier demo to an accountable platform</h2>
+          </div>
+          <div class="prose">
+            <p>
+              The aim is not to represent automated classification as a final fact-check. It is to
+              build a transparent research tool that reports a model’s assessment, supporting
+              evidence, confidence, and limitations for careful human interpretation.
+            </p>
+            <p>
+              Initial work focuses on Indian digital media, while the structure is designed to
+              accommodate multilingual research and future production-quality capabilities.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--surface" aria-labelledby="overview-title">
+        <div class="container section-heading">
+          <p class="eyebrow">Architecture overview</p>
+          <h2 id="overview-title">
+            A separation of concerns that supports both product and research work
+          </h2>
+        </div>
+        <div class="container architecture-flow" aria-label="TruthLens service architecture">
+          <div class="architecture-flow__node">
+            <span>01</span><strong>Frontend</strong><small>Static, accessible web interface</small>
+          </div>
+          <span class="architecture-flow__connector" aria-hidden="true">→</span>
+          <div class="architecture-flow__node">
+            <span>02</span><strong>Node.js backend</strong
+            ><small>Platform APIs, history, uploads</small>
+          </div>
+          <span class="architecture-flow__connector" aria-hidden="true">→</span>
+          <div class="architecture-flow__node">
+            <span>03</span><strong>Python ML service</strong
+            ><small>Preprocessing, models, explanations</small>
+          </div>
+          <span class="architecture-flow__connector" aria-hidden="true">→</span>
+          <div class="architecture-flow__node">
+            <span>04</span><strong>Research assets</strong
+            ><small>Datasets, metadata, reports</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="technology-title">
+        <div class="container section-heading">
+          <p class="eyebrow">Technologies</p>
+          <h2 id="technology-title">Deliberately simple foundations, clear extension points</h2>
+        </div>
+        <div class="container card-grid card-grid--three">
+          <article class="feature-card">
+            <h3>Web interface</h3>
+            <p>
+              HTML5, CSS3, vanilla JavaScript, and Chart.js will keep the experience lightweight and
+              directly understandable.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>Platform service</h3>
+            <p>
+              Node.js, Express, and SQLite provide a clear starting point for APIs, activity
+              records, and later authentication.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>ML service</h3>
+            <p>
+              Python, spaCy, scikit-learn, pandas, NumPy, and joblib will support reproducible
+              classical-model experiments.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--surface" aria-labelledby="methodology-title">
+        <div class="container content-grid content-grid--two-column">
+          <div>
+            <p class="eyebrow">Development methodology</p>
+            <h2 id="methodology-title">Incremental delivery with evidence at each step</h2>
+          </div>
+          <div class="prose">
+            <p>
+              The project advances in small, reviewable milestones. Each milestone defines a narrow
+              goal, testable output, recorded engineering decisions, and one focused commit.
+            </p>
+            <p>
+              Research-sensitive choices—such as dataset policy, preprocessing, and evaluation
+              protocol—will be recorded separately from routine engineering progress so the eventual
+              paper has a dependable evidence trail.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-component="footer"></div>
+    <script type="module" src="../src/js/app.js"></script>
+  </body>
+</html>

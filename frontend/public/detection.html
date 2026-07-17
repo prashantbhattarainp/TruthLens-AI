@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A frontend interface for submitting news content to the TruthLens AI prediction API."
+    />
+    <title>Detection Interface | TruthLens AI</title>
+    <link rel="stylesheet" href="../src/css/tokens.css" />
+    <link rel="stylesheet" href="../src/css/base.css" />
+    <link rel="stylesheet" href="../src/css/layout.css" />
+    <link rel="stylesheet" href="../src/css/components.css" />
+    <link rel="stylesheet" href="../src/css/pages.css" />
+  </head>
+  <body data-page="detection">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div data-component="navigation"></div>
+
+    <main id="main-content">
+      <header class="page-header">
+        <div class="container page-header__content">
+          <p class="eyebrow">Frontend workflow demonstration</p>
+          <h1>Fake news detection workspace</h1>
+          <p>
+            Complete the form to submit content to the TruthLens backend. The backend currently
+            returns deterministic contract data while machine-learning integration is pending.
+          </p>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="analysis-form-title">
+        <div class="container detection-layout">
+          <form class="form-card" data-detection-form novalidate>
+            <p class="eyebrow">News content</p>
+            <h2 id="analysis-form-title">Prepare an article for analysis</h2>
+            <p class="form-field__hint">
+              Headline and article text are required. Valid input is sent only to the TruthLens
+              backend prediction API.
+            </p>
+
+            <div class="form-field">
+              <label for="headline">News headline <span aria-hidden="true">*</span></label>
+              <input
+                class="input"
+                id="headline"
+                name="headline"
+                type="text"
+                maxlength="300"
+                required
+                aria-required="true"
+                aria-describedby="headline-help headline-character-count headline-error"
+                placeholder="Enter the news headline"
+              />
+              <div class="form-field__meta">
+                <span id="headline-help">Required. Maximum 300 characters.</span>
+                <span id="headline-character-count" data-headline-counter aria-live="polite"
+                  >0 / 300 characters</span
+                >
+              </div>
+              <p class="field-error" id="headline-error" data-headline-error aria-live="polite"></p>
+            </div>
+
+            <div class="form-field">
+              <label for="article">News article <span aria-hidden="true">*</span></label>
+              <textarea
+                class="textarea"
+                id="article"
+                name="article"
+                maxlength="15000"
+                minlength="100"
+                required
+                aria-required="true"
+                aria-describedby="article-help article-character-count article-error"
+                placeholder="Paste or write the full news article here"
+              ></textarea>
+              <div class="form-field__meta">
+                <span id="article-help">Required. Use 100 to 15,000 characters.</span>
+                <span id="article-character-count" data-article-counter aria-live="polite"
+                  >0 / 15,000 characters</span
+                >
+              </div>
+              <p class="field-error" id="article-error" data-article-error aria-live="polite"></p>
+            </div>
+
+            <p class="validation-message" data-validation-message aria-live="polite">
+              Add a headline and at least 100 article characters to enable the mock workflow.
+            </p>
+            <div class="form-actions">
+              <button class="button button--primary" type="submit" data-predict-button disabled>
+                Predict authenticity
+              </button>
+              <button class="button button--secondary" type="reset" data-reset-button>Reset</button>
+            </div>
+          </form>
+
+          <div class="detection-sidebar">
+            <aside
+              class="result-card"
+              data-result-card
+              aria-labelledby="result-title"
+              aria-busy="false"
+              tabindex="-1"
+            >
+              <div class="result-card__initial" data-result-initial>
+                <p class="eyebrow">Prediction output</p>
+                <h2 id="result-title">Ready for backend analysis</h2>
+                <p>
+                  Once the form is valid, the interface will send it to the TruthLens backend and
+                  display the returned response.
+                </p>
+              </div>
+
+              <div class="loading-panel" data-loading-panel hidden aria-live="polite">
+                <span class="loading-panel__spinner" aria-hidden="true"></span>
+                <div>
+                  <p class="eyebrow">Backend request in progress</p>
+                  <h2 data-loading-title>Requesting prediction...</h2>
+                  <p data-loading-description>
+                    The request is being sent to the TruthLens backend. Please wait for its
+                    response.
+                  </p>
+                </div>
+              </div>
+
+              <div class="result-card__error" data-result-error hidden role="alert">
+                <p class="eyebrow">Prediction request</p>
+                <h2 id="result-error-title" data-result-error-title>Prediction unavailable</h2>
+                <p data-result-error-message></p>
+              </div>
+
+              <div class="result-card__content" data-result-content hidden>
+                <div class="result-card__header">
+                  <div>
+                    <p class="eyebrow">Backend prediction output</p>
+                    <h2 id="result-title-complete" data-result-heading>Prediction response</h2>
+                  </div>
+                  <span class="result-label">Backend response</span>
+                </div>
+                <p class="demo-notice">
+                  This result was returned by the TruthLens backend. In Phase 2, the backend uses
+                  deterministic mock data and does not call the ML service.
+                </p>
+
+                <div class="result-summary" aria-label="Mock prediction metrics">
+                  <div class="metric">
+                    <span>Prediction</span><strong data-result-prediction>--</strong>
+                  </div>
+                  <div class="metric">
+                    <span>Confidence score</span><strong data-result-confidence>--</strong>
+                  </div>
+                  <div class="metric">
+                    <span>Risk level</span><strong data-result-risk>--</strong>
+                  </div>
+                  <div class="metric">
+                    <span>Processing time</span><strong data-result-time>--</strong>
+                  </div>
+                </div>
+
+                <section class="result-card__section" aria-labelledby="confidence-title">
+                  <div class="section-label-row">
+                    <h3 id="confidence-title">Confidence</h3>
+                    <span data-confidence-label>Not available</span>
+                  </div>
+                  <div
+                    class="confidence-progress"
+                    data-confidence-progress
+                    role="progressbar"
+                    aria-labelledby="confidence-title"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                  >
+                    <span data-confidence-progress-fill></span>
+                  </div>
+                </section>
+
+                <section class="result-card__section" aria-labelledby="processing-title">
+                  <h3 id="processing-title">Processing status</h3>
+                  <p class="result-card__status">
+                    <span class="status-dot status-dot--success" aria-hidden="true"></span>
+                    <span data-result-status>Awaiting backend response</span>
+                  </p>
+                </section>
+
+                <section class="result-card__section" aria-labelledby="explanation-title">
+                  <h3 id="explanation-title">Explainability panel</h3>
+                  <p data-explanation-summary>The backend explanation will appear here.</p>
+                  <ul class="explanation-list" data-explanation-list></ul>
+                </section>
+
+                <section class="result-card__section" aria-labelledby="keywords-title">
+                  <h3 id="keywords-title">Important keywords</h3>
+                  <div
+                    class="keyword-list"
+                    data-keyword-list
+                    aria-label="Mock important keywords"
+                  ></div>
+                </section>
+
+                <section class="result-card__section" aria-labelledby="model-information-title">
+                  <h3 id="model-information-title">Model information</h3>
+                  <dl class="model-details">
+                    <dt>Model name</dt>
+                    <dd data-model-name>--</dd>
+                    <dt>Model version</dt>
+                    <dd data-model-version>--</dd>
+                    <dt>Dataset version</dt>
+                    <dd data-dataset-version>--</dd>
+                    <dt>Response timestamp</dt>
+                    <dd data-response-timestamp>--</dd>
+                    <dt>Request ID</dt>
+                    <dd data-request-id>--</dd>
+                  </dl>
+                </section>
+              </div>
+            </aside>
+
+            <aside class="system-status-panel" aria-labelledby="system-status-title">
+              <p class="eyebrow">Interface status</p>
+              <h2 id="system-status-title">System status</h2>
+              <p class="system-status-panel__notice">
+                Backend status reflects this prediction request only. No separate health check is
+                performed.
+              </p>
+              <dl class="system-status-list">
+                <dt>Backend status</dt>
+                <dd>
+                  <span class="status-badge status-badge--pending" data-backend-status
+                    >Not checked</span
+                  >
+                </dd>
+                <dt>ML service status</dt>
+                <dd><span class="status-badge status-badge--pending">Not contacted</span></dd>
+                <dt>Database status</dt>
+                <dd><span class="status-badge status-badge--pending">Not contacted</span></dd>
+                <dt>Current model</dt>
+                <dd>Returned with prediction</dd>
+                <dt>Application version</dt>
+                <dd>0.1.0 API client</dd>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-component="footer"></div>
+    <script src="config.js"></script>
+    <script type="module" src="../src/js/app.js"></script>
+  </body>
+</html>
