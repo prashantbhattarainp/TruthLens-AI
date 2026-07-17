@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://truthlens.ai/contracts/prediction-request.schema.json",
+  "title": "TruthLens Prediction Request",
+  "description": "Request payload accepted by POST /api/predict. The backend trims both fields before applying the length constraints.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["headline", "article"],
+  "properties": {
+    "headline": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300
+    },
+    "article": {
+      "type": "string",
+      "minLength": 100,
+      "maxLength": 15000
+    }
+  }
+}
