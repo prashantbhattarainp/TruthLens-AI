@@ -1,0 +1,105 @@
+export function getPredictionElements(form) {
+  const resultCard = document.querySelector('[data-result-card]');
+
+  return {
+    articleError: form.querySelector('[data-article-error]'),
+    articleInput: form.querySelector('#article'),
+    articleCounter: form.querySelector('[data-article-counter]'),
+    backendStatus: document.querySelector('[data-backend-status]'),
+    form,
+    headlineError: form.querySelector('[data-headline-error]'),
+    headlineInput: form.querySelector('#headline'),
+    headlineCounter: form.querySelector('[data-headline-counter]'),
+    predictButton: form.querySelector('[data-predict-button]'),
+    resetButton: form.querySelector('[data-reset-button]'),
+    resultCard,
+    validationMessage: form.querySelector('[data-validation-message]'),
+  };
+}
+
+function setFieldValidation(inputElement, errorElement, errorMessage, shouldShowError) {
+  const visibleErrorMessage = shouldShowError ? (errorMessage ?? '') : '';
+
+  inputElement.setAttribute('aria-invalid', String(Boolean(visibleErrorMessage)));
+  errorElement.textContent = visibleErrorMessage;
+}
+
+export function renderValidation(elements, validation, touchedFields) {
+  setFieldValidation(
+    elements.headlineInput,
+    elements.headlineError,
+    validation.errors.headline,
+    touchedFields.has('headline'),
+  );
+  setFieldValidation(
+    elements.articleInput,
+    elements.articleError,
+    validation.errors.article,
+    touchedFields.has('article'),
+  );
+
+  elements.predictButton.disabled = !validation.isValid;
+  elements.validationMessage.dataset.state = validation.isValid ? 'valid' : 'invalid';
+  elements.validationMessage.textContent = validation.isValid
+    ? 'Inputs are ready. Submit them to the TruthLens backend for prediction.'
+    : 'Add a headline and at least 100 article characters to enable prediction.';
+}
+
+export function setFormBusy(elements, isBusy) {
+  elements.headlineInput.disabled = isBusy;
+  elements.articleInput.disabled = isBusy;
+  elements.predictButton.disabled = isBusy;
+  elements.resetButton.disabled = isBusy;
+  elements.form.setAttribute('aria-busy', String(isBusy));
+
+  if (isBusy) {
+    elements.validationMessage.dataset.state = 'loading';
+    elements.validationMessage.textContent =
+      'Contacting the TruthLens backend. The form is locked.';
+  }
+}
+
+function getUserFriendlyErrorMessage(error) {
+  if (error.code === 'VALIDATION_ERROR') {
+    return 'The backend could not accept this content. Review the headline and article requirements.';
+  }
+
+  if (error.code === 'REQUEST_TIMEOUT') {
+    return 'The backend took too long to respond. Please try again.';
+  }
+
+  if (error.code === 'NETWORK_ERROR') {
+    return 'The TruthLens backend is unavailable. Confirm it is running, then try again.';
+  }
+
+  if (error.status >= 500) {
+    return 'The backend encountered a problem while processing the request. Please try again.';
+  }
+
+  return 'The prediction request could not be completed. Please try again.';
+}
+
+export function showRequestError(elements, error) {
+  elements.validationMessage.dataset.state = 'error';
+  elements.validationMessage.textContent = getUserFriendlyErrorMessage(error);
+}
+
+export function setBackendStatus(elements, { message, state }) {
+  if (!elements.backendStatus) {
+    return;
+  }
+
+  elements.backendStatus.className = `status-badge status-badge--${state}`;
+  elements.backendStatus.textContent = message;
+}
+
+export function focusFirstInvalidField(elements, validation) {
+  if (validation.errors.headline) {
+    elements.headlineInput.focus();
+    return;
+  }
+
+  if (validation.errors.article) {
+    elements.articleInput.focus();
+  }
+}
