@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+logs/
+datasets/raw/
+datasets/interim/
+datasets/processed/
+ml-service/artifacts/
