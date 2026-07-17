@@ -1,0 +1,63 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Node.js
+node_modules/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Test and coverage output
+coverage/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+!backend/logs/.gitkeep
+!ml-service/logs/.gitkeep
+
+# Runtime uploads and local databases
+frontend/public/uploads/*
+!frontend/public/uploads/.gitkeep
+*.sqlite
+*.sqlite3
+*.db
+
+# Data and ML artifacts
+datasets/raw/*
+!datasets/raw/.gitkeep
+datasets/interim/*
+!datasets/interim/.gitkeep
+datasets/processed/*
+!datasets/processed/.gitkeep
+ml-service/artifacts/candidate/*
+!ml-service/artifacts/candidate/.gitkeep
+ml-service/artifacts/approved/*
+!ml-service/artifacts/approved/.gitkeep
+ml-service/artifacts/metadata/*
+!ml-service/artifacts/metadata/.gitkeep
+ml-service/artifacts/reports/*
+!ml-service/artifacts/reports/.gitkeep
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
