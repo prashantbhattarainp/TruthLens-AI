@@ -15,3 +15,7 @@ Research finalization adds documentation and verification only. It does not chan
 ## Phase 5.1 review
 
 The UI foundation adds a static frontend shell and hash routing only. It preserves the browser -> Node.js public API boundary and does not modify the backend, ML service, model package, API contract, or explainability semantics. ADR-009 and ADR-010 remain sufficient; no Phase 5.1 ADR is required.
+
+## Phase 5.2 review
+
+The prediction dashboard consumes the existing public prediction envelope and optional explainability extension only. It preserves the browser -> Node.js -> Python boundary, request/response contract, model package, and Phase 4.1 explainability semantics. ADR-007, ADR-009, and ADR-010 remain sufficient; no Phase 5.2 ADR is required.

@@ -14,6 +14,7 @@ The Engineering Journal records implementation work and verification at each tra
 | [EJ-024](EJ-024-Robustness-Reliability-and-Fairness.md) | Phase 4.5 robustness, reliability, and fairness |
 | [EJ-025](EJ-025-Research-Finalization-and-Publication-Package.md) | Phase 4.6 research finalization and publication package |
 | [EJ-026](EJ-026-Professional-UI-UX-Foundation.md) | Phase 5.1 professional UI/UX foundation |
+| [EJ-027](EJ-027-Prediction-and-Explainability-Dashboard.md) | Phase 5.2 prediction and explainability dashboard |
 
 ## Historical record availability
 

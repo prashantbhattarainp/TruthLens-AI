@@ -8,14 +8,16 @@
 | Breadcrumbs | Non-home routes | Semantic `<nav aria-label="Breadcrumb">` |
 | Footer | All routes | Secondary semantic navigation |
 | Prediction form | `/predict` | Labels, hints, counters, native constraints, inline errors, busy state |
-| Result card | `/predict` | Live result state, focus on result/error, no false confidence display |
+| Confidence badge | Result card | Displays unavailable calibration distinctly from a percentage |
+| Result card | `/predict` | Live result state, focus on result/error, governed prediction/model trace |
+| Explainability dashboard | Result card | Textual and colour-coded bounded feature directions; unavailable states stay explicit |
 | Modal | Future actions | Native `<dialog>`, labelled title, backdrop close |
 | Toast | Future acknowledgements | Polite live-region update |
 | Empty state | Planned routes | Explains scope rather than presenting a broken screen |
 
 ## Result-card API contract
 
-The result card is deliberately a presentation layer for the public Node envelope. It reads `response.data.prediction`, `confidence`, `confidence_status`, `decision_score`, `risk_level`, `explanation`, `keywords`, `processing_time_ms`, model/dataset metadata, and optional `explainability` metadata. It does not derive a probability, assign a risk level, or call the Python service directly.
+The result card is deliberately a presentation layer for the public Node envelope. It reads `response.data.prediction`, `confidence`, `confidence_status`, `decision_score`, `risk_level`, `explanation`, `keywords`, `processing_time_ms`, model/dataset metadata, and optional `explainability` metadata. `confidence-badge.js`, `error-presentation.js`, and `explanation-panel.js` are reusable presentation helpers. They do not derive a probability, assign a risk level, rerun XAI, or call the Python service directly.
 
 ## Adding a component
 

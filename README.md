@@ -1,6 +1,6 @@
 # TruthLens AI
 
-TruthLens AI is a research-oriented platform for transparent fake-news classification research in Indian digital-media contexts. **Phase 4 is complete and Phase 5.1 is complete.** The repository now includes the Phase 4.6 publication package and a professional, accessible frontend foundation; Phase 5.2 has not begun.
+TruthLens AI is a research-oriented platform for transparent fake-news classification research in Indian digital-media contexts. **Phase 4 is complete and Phase 5.2 is complete.** The repository now includes the Phase 4.6 publication package, a professional accessible frontend foundation, and a bounded prediction/explainability dashboard.
 
 ## Research status
 
@@ -34,7 +34,7 @@ The browser never calls the ML service directly. The response exposes an uncalib
 
 ## Frontend foundation
 
-Phase 5.1 adds a dependency-free single-page application shell under `frontend/`. It provides a responsive navigation/footer, reusable tokenized CSS primitives, accessible form/result states, hash routes for `/`, `/predict`, `/dashboard`, `/history`, `/models`, `/research`, `/about`, and `/settings`, and a research-aware prediction workspace that reuses the existing public API client.
+Phase 5.1 adds a dependency-free single-page application shell under `frontend/`. Phase 5.2 completes the core `/predict` experience: validated headline/article input, loading/reset/error states, response trace metadata, explicit unavailable confidence, and optional bounded SHAP/LIME contribution panels. It reuses the existing public API client and does not change backend or ML behaviour.
 
 - [Frontend documentation](docs/frontend/README.md)
 - [UI guidelines](docs/frontend/UI_GUIDELINES.md)
@@ -42,8 +42,11 @@ Phase 5.1 adds a dependency-free single-page application shell under `frontend/`
 - [Component library](docs/frontend/COMPONENT_LIBRARY.md)
 - [Frontend architecture](docs/frontend/FRONTEND_ARCHITECTURE.md)
 - [Responsive design](docs/frontend/RESPONSIVE_DESIGN.md)
+- [Prediction dashboard](docs/frontend/PREDICTION_PAGE.md)
+- [Frontend API integration](docs/frontend/API_INTEGRATION.md)
+- [Explainability UI guide](docs/frontend/XAI_UI_GUIDE.md)
 
-The UI intentionally shows “Confidence unavailable” rather than a percentage, labels the decision score as an uncalibrated margin, and does not make a Hindi/Hinglish, fact-checking, or production-readiness claim.
+The UI intentionally shows **Confidence unavailable** rather than a percentage, labels the decision score as an uncalibrated margin, treats missing XAI as unavailable, and does not make a Hindi/Hinglish, fact-checking, or production-readiness claim. URL analysis remains a disabled placeholder because it is not supported by the current API contract.
 
 ## Phase 4 milestones
 
@@ -61,6 +64,7 @@ The UI intentionally shows “Confidence unavailable” rather than a percentage
 | Milestone | Outcome |
 | --- | --- |
 | 5.1 | Professional UI/UX foundation: design system, reusable components, responsive app shell, prepared routes, and frontend documentation |
+| 5.2 | Prediction and explainability dashboard: validated existing-API workflow, status/error handling, governed model trace, and bounded XAI visualization |
 
 ## Publication and research documentation
 
@@ -88,4 +92,4 @@ See the [reproducibility guide](docs/research/publication/REPRODUCIBILITY_GUIDE.
 
 ## Roadmap
 
-Phase 4 is closed and Phase 5.1 is the approved UI foundation. Future multilingual/external data, transformer compute, calibrated release evidence, robustness/fairness remediation, and deployment review remain separate governed research work. Phase 5.2 requires approval before it begins. See [future work](docs/research/publication/FUTURE_WORK.md).
+Phase 4 is closed and Phase 5.2 is the approved prediction-dashboard increment. Future multilingual/external data, transformer compute, calibrated release evidence, robustness/fairness remediation, and deployment review remain separate governed research work. Phase 5.3 requires approval before it begins. See [future work](docs/research/publication/FUTURE_WORK.md).

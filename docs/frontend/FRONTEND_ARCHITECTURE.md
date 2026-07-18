@@ -2,7 +2,7 @@
 
 ## Scope
 
-Phase 5.1 creates a dependency-free single-page application shell. It does not change backend routes, ML inference, model package loading, XAI generation, or the frontend -> Node.js -> Python trust boundary.
+Phase 5.1 establishes the dependency-free single-page application shell; Phase 5.2 adds the prediction and explainability dashboard within it. Neither phase changes backend routes, ML inference, model package loading, XAI generation, or the frontend -> Node.js -> Python trust boundary.
 
 ## Structure
 
@@ -16,7 +16,7 @@ frontend/
   src/js/pages/              route-level render functions
   src/js/components/         navigation, footer, breadcrumbs, icons, modal, toast
   src/js/api/                public Node API boundary
-  src/js/prediction/         validation, state, loading, result rendering
+  src/js/prediction/         validation, state, loading, error/confidence/XAI presentation, result rendering
   src/js/modules/            prediction request lifecycle controller
 ```
 
@@ -30,10 +30,12 @@ When a server rewrite strategy is approved later, the route configuration can be
 
 `src/js/api/api.js` is the only fetch boundary. `prediction-api.js` sends `POST /api/predict` to the Node public API and returns its standard envelope. The browser never calls FastAPI directly. `public/config.js` defaults to the documented local Node endpoint (`http://127.0.0.1:3000`) and exposes only public runtime configuration; deployment may provide `window.TruthLensConfig` before it loads, but it must never contain credentials or model secrets.
 
+Phase 5.2 keeps the request contract to `headline` and `article`. The disabled URL control is a visible scope placeholder and is never included in validation or the payload. The result renderer consumes optional explainability metadata defensively and keeps unavailable confidence unavailable.
+
 ## Rendering lifecycle
 
 `app.js` derives the active route, renders navigation, page content, and footer, then initializes the prediction interface only if the page contains its form. Route changes reset the page shell, scroll to the top, and move focus to the main content region. Re-rendering does not retain prediction text or history.
 
 ## Quality controls
 
-Route configuration has Node built-in tests in `frontend/tests/`. Browser QA validates the rendered shell at desktop and mobile widths. CSS files are separated by concern and all reusable visual primitives live outside route templates.
+Route configuration and pure prediction-presentation helpers have Node built-in tests in `frontend/tests/`. Browser QA, when the local browser runtime is available, validates the rendered shell at desktop and mobile widths. CSS files are separated by concern and all reusable visual primitives live outside route templates.
