@@ -14,6 +14,7 @@
 - [EJ-020 - Explainable AI Framework](EJ-020-Explainable-AI-Framework.md)
 - [EJ-021 - Transformer Benchmark](EJ-021-Transformer-Benchmark.md)
 - [EJ-022 - Hybrid and Ensemble Learning](EJ-022-Hybrid-and-Ensemble-Learning.md)
+- [EJ-023 - Multilingual Evaluation](EJ-023-Multilingual-Evaluation.md)
 
 - [EJ-002 — Backend Foundation](EJ-002-Backend-Foundation.md)
 - [EJ-004 — Frontend Foundation](EJ-004-Frontend-Foundation.md)
