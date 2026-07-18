@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title description">
+  <title id="title">TruthLens AI release-candidate system architecture</title>
+  <desc id="description">The browser frontend calls the public Node API, which delegates to the private FastAPI ML service and its integrity-checked research model package. No browser-to-ML path or database is shown.</desc>
+  <style>
+    .bg { fill: #f6f8fb; } .card { fill: #fff; stroke: #b7c5d4; stroke-width: 2; } .private { fill: #eef6ff; stroke: #185ea8; } .model { fill: #fff0e5; stroke: #d07638; } .title { font: 800 29px system-ui, sans-serif; fill: #102033; } .label { font: 800 19px system-ui, sans-serif; fill: #102033; } .copy { font: 15px system-ui, sans-serif; fill: #41536a; } .small { font: 700 13px system-ui, sans-serif; fill: #66778e; } .line { stroke: #0b6374; stroke-width: 4; fill: none; marker-end: url(#arrow); } .limit { fill: #ffe8ec; stroke: #b4233a; stroke-width: 1.5; }
+  </style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0b6374"/></marker></defs>
+  <rect class="bg" width="1280" height="640" rx="32"/>
+  <text class="title" x="72" y="84">TruthLens AI — v1.0.0-RC1 integration boundary</text>
+  <text class="copy" x="72" y="116">Release-candidate packaging preserves the approved frontend → Node → ML service trust path.</text>
+  <rect class="card" x="72" y="210" width="240" height="180" rx="20"/>
+  <text class="label" x="102" y="264">Browser frontend</text><text class="copy" x="102" y="300">Static HTML, CSS, ES modules</text><text class="small" x="102" y="334">Validated inputs • bounded UI</text>
+  <rect class="card" x="420" y="210" width="240" height="180" rx="20"/>
+  <text class="label" x="450" y="264">Public Node API</text><text class="copy" x="450" y="300">Express validation and envelope</text><text class="small" x="450" y="334">CORS • timeout • retry • logs</text>
+  <rect class="card private" x="768" y="210" width="240" height="180" rx="20"/>
+  <text class="label" x="798" y="264">Private ML service</text><text class="copy" x="798" y="300">FastAPI inference + XAI</text><text class="small" x="798" y="334">Readiness • integrity checks</text>
+  <rect class="card model" x="1056" y="210" width="160" height="180" rx="20"/>
+  <text class="label" x="1086" y="264">Package</text><text class="copy" x="1086" y="300">LinearSVC</text><text class="small" x="1086" y="326">TF-IDF</text><text class="small" x="1086" y="348">Research only</text>
+  <path class="line" d="M312 300 H420"/><text class="small" x="328" y="282">/api/*</text>
+  <path class="line" d="M660 300 H768"/><text class="small" x="676" y="282">private</text>
+  <path class="line" d="M1008 300 H1056"/>
+  <rect class="limit" x="72" y="472" width="1144" height="92" rx="16"/>
+  <text class="label" x="102" y="512">Release constraint</text><text class="copy" x="330" y="512">No database component, browser-to-ML call, persistence, calibrated confidence, factual-verdict claim, or deployment approval is introduced by this RC.</text>
+  <text class="small" x="102" y="544">The candidate remains TL-LSVM-TFIDF-v1.1.0-rc.1, integrated_not_deployment_approved, production_model=false.</text>
+</svg>
