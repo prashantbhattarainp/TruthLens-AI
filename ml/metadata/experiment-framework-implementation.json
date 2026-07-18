@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "baseline_experiment_framework_implementation",
+  "experiment_framework_version": "1.0.0",
+  "approved_models": [
+    "logistic_regression",
+    "multinomial_naive_bayes",
+    "linear_svm"
+  ],
+  "configurations": [
+    {
+      "path": "ml/config/experiments/logistic-regression-v1.json",
+      "model": "logistic_regression",
+      "sha256": "d50e9fceab2b3536199de20699ac84282a8304394b9a2e966199a1c59e7dcf79"
+    },
+    {
+      "path": "ml/config/experiments/multinomial-naive-bayes-v1.json",
+      "model": "multinomial_naive_bayes",
+      "sha256": "8be45037b31e80bc1d452b1fa99f75d4826861b17a5cd5255af06588eb4aa8b6"
+    },
+    {
+      "path": "ml/config/experiments/linear-svm-v1.json",
+      "model": "linear_svm",
+      "sha256": "eb4960b05c903b5ac5a9ee7c68b610e675d7e7bc5ec7d80675525cd835282d28"
+    }
+  ],
+  "runtime_verification": {
+    "scikit_learn_version": "1.9.0",
+    "scipy_version": "1.18.0",
+    "joblib_version": "1.5.3",
+    "pillow_version": "11.3.0"
+  },
+  "verification": {
+    "test_framework": "unittest",
+    "test_command": "ml-service/.venv/Scripts/python.exe -m unittest ml.tests.test_experiment_framework -v",
+    "tests_run": 7,
+    "tests_passed": 7,
+    "synthetic_fixture_only": true
+  },
+  "dataset_execution": {
+    "raw_dataset_read": false,
+    "processed_dataset_read": false,
+    "feature_dataset_read": false,
+    "model_artifact_created": false,
+    "reason": "Phase 3.4 data-readiness gate remains unresolved; all trained objects were synthetic temporary fixtures."
+  }
+}
