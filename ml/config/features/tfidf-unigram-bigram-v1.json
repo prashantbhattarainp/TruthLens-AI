@@ -1,0 +1,17 @@
+{
+  "feature_pipeline_version": "1.0.0",
+  "method": "tfidf",
+  "parameters": {
+    "ngram_range": [1, 2],
+    "max_features": 20000,
+    "min_df": 1,
+    "max_df": 1.0,
+    "binary": false,
+    "normalization": "l2"
+  },
+  "validation": {
+    "max_empty_feature_vector_rate": 0.0,
+    "max_matrix_memory_mb": 512,
+    "require_nonempty_vocabulary": true
+  }
+}

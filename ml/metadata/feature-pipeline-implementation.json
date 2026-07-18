@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "feature_pipeline_implementation",
+  "feature_pipeline_version": "1.0.0",
+  "configurations": [
+    {
+      "path": "ml/config/features/count-unigram-v1.json",
+      "method": "count",
+      "sha256": "e89f516d8d6780a32d87cf4681b4754973c25adfcdd7f92be33f6722039f054b"
+    },
+    {
+      "path": "ml/config/features/tfidf-unigram-bigram-v1.json",
+      "method": "tfidf",
+      "sha256": "fdec84fd3755a6cd4be8dfc3c75689afd55d5ba2f918b90944796c71cd648938"
+    }
+  ],
+  "runtime_verification": {
+    "scikit_learn_version": "1.9.0",
+    "scipy_version": "1.18.0",
+    "joblib_version": "1.5.3"
+  },
+  "verification": {
+    "test_framework": "unittest",
+    "test_command": "ml-service/.venv/Scripts/python.exe -m unittest ml.tests.test_feature_engineering -v",
+    "tests_run": 6,
+    "tests_passed": 6,
+    "fixture_only": true
+  },
+  "dataset_execution": {
+    "raw_dataset_read": false,
+    "processed_dataset_read": false,
+    "feature_dataset_created": false,
+    "reason": "Phase 3.4 data-readiness gate remains unresolved; the feature framework is fixture-verified only."
+  }
+}
