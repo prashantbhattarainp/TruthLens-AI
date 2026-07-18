@@ -4,7 +4,7 @@ TruthLens AI is a research-oriented platform for explainable fake news detection
 
 ## Project status
 
-Phase 4.3 is complete with validation-only ensemble evidence. `TL-LSVM-TFIDF-v1.1.0-rc.1` remains the packaged internal champion with integrity checks, readiness, lineage metadata, privacy-safe logging, and bounded SHAP/LIME explanations. Hard/weighted voting produced a small Macro F1 gain (0.5447 vs 0.5398), but no ensemble replaces the champion automatically; the stacker is rejected for a severe FAKE-recall collapse. The incumbent remains **untested after tuning**, `integrated_not_deployment_approved`, and unsuitable as a fact checker or factual-verdict system. The Phase 3.8 protected test is not reused. See the [ensemble evaluation](docs/research/ENSEMBLE_EVALUATION.md), [hybrid analysis](docs/research/HYBRID_MODEL_ANALYSIS.md), [model-selection update](docs/research/MODEL_SELECTION_UPDATE.md), and [XAI framework](docs/research/EXPLAINABLE_AI.md).
+Phase 4.4 is complete at a multilingual-compatibility research boundary. `TL-LSVM-TFIDF-v1.1.0-rc.1` remains the packaged internal English champion with integrity checks, readiness, lineage metadata, privacy-safe logging, and bounded SHAP/LIME explanations. The new Unicode/Hindi/Hinglish preprocessing audit is separate from the production path: it does not make the English TF-IDF/LinearSVC model multilingual, and no governed Hindi or Hinglish fake-news dataset exists yet. Hard/weighted voting remains a small English validation-only Macro F1 gain (0.5447 vs 0.5398), not an automatic replacement; the stacker is rejected for a severe FAKE-recall collapse. The incumbent remains **untested after tuning**, `integrated_not_deployment_approved`, and unsuitable as a fact checker or factual-verdict system. The protected test is not reused. See the [multilingual evaluation](docs/research/MULTILINGUAL_EVALUATION.md), [Hindi dataset analysis](docs/research/HINDI_DATASET_ANALYSIS.md), [ensemble evaluation](docs/research/ENSEMBLE_EVALUATION.md), and [XAI framework](docs/research/EXPLAINABLE_AI.md).
 
 ## Current architecture
 
@@ -23,7 +23,7 @@ The browser never calls the ML service directly. The current model response expo
 ## Model information
 
 - Model: `TL-LSVM-TFIDF-v1.1.0-rc.1` (Linear SVM, TF-IDF unigram/bigram)
-- Dataset: `TL-BFNK-EN-v1.0`, `DER-20260718-r2`, `SPL-TL-BFNK-EN-v1.0`
+- Dataset: `TL-BFNK-EN-v1.0`, `DER-20260718-r2`, `SPL-TL-BFNK-EN-v1.0` (English research derivative; Hindi/Hinglish classification is not validated)
 - Internal status: `integrated_not_deployment_approved`
 - Validation evidence: Macro F1 0.5398, MCC 0.1014; no post-tuning protected-test result
 
@@ -66,4 +66,4 @@ Setup instructions will be added in a later milestone.
 
 The implementation roadmap is maintained in the [research and implementation roadmap](docs/architecture/Research-Roadmap.md).
 
-Phase 4.3 is complete at a validation-only research boundary. Public deployment remains blocked pending a new governed release process, post-tuning evaluation plan, calibration, robustness/fairness evidence, rights review, monitoring, and human-review controls.
+Phase 4.4 is complete at a multilingual-compatibility research boundary. Public deployment remains blocked pending a new governed release process, approved multilingual data/model scope, post-tuning evaluation plan, calibration, robustness/fairness evidence, rights review, monitoring, and human-review controls.

@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "record_type": "model_registry",
-  "status": "phase_4_3_ensemble_benchmark_complete_validation_only",
+  "status": "phase_4_4_multilingual_compatibility_assessment_complete",
   "current_model": {
     "model_id": "MDL-TL-LSVM-TFIDF-v1.1.0-rc.1",
     "model_version": "TL-LSVM-TFIDF-v1.1.0-rc.1",
@@ -20,6 +20,19 @@
       "global_reference_partition": "train_only",
       "validation_and_protected_test_access": "none",
       "confidence_status": "unavailable"
+    },
+    "multilingual_assessment": {
+      "experiment_id": "P44-multilingual-assessment-20260718T133030Z",
+      "status": "unicode_input_compatible_english_only_language_evidence",
+      "validated_language_scope": "English BFNK-derived validation only",
+      "hindi_and_hinglish_status": "not_validated; no governed labelled Hindi/Hinglish fake-news dataset",
+      "validation_language_appearance_slices": {
+        "devanagari_bearing": 9,
+        "hinglish_heuristic": 2
+      },
+      "protected_test_access": "none",
+      "model_change": "none; no retraining, calibration, threshold change, promotion, or service integration",
+      "transformer_status": "IndicBERT remains not_evaluated_access_limited"
     }
   },
   "entries": [
@@ -196,5 +209,5 @@
       "notes": "Rejected despite higher accuracy because it correctly identifies only 10 of 575 FAKE validation records."
     }
   ],
-  "policy": "No registry entry is approved for deployment. The current champion is packaged for internal service integration only. Phase 4.1 explanations describe an uncalibrated margin, not confidence or factual truth; global XAI uses the frozen train partition only. Phase 3.8 test evidence must not be reused after Phase 3.9 tuning; r1 artifacts are invalidated and are not registry candidates. Phase 4.2 transformer entries are research-only challengers: their test evidence, if produced, is non-selection evidence and cannot automatically replace the incumbent. Phase 4.3 ensembles use validation-only evidence and cannot automatically replace the incumbent; blending and classical-transformer hybrids were excluded because frozen-protocol prerequisites are absent."
+  "policy": "No registry entry is approved for deployment. The current champion is packaged for internal service integration only. Phase 4.1 explanations describe an uncalibrated margin, not confidence or factual truth; global XAI uses the frozen train partition only. Phase 3.8 test evidence must not be reused after Phase 3.9 tuning; r1 artifacts are invalidated and are not registry candidates. Phase 4.2 transformer entries are research-only challengers: their test evidence, if produced, is non-selection evidence and cannot automatically replace the incumbent. Phase 4.3 ensembles use validation-only evidence and cannot automatically replace the incumbent; blending and classical-transformer hybrids were excluded because frozen-protocol prerequisites are absent. Phase 4.4 records multilingual input compatibility only; no Hindi/Hinglish slice can establish multilingual performance, promotion, or deployment suitability."
 }

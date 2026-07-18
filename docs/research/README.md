@@ -1,6 +1,6 @@
 # Research Documentation
 
-This directory is the canonical home for the Phase 3 research package. It defines governance, dataset selection, acquisition evidence, EDA, the frozen `TL-BFNK-EN-v1.0` experiment contract, and Phase 3.8 baseline evaluation evidence. Governed data/model artifacts remain outside this documentation directory and are intentionally not tracked in Git.
+This directory is the canonical home for the Phase 3/4 research package. It defines governance, dataset selection, acquisition evidence, EDA, the frozen `TL-BFNK-EN-v1.0` experiment contract, and bounded XAI, transformer, ensemble, and multilingual evidence. Governed data/model artifacts remain outside this documentation directory and are intentionally not tracked in Git.
 
 | Document | Purpose | Current status |
 | --- | --- | --- |
@@ -56,6 +56,12 @@ This directory is the canonical home for the Phase 3 research package. It define
 | [Hybrid model analysis](HYBRID_MODEL_ANALYSIS.md) | Records classicalâ€“transformer hybrid feasibility and explainability limits. | Transformer hybrid excluded; no completed transformer artifact |
 | [Ensemble comparison](ENSEMBLE_COMPARISON.md) | Compares ensemble trade-offs with individual classical models. | Complete; LinearSVC remains champion |
 | [Production deployment impact](PRODUCTION_DEPLOYMENT_IMPACT.md) | Assesses resource, operational, and deployment implications of ensembles. | Complete; no ensemble integration/approval |
+| [Multilingual evaluation](MULTILINGUAL_EVALUATION.md) | Records the Phase 4.4 compatibility protocol, full metric suite, and strict evidence boundary. | Complete; English benchmark retained, Hindi/Hinglish accuracy not validated |
+| [Hindi dataset analysis](HINDI_DATASET_ANALYSIS.md) | Documents Devanagari appearance, data insufficiency, and future data-governance requirements. | Complete; no Hindi corpus acquired |
+| [Hinglish analysis](HINGLISH_ANALYSIS.md) | Documents Roman-Hindi routing, normalization, code-mix risks, and data limitations. | Complete; no Hinglish corpus acquired |
+| [Language comparison](LANGUAGE_COMPARISON.md) | Compares tokenization and vocabulary-compatibility aggregates by detector-defined slice. | Complete; diagnostic only |
+| [Multilingual error analysis](MULTILINGUAL_ERROR_ANALYSIS.md) | Records aggregate language-appearance error diagnostics and limitations. | Complete; no language-wise rate claim |
+| [Multilingual research findings](MULTILINGUAL_RESEARCH_FINDINGS.md) | Synthesizes multilingual implications and next evidence gate. | Complete; no architecture or champion change |
 | [Explainable AI framework](EXPLAINABLE_AI.md) | Defines reusable local SHAP/LIME explanations and global research analysis. | Complete for the existing LinearSVC champion |
 | [Explanation methodology](EXPLANATION_METHODOLOGY.md) | Freezes XAI data access, reference, configuration, and reproducibility controls. | Complete; training-only aggregation |
 | [XAI evaluation report](XAI_EVALUATION_REPORT.md) | Records technical validation and bounded research artifacts. | Complete; no validation/protected-test access |

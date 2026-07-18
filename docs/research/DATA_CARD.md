@@ -29,6 +29,12 @@ The current transformer experiment reads the existing train, validation, and pro
 
 Phase 4.3 reused only the frozen validation records for ensemble evaluation. Existing Phase 3.9 component pipelines received the same frozen preprocessing; the stacker learned only from their aligned train-only OOF scores. Test records were excluded from model transformation, prediction, label use, and selection. Ensemble error analysis retains aggregate source/cohort counts only. No data version, labels, split membership, or text derivative changed.
 
+## Phase 4.4 multilingual handling
+
+Phase 4.4 does not create a Hindi or Hinglish dataset. The existing English derivative was scanned in memory for script/marker appearance and only the frozen validation partition was passed to the unchanged champion for descriptive compatibility slices. The runner verifies the full derivative hash and counts all partitions for integrity, but does not retain, transform, label, or predict train/test records. The derivative contains 59 Devanagari-bearing records overall (40 train, 9 validation, 10 protected test) and only 2 conservative Hinglish-heuristic validation records; neither is a language-labelled benchmark cohort.
+
+`ml/fixtures/multilingual/phase-4-4-language-probe.json` is a manually authored 12-record language-processing fixture. It contains expected language labels only; it has no REAL/FAKE target, no translated derivative text, and no role in training, model scoring, or selection. Ignored Phase 4.4 artifacts retain aggregate counts/metrics and checksums only. No external multilingual source, synthetic fake-news translation/transliteration, label change, or split change occurred.
+
 ## Limitations
 
 The source, language, temporal, template, duplicate, and label limitations recorded during Phase 3 still apply. A public transformer repository’s pretraining language coverage does not make the derivative multilingual, repair label noise, or remove source/template sensitivity. Any data-scope expansion requires a new dataset/model version and governed decision.

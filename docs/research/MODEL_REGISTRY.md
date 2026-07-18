@@ -89,3 +89,16 @@ Each ensemble uses the immutable Phase 3.9 component pipelines, frozen preproces
 | `MDL-TL-STACK-v1.0.0-p43` | OOF Logistic Regression stacker over three components | 0.3944 | Adds a meta-model and explainability complexity | Rejected as challenger due FAKE-recall collapse |
 
 The hard/soft validation gain is within the Phase 3.9 practical Macro F1 tie tolerance and does not change the incumbent. See [ENSEMBLE_EVALUATION.md](ENSEMBLE_EVALUATION.md), [PRODUCTION_DEPLOYMENT_IMPACT.md](PRODUCTION_DEPLOYMENT_IMPACT.md), and [HYBRID_MODEL_ANALYSIS.md](HYBRID_MODEL_ANALYSIS.md).
+
+## Phase 4.4 multilingual assessment
+
+No new model was trained, registered as a challenger, or integrated in Phase 4.4. The evaluation record `P44-multilingual-assessment-20260718T133030Z` is an ignored aggregate artifact governed by [RDL-015](../../research/decision-log/RDL-015-Multilingual-Evaluation-and-Data-Boundary.md).
+
+| Model | Multilingual inference status | Strength | Limitation / disposition |
+| --- | --- | --- | --- |
+| `MDL-TL-LSVM-TFIDF-v1.1.0-rc.1` | Unicode input can be processed; English validation evidence only | Frozen package and preprocessing accepted every audited validation input | No validated Hindi/Hinglish fake-news performance; no retraining, calibration, promotion, or deployment approval |
+| `MDL-TL-INDICBERT-v1.0.0-p42` | Upstream architecture is a relevant multilingual candidate, but local inference is unavailable | Potential future candidate for Indian-language research | `not_evaluated_access_limited`; no authenticated access, checkpoint, prediction, or metric |
+| DistilBERT/BERT/RoBERTa Phase 4.2 entries | No multilingual inference evidence | Benchmark protocol exists | Incomplete CPU-limited runs; not multilingual findings |
+| Phase 4.3 ensembles | No language-specific inference evidence | English validation-only aggregate comparison | No Hindi/Hinglish assessment and no promotion |
+
+The English derivative supplied only 9 Devanagari-bearing and 2 conservative Hinglish-heuristic validation records. Any slice result is a descriptive input-compatibility diagnostic, not a language-wise evaluation. See [MULTILINGUAL_EVALUATION.md](MULTILINGUAL_EVALUATION.md) and [LANGUAGE_COMPARISON.md](LANGUAGE_COMPARISON.md).

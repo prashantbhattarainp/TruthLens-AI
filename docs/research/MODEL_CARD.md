@@ -30,3 +30,7 @@ The LinearSVC remains the current internal research champion and is not retraine
 ## Phase 4.3 ensemble relationship
 
 Hard/weighted voting achieved validation Macro F1 0.5447 and soft voting 0.5443, but all are validation-only research challengers. The gains are within the existing practical-tie tolerance and introduce false-positive, resource, and explanation trade-offs; the OOF stacker is rejected for a severe FAKE-recall collapse. The current service and this Model Card therefore remain LinearSVC-specific. No ensemble output is calibrated confidence, a factual verdict, or a deployment-approved replacement. See [ENSEMBLE_EVALUATION.md](ENSEMBLE_EVALUATION.md).
+
+## Phase 4.4 multilingual relationship
+
+Phase 4.4 adds a separate research preprocessing/audit layer, not multilingual model support. The frozen English LinearSVC accepted audited Unicode text but has no validated Hindi or Hinglish fake-news performance claim. The English-labelled derivative contains only 9 Devanagari-bearing and 2 conservative Hinglish-heuristic validation records; their descriptive slice metrics are not valid language benchmarks. IndicBERT remains access-limited without a checkpoint or metric. No model, preprocessing package, XAI output, API field, or deployment status changed. See [MULTILINGUAL_EVALUATION.md](MULTILINGUAL_EVALUATION.md) and [RDL-015](../../research/decision-log/RDL-015-Multilingual-Evaluation-and-Data-Boundary.md).
