@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "frozen_research_dataset_governance_manifest",
+  "manifest_id": "MAN-TL-BFNK-EN-v1.0",
+  "dataset_version": "TL-BFNK-EN-v1.0",
+  "status": "governance_frozen_not_materialized",
+  "frozen_at": "2026-07-18",
+  "parent_dataset": {
+    "registry_id": "DSR-001",
+    "dataset_id": "indian-digital-media-2026.07.17-r1",
+    "name": "BharatFakeNewsKosh",
+    "source_release": "Kaggle version 1 (Initial release)",
+    "raw_archive": "ml/data/raw/bharatfakenewskosh-v1.zip",
+    "raw_archive_sha256": "330feb9b24b48f49c4113ca6de87695f1bd0821d29361a86e2b27ab35a77c69c",
+    "source_workbook_sha256": "6b3435a29eba8df3d7ac5d027808277e4d1a67189beea052aea2298eb8a61fb8",
+    "official_url": "https://www.kaggle.com/datasets/man2191989/bharatfakenewskosh",
+    "publication_doi": "https://doi.org/10.1007/978-981-99-0838-7_24",
+    "license": "CC BY-NC 4.0"
+  },
+  "cohort": {
+    "worksheet": "A",
+    "language_rule": {
+      "field": "Language",
+      "operator": "exact_equals",
+      "value": "English"
+    },
+    "text_fields": [
+      "Statement",
+      "News Body"
+    ],
+    "excluded_fields": [
+      "Eng_Trans_Statement",
+      "Eng_Trans_News_Body"
+    ],
+    "excluded_sheets": [
+      "Sheet1",
+      "Sheet3"
+    ],
+    "selected_field_formula_check": "No selected identity, text, label, source, or date field has a formula cell in the immutable release."
+  },
+  "label_mapping": {
+    "id": "LMAP-BFNK-v1.0",
+    "positive_class": {
+      "label": "FAKE",
+      "value": 1
+    },
+    "mapping": {
+      "True": {
+        "canonical_label": "REAL",
+        "value": 0,
+        "included": true
+      },
+      "False": {
+        "canonical_label": "FAKE",
+        "value": 1,
+        "included": true
+      }
+    },
+    "unobserved_or_ambiguous_labels": "Excluded; a new source mapping/version is required."
+  },
+  "statistics": {
+    "raw_primary_sheet": {
+      "rows": 26232,
+      "true_count": 15913,
+      "false_count": 10319
+    },
+    "english_eligibility_population": {
+      "rows": 10010,
+      "true_count": 6046,
+      "false_count": 3964,
+      "fact_check_source_count": 16,
+      "largest_fact_check_source": {
+        "name": "India Today",
+        "rows": 2312
+      }
+    },
+    "exact_pair_conflict_exclusion": {
+      "clusters": 139,
+      "rows": 278,
+      "true_count": 139,
+      "false_count": 139
+    },
+    "prospective_phase_3_cohort": {
+      "rows": 9732,
+      "real_count": 5907,
+      "fake_count": 3825
+    }
+  },
+  "duplicate_policy": {
+    "id": "DUP-BFNK-v1.0",
+    "exact_pair_conflicts": "Exclude every exact Statement plus News Body cluster with both mapped labels.",
+    "exact_and_near_duplicates": "Retain as partition-atomic duplicate clusters.",
+    "near_duplicate_matching": "NFKC, case-fold, HTML-entity decode, whitespace collapse; 5-character shingles; 128-permutation MinHash seed 42; confirmed Jaccard >= 0.90.",
+    "cross_dataset": "No pooled data. Future external-data overlaps are reported/excluded under a new dataset version."
+  },
+  "split": {
+    "id": "SPL-TL-BFNK-EN-v1.0",
+    "ratios": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "random_seed": 42,
+    "strategy": "deterministic_grouped_stratified_three_way_allocation",
+    "group_field": "duplicate_cluster_id",
+    "stratification_label": "binary_label",
+    "source_policy": "Audit source/class counts after allocation; never a model feature or a primary-split allocation constraint.",
+    "temporal_policy": "Audit only; no temporal split or temporal claim.",
+    "cross_validation": "Five-fold stratified_group_kfold on the frozen training partition only."
+  },
+  "frozen_pipeline_configurations": {
+    "preprocessing": {
+      "path": "ml/config/preprocessing/conservative-en-v1.json",
+      "pipeline_version": "1.0.0",
+      "sha256": "52ce7a78fa4892adf302e3c4dcc0633aebc9dfb55ca4347647f1d1cd87d3976f"
+    },
+    "features": {
+      "path": "ml/config/features/tfidf-unigram-bigram-v1.json",
+      "pipeline_version": "1.0.0",
+      "sha256": "fdec84fd3755a6cd4be8dfc3c75689afd55d5ba2f918b90944796c71cd648938"
+    },
+    "baseline_experiment_configs": [
+      {
+        "path": "ml/config/experiments/logistic-regression-bfnk-en-v1.json",
+        "model": "logistic_regression",
+        "sha256": "b66fde370a7a0619ca4309bfd4d23524d1b836bca0b578de4b7393c6f8ab1288"
+      },
+      {
+        "path": "ml/config/experiments/multinomial-naive-bayes-bfnk-en-v1.json",
+        "model": "multinomial_naive_bayes",
+        "sha256": "e847864d3f71f192eead03287c21d1233cdac7dc41a47a86c443a16363d24137"
+      },
+      {
+        "path": "ml/config/experiments/linear-svm-bfnk-en-v1.json",
+        "model": "linear_svm",
+        "sha256": "6de45ac063452b408b7fb42cbaec42a53d1d2ac3a56f5df9f27bbf9e33503653"
+      }
+    ]
+  },
+  "change_control": "Any change to source/hash, cohort, mapping, duplicate policy, split, licence interpretation, or pipeline configuration requires a new dataset version."
+}
