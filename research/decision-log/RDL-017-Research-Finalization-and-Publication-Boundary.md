@@ -1,7 +1,7 @@
 # RDL-017 - Research Finalization and Publication Boundary
 
-**Date:** 2026-07-18  
-**Status:** Accepted  
+**Date:** 2026-07-18
+**Status:** Accepted
 **Phase:** 4.6
 
 ## Decision

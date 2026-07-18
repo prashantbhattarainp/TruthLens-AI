@@ -1,6 +1,6 @@
 # EJ-025 - Research Finalization and Publication Package
 
-**Date:** 2026-07-18  
+**Date:** 2026-07-18
 **Milestone:** Phase 4.6
 
 ## Completed work
