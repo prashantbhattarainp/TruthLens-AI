@@ -15,6 +15,7 @@
 - [EJ-021 - Transformer Benchmark](EJ-021-Transformer-Benchmark.md)
 - [EJ-022 - Hybrid and Ensemble Learning](EJ-022-Hybrid-and-Ensemble-Learning.md)
 - [EJ-023 - Multilingual Evaluation](EJ-023-Multilingual-Evaluation.md)
+- [EJ-024 - Robustness, Reliability, and Fairness Evaluation](EJ-024-Robustness-Reliability-and-Fairness.md)
 
 - [EJ-002 — Backend Foundation](EJ-002-Backend-Foundation.md)
 - [EJ-004 — Frontend Foundation](EJ-004-Frontend-Foundation.md)
