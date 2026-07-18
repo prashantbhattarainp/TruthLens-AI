@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Raw label distribution in primary sheet A</title>
+<desc id="chart-desc">Unmapped source labels; binary semantic mapping remains pending (n = 26,232). Vertical bars report records.</desc>
+<rect width="1440" height="820" fill="#FFFFFF"/>
+
+<style>
+  .title { font: 600 28px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .subtitle { font: 15px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .axis { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .small { font: 12px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .value { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .axis-line { stroke: #6C757D; stroke-width: 1.2; }
+  .grid { stroke: #D9E1E8; stroke-width: 1; }
+</style>
+<text x="60.0" y="54.0" class="title" text-anchor="start">Raw label distribution in primary sheet A</text>
+<text x="60.0" y="82.0" class="subtitle" text-anchor="start">Unmapped source labels; binary semantic mapping remains pending (n = 26,232)</text>
+<line x1="130" y1="640.0" x2="1370" y2="640.0" class="grid"/>
+<text x="118.0" y="644.0" class="small" text-anchor="end">0</text>
+<line x1="130" y1="541.0" x2="1370" y2="541.0" class="grid"/>
+<text x="118.0" y="545.0" class="small" text-anchor="end">3,183</text>
+<line x1="130" y1="442.0" x2="1370" y2="442.0" class="grid"/>
+<text x="118.0" y="446.0" class="small" text-anchor="end">6,365</text>
+<line x1="130" y1="343.0" x2="1370" y2="343.0" class="grid"/>
+<text x="118.0" y="347.0" class="small" text-anchor="end">9,548</text>
+<line x1="130" y1="244.0" x2="1370" y2="244.0" class="grid"/>
+<text x="118.0" y="248.0" class="small" text-anchor="end">12,730</text>
+<line x1="130" y1="145.0" x2="1370" y2="145.0" class="grid"/>
+<text x="118.0" y="149.0" class="small" text-anchor="end">15,913</text>
+<line x1="130" y1="145" x2="130" y2="640" class="axis-line"/>
+<line x1="130" y1="640" x2="1370" y2="640" class="axis-line"/>
+<rect x="241.6" y="319.0" width="396.8" height="321.0" fill="#0072B2" opacity="1.000"/>
+<text x="440.0" y="309.0" class="value" text-anchor="middle">10,319</text>
+<text x="440.0" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 440.0 670.0)">False</text>
+<rect x="861.6" y="145.0" width="396.8" height="495.0" fill="#D55E00" opacity="1.000"/>
+<text x="1060.0" y="135.0" class="value" text-anchor="middle">15,913</text>
+<text x="1060.0" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 1060.0 670.0)">True</text>
+<text x="750.0" y="796.0" class="axis" text-anchor="middle">records</text>
+</svg>

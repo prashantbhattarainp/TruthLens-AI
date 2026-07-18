@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="912" viewBox="0 0 1440 912" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Literal missing cells by primary-sheet field</title>
+<desc id="chart-desc">Blank cells or exact empty strings; whitespace-only nonempty values are reported separately in metadata. Horizontal bars report literal missing cells.</desc>
+<rect width="1440" height="912" fill="#FFFFFF"/>
+
+<style>
+  .title { font: 600 28px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .subtitle { font: 15px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .axis { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .small { font: 12px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .value { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .axis-line { stroke: #6C757D; stroke-width: 1.2; }
+  .grid { stroke: #D9E1E8; stroke-width: 1; }
+</style>
+<text x="60.0" y="54.0" class="title" text-anchor="start">Literal missing cells by primary-sheet field</text>
+<text x="60.0" y="82.0" class="subtitle" text-anchor="start">Blank cells or exact empty strings; whitespace-only nonempty values are reported separately in metadata</text>
+<line x1="410.0" y1="145" x2="410.0" y2="832" class="grid"/>
+<text x="410.0" y="870.0" class="small" text-anchor="middle">0</text>
+<line x1="582.0" y1="145" x2="582.0" y2="832" class="grid"/>
+<text x="582.0" y="870.0" class="small" text-anchor="middle">0</text>
+<line x1="754.0" y1="145" x2="754.0" y2="832" class="grid"/>
+<text x="754.0" y="870.0" class="small" text-anchor="middle">0</text>
+<line x1="926.0" y1="145" x2="926.0" y2="832" class="grid"/>
+<text x="926.0" y="870.0" class="small" text-anchor="middle">1</text>
+<line x1="1098.0" y1="145" x2="1098.0" y2="832" class="grid"/>
+<text x="1098.0" y="870.0" class="small" text-anchor="middle">1</text>
+<line x1="1270.0" y1="145" x2="1270.0" y2="832" class="grid"/>
+<text x="1270.0" y="870.0" class="small" text-anchor="middle">1</text>
+<line x1="410" y1="832" x2="1270" y2="832" class="axis-line"/>
+<text x="394.0" y="167.8" class="axis" text-anchor="end">id</text>
+<circle cx="414.0" cy="162.7" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="167.8" class="value" text-anchor="start">0</text>
+<text x="394.0" y="204.0" class="axis" text-anchor="end">Author_Name</text>
+<circle cx="414.0" cy="198.9" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="204.0" class="value" text-anchor="start">0</text>
+<text x="394.0" y="240.1" class="axis" text-anchor="end">Fact_Check_Source</text>
+<circle cx="414.0" cy="235.0" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="240.1" class="value" text-anchor="start">0</text>
+<text x="394.0" y="276.3" class="axis" text-anchor="end">Source_Type</text>
+<circle cx="414.0" cy="271.2" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="276.3" class="value" text-anchor="start">0</text>
+<text x="394.0" y="312.4" class="axis" text-anchor="end">Statement</text>
+<circle cx="414.0" cy="307.3" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="312.4" class="value" text-anchor="start">0</text>
+<text x="394.0" y="348.6" class="axis" text-anchor="end">Eng_Trans_Statement</text>
+<circle cx="414.0" cy="343.5" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="348.6" class="value" text-anchor="start">0</text>
+<text x="394.0" y="384.8" class="axis" text-anchor="end">News Body</text>
+<circle cx="414.0" cy="379.7" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="384.8" class="value" text-anchor="start">0</text>
+<text x="394.0" y="420.9" class="axis" text-anchor="end">Eng_Trans_News_Body</text>
+<circle cx="414.0" cy="415.8" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="420.9" class="value" text-anchor="start">0</text>
+<text x="394.0" y="457.1" class="axis" text-anchor="end">Media_Link</text>
+<circle cx="414.0" cy="452.0" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="457.1" class="value" text-anchor="start">0</text>
+<text x="394.0" y="493.2" class="axis" text-anchor="end">Publish_Date</text>
+<circle cx="414.0" cy="488.1" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="493.2" class="value" text-anchor="start">0</text>
+<text x="394.0" y="529.4" class="axis" text-anchor="end">Fact_Check_Link</text>
+<circle cx="414.0" cy="524.3" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="529.4" class="value" text-anchor="start">0</text>
+<text x="394.0" y="565.5" class="axis" text-anchor="end">News_Category</text>
+<circle cx="414.0" cy="560.5" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="565.5" class="value" text-anchor="start">0</text>
+<text x="394.0" y="601.7" class="axis" text-anchor="end">Language</text>
+<circle cx="414.0" cy="596.6" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="601.7" class="value" text-anchor="start">0</text>
+<text x="394.0" y="637.9" class="axis" text-anchor="end">Region</text>
+<circle cx="414.0" cy="632.8" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="637.9" class="value" text-anchor="start">0</text>
+<text x="394.0" y="674.0" class="axis" text-anchor="end">Platform</text>
+<circle cx="414.0" cy="668.9" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="674.0" class="value" text-anchor="start">0</text>
+<text x="394.0" y="710.2" class="axis" text-anchor="end">Text</text>
+<circle cx="414.0" cy="705.1" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="710.2" class="value" text-anchor="start">0</text>
+<text x="394.0" y="746.3" class="axis" text-anchor="end">Video</text>
+<circle cx="414.0" cy="741.2" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="746.3" class="value" text-anchor="start">0</text>
+<text x="394.0" y="782.5" class="axis" text-anchor="end">Image</text>
+<circle cx="414.0" cy="777.4" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="782.5" class="value" text-anchor="start">0</text>
+<text x="394.0" y="818.7" class="axis" text-anchor="end">Label</text>
+<circle cx="414.0" cy="813.6" r="3.5" fill="#6A3D9A"/>
+<text x="422.0" y="818.7" class="value" text-anchor="start">0</text>
+<text x="840.0" y="896.0" class="axis" text-anchor="middle">literal missing cells</text>
+</svg>

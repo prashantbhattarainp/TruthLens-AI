@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Publish-date year distribution</title>
+<desc id="chart-desc">Typed Excel or unambiguous ISO-like dates only; unparsed nonblank dates are not silently assigned. Vertical bars report records.</desc>
+<rect width="1440" height="820" fill="#FFFFFF"/>
+
+<style>
+  .title { font: 600 28px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .subtitle { font: 15px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .axis { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .small { font: 12px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .value { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .axis-line { stroke: #6C757D; stroke-width: 1.2; }
+  .grid { stroke: #D9E1E8; stroke-width: 1; }
+</style>
+<text x="60.0" y="54.0" class="title" text-anchor="start">Publish-date year distribution</text>
+<text x="60.0" y="82.0" class="subtitle" text-anchor="start">Typed Excel or unambiguous ISO-like dates only; unparsed nonblank dates are not silently assigned</text>
+<line x1="130" y1="640.0" x2="1370" y2="640.0" class="grid"/>
+<text x="118.0" y="644.0" class="small" text-anchor="end">0</text>
+<line x1="130" y1="541.0" x2="1370" y2="541.0" class="grid"/>
+<text x="118.0" y="545.0" class="small" text-anchor="end">845</text>
+<line x1="130" y1="442.0" x2="1370" y2="442.0" class="grid"/>
+<text x="118.0" y="446.0" class="small" text-anchor="end">1,690</text>
+<line x1="130" y1="343.0" x2="1370" y2="343.0" class="grid"/>
+<text x="118.0" y="347.0" class="small" text-anchor="end">2,535</text>
+<line x1="130" y1="244.0" x2="1370" y2="244.0" class="grid"/>
+<text x="118.0" y="248.0" class="small" text-anchor="end">3,380</text>
+<line x1="130" y1="145.0" x2="1370" y2="145.0" class="grid"/>
+<text x="118.0" y="149.0" class="small" text-anchor="end">4,225</text>
+<line x1="130" y1="145" x2="130" y2="640" class="axis-line"/>
+<line x1="130" y1="640" x2="1370" y2="640" class="axis-line"/>
+<rect x="150.3" y="145.0" width="72.1" height="495.0" fill="#009E73" opacity="1.000"/>
+<text x="186.4" y="135.0" class="value" text-anchor="middle">4,225</text>
+<text x="186.4" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 186.4 670.0)">2022</text>
+<rect x="263.0" y="226.1" width="72.1" height="413.9" fill="#009E73" opacity="1.000"/>
+<text x="299.1" y="216.1" class="value" text-anchor="middle">3,533</text>
+<text x="299.1" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 299.1 670.0)">2020</text>
+<rect x="375.7" y="259.3" width="72.1" height="380.7" fill="#009E73" opacity="1.000"/>
+<text x="411.8" y="249.3" class="value" text-anchor="middle">3,249</text>
+<text x="411.8" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 411.8 670.0)">2021</text>
+<rect x="488.5" y="371.7" width="72.1" height="268.3" fill="#009E73" opacity="1.000"/>
+<text x="524.5" y="361.7" class="value" text-anchor="middle">2,290</text>
+<text x="524.5" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 524.5 670.0)">2019</text>
+<rect x="601.2" y="612.5" width="72.1" height="27.5" fill="#009E73" opacity="1.000"/>
+<text x="637.3" y="602.5" class="value" text-anchor="middle">235</text>
+<text x="637.3" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 637.3 670.0)">2018</text>
+<rect x="713.9" y="627.6" width="72.1" height="12.4" fill="#009E73" opacity="1.000"/>
+<text x="750.0" y="617.6" class="value" text-anchor="middle">106</text>
+<text x="750.0" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 750.0 670.0)">2017</text>
+<rect x="826.7" y="635.8" width="72.1" height="4.2" fill="#009E73" opacity="1.000"/>
+<text x="862.7" y="625.8" class="value" text-anchor="middle">36</text>
+<text x="862.7" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 862.7 670.0)">2015</text>
+<rect x="939.4" y="637.2" width="72.1" height="2.8" fill="#009E73" opacity="1.000"/>
+<text x="975.5" y="627.2" class="value" text-anchor="middle">24</text>
+<text x="975.5" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 975.5 670.0)">2014</text>
+<rect x="1052.1" y="638.1" width="72.1" height="1.9" fill="#009E73" opacity="1.000"/>
+<text x="1088.2" y="628.1" class="value" text-anchor="middle">16</text>
+<text x="1088.2" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 1088.2 670.0)">2016</text>
+<rect x="1164.8" y="639.1" width="72.1" height="0.9" fill="#009E73" opacity="1.000"/>
+<text x="1200.9" y="629.1" class="value" text-anchor="middle">8</text>
+<text x="1200.9" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 1200.9 670.0)">2013</text>
+<rect x="1277.6" y="639.3" width="72.1" height="0.7" fill="#009E73" opacity="1.000"/>
+<text x="1313.6" y="629.3" class="value" text-anchor="middle">6</text>
+<text x="1313.6" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 1313.6 670.0)">2012</text>
+<text x="750.0" y="796.0" class="axis" text-anchor="middle">records</text>
+</svg>

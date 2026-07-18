@@ -1,0 +1,1031 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "dataset_eda",
+  "analysis_id": "EDA-2026-07-17-DSR-001-R1",
+  "dataset_id": "indian-digital-media-2026.07.17-r1",
+  "registry_id": "DSR-001",
+  "analysed_at": "2026-07-17T18:08:14.886019+00:00",
+  "analysis_mode": "read_only_no_extraction_no_transformation_no_derivative_dataset",
+  "analysis_scope": {
+    "included_raw_artifact": "ml/data/raw/bharatfakenewskosh-v1.zip",
+    "primary_analysis_unit": "Each nonempty row in workbook sheet A after its declared header row.",
+    "primary_row_count": 26232,
+    "excluded_from_primary_statistics": "Sheet1 is retained as undocumented headerless auxiliary content and Sheet3 is empty; neither is deleted, transformed, or represented as an analytical record.",
+    "formula_representation": "Formula locations were counted from formula cells. Descriptive field statistics use only cached displayed values supplied in the raw workbook; formulas were not evaluated, recalculated, or written back.",
+    "text_measurement": "Word-like tokens use the case-preserving Unicode pattern [^\\W_]+(?:['’][^\\W_]+)*. No lowercasing, stopword removal, stemming, lemmatisation, translation, normalisation, filtering, or text rewrite was performed."
+  },
+  "reproducibility": {
+    "script": "scripts/research/run_phase_3_4_eda.py",
+    "script_sha256": "b7ed9c6ea055116f6dcb40db074b077567e8cd636df5cc9353a779958b7515ff",
+    "python_version": "3.12.13",
+    "openpyxl_version": "3.1.5",
+    "raw_archive_sha256_before_analysis": "330feb9b24b48f49c4113ca6de87695f1bd0821d29361a86e2b27ab35a77c69c",
+    "source_workbook_sha256": "6b3435a29eba8df3d7ac5d027808277e4d1a67189beea052aea2298eb8a61fb8",
+    "raw_archive_sha256_after_analysis": "330feb9b24b48f49c4113ca6de87695f1bd0821d29361a86e2b27ab35a77c69c"
+  },
+  "workbook_profile": {
+    "sheet_names": [
+      "A",
+      "Sheet1",
+      "Sheet3"
+    ],
+    "sheet_composition": {
+      "A": {
+        "nonempty_rows_including_header_if_present": 26233,
+        "declared_role": "primary_data"
+      },
+      "Sheet1": {
+        "nonempty_rows_including_header_if_present": 908,
+        "declared_role": "auxiliary_or_empty"
+      },
+      "Sheet3": {
+        "nonempty_rows_including_header_if_present": 0,
+        "declared_role": "auxiliary_or_empty"
+      }
+    },
+    "primary_sheet": "A",
+    "primary_headers": [
+      "id",
+      "Author_Name",
+      "Fact_Check_Source",
+      "Source_Type",
+      "Statement",
+      "Eng_Trans_Statement",
+      "News Body",
+      "Eng_Trans_News_Body",
+      "Media_Link",
+      "Publish_Date",
+      "Fact_Check_Link",
+      "News_Category",
+      "Language",
+      "Region",
+      "Platform",
+      "Text",
+      "Video",
+      "Image",
+      "Label"
+    ],
+    "formula_cell_count_by_column": {
+      "Image": 122,
+      "Media_Link": 47,
+      "News_Category": 316,
+      "Region": 22769,
+      "Text": 180,
+      "Video": 132
+    }
+  },
+  "sample_statistics": {
+    "total_primary_samples": 26232,
+    "raw_label_counts": {
+      "False": 10319,
+      "True": 15913
+    },
+    "raw_label_percentages": {
+      "False": 39.34,
+      "True": 60.66
+    },
+    "raw_label_values_recognised_by_syntax": true,
+    "invalid_or_unexpected_raw_label_count": 0,
+    "label_mapping_status": "pending; raw True/False values have not been mapped to canonical REAL/FAKE labels",
+    "dataset_wise_distribution": [
+      {
+        "dataset_id": "indian-digital-media-2026.07.17-r1",
+        "count": 26232
+      }
+    ]
+  },
+  "text_profile": {
+    "article_field": "News Body",
+    "headline_field": "Statement",
+    "article_character_count": {
+      "count": 26232,
+      "min": 2,
+      "q1": 144,
+      "median": 198,
+      "mean": 270.75,
+      "q3": 388,
+      "p95": 549,
+      "p99": 603,
+      "max": 836,
+      "std_dev": 158.39
+    },
+    "headline_character_count": {
+      "count": 26232,
+      "min": 18,
+      "q1": 68,
+      "median": 79,
+      "mean": 81.59,
+      "q3": 92,
+      "p95": 119,
+      "p99": 143,
+      "max": 230,
+      "std_dev": 20.27
+    },
+    "article_word_count": {
+      "count": 26232,
+      "min": 1,
+      "q1": 28,
+      "median": 62,
+      "mean": 83.43,
+      "q3": 134,
+      "p95": 197,
+      "p99": 220,
+      "max": 264,
+      "std_dev": 60.79
+    },
+    "headline_word_count": {
+      "count": 26232,
+      "min": 2,
+      "q1": 14,
+      "median": 24,
+      "mean": 24.02,
+      "q3": 32,
+      "p95": 41,
+      "p99": 52,
+      "max": 89,
+      "std_dev": 10.61
+    },
+    "article_word_count_iqr_outliers": {
+      "count": 26232,
+      "q1": 28,
+      "q3": 134,
+      "iqr": 106,
+      "lower_fence": -131,
+      "upper_fence": 293,
+      "low_outlier_count": 0,
+      "high_outlier_count": 0,
+      "total_outlier_count": 0
+    },
+    "headline_word_count_iqr_outliers": {
+      "count": 26232,
+      "q1": 14,
+      "q3": 32,
+      "iqr": 18,
+      "lower_fence": -13,
+      "upper_fence": 59,
+      "low_outlier_count": 0,
+      "high_outlier_count": 65,
+      "total_outlier_count": 65
+    },
+    "article_vocabulary_size_case_preserving": 37169,
+    "headline_vocabulary_size_case_preserving": 24284,
+    "combined_vocabulary_size_case_preserving": 43929,
+    "top_raw_article_tokens_case_preserving_no_stopword_removal": [
+      {
+        "value": "க",
+        "count": 52021
+      },
+      {
+        "value": "ന",
+        "count": 44979
+      },
+      {
+        "value": "ക",
+        "count": 44204
+      },
+      {
+        "value": "த",
+        "count": 43270
+      },
+      {
+        "value": "ட",
+        "count": 30873
+      },
+      {
+        "value": "ம",
+        "count": 29253
+      },
+      {
+        "value": "ப",
+        "count": 29230
+      },
+      {
+        "value": "പ",
+        "count": 28422
+      },
+      {
+        "value": "ത",
+        "count": 27399
+      },
+      {
+        "value": "ട",
+        "count": 26279
+      },
+      {
+        "value": "வ",
+        "count": 25783
+      },
+      {
+        "value": "ய",
+        "count": 25031
+      },
+      {
+        "value": "ல",
+        "count": 25012
+      },
+      {
+        "value": "क",
+        "count": 24907
+      },
+      {
+        "value": "യ",
+        "count": 24371
+      },
+      {
+        "value": "ല",
+        "count": 20147
+      },
+      {
+        "value": "ர",
+        "count": 18904
+      },
+      {
+        "value": "ற",
+        "count": 18816
+      },
+      {
+        "value": "ச",
+        "count": 17309
+      },
+      {
+        "value": "ര",
+        "count": 17303
+      },
+      {
+        "value": "ച",
+        "count": 16861
+      },
+      {
+        "value": "ன",
+        "count": 16478
+      },
+      {
+        "value": "വ",
+        "count": 16239
+      },
+      {
+        "value": "റ",
+        "count": 15396
+      },
+      {
+        "value": "the",
+        "count": 14847
+      }
+    ]
+  },
+  "encoding_profile": {
+    "container_encoding_check": "The Phase 3.3 XLSX container check found XML and relationship members UTF-8-decodable.",
+    "text_representation_check": "The diagnostic below flags possible UTF-8-as-Latin-1-like character sequences in stored text. It does not repair, decode, or alter them.",
+    "field_results": {
+      "Statement": {
+        "possible_utf8_as_latin1_pattern_record_count": 0,
+        "possible_utf8_as_latin1_pattern_record_pct": 0,
+        "non_ascii_record_count": 20383,
+        "non_ascii_record_pct": 77.7
+      },
+      "Eng_Trans_Statement": {
+        "possible_utf8_as_latin1_pattern_record_count": 0,
+        "possible_utf8_as_latin1_pattern_record_pct": 0,
+        "non_ascii_record_count": 6317,
+        "non_ascii_record_pct": 24.08
+      },
+      "News Body": {
+        "possible_utf8_as_latin1_pattern_record_count": 1,
+        "possible_utf8_as_latin1_pattern_record_pct": 0,
+        "non_ascii_record_count": 18968,
+        "non_ascii_record_pct": 72.31
+      },
+      "Eng_Trans_News_Body": {
+        "possible_utf8_as_latin1_pattern_record_count": 1,
+        "possible_utf8_as_latin1_pattern_record_pct": 0,
+        "non_ascii_record_count": 13221,
+        "non_ascii_record_pct": 50.4
+      },
+      "Text": {
+        "possible_utf8_as_latin1_pattern_record_count": 0,
+        "possible_utf8_as_latin1_pattern_record_pct": 0,
+        "non_ascii_record_count": 0,
+        "non_ascii_record_pct": 0
+      }
+    }
+  },
+  "missingness": {
+    "id": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Author_Name": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Fact_Check_Source": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Source_Type": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Statement": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Eng_Trans_Statement": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "News Body": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Eng_Trans_News_Body": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Media_Link": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Publish_Date": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Fact_Check_Link": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "News_Category": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Language": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Region": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Platform": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Text": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Video": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Image": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    },
+    "Label": {
+      "literal_missing_count": 0,
+      "literal_missing_pct": 0,
+      "whitespace_only_nonempty_count": 0
+    }
+  },
+  "duplicate_analysis": {
+    "method": "Exact equality only, using raw stored values (and cached formula values where present). No normalisation, near-duplicate detection, clustering, or removal was performed.",
+    "results": {
+      "id": {
+        "distinct_values": 26232,
+        "duplicate_clusters": 0,
+        "rows_in_duplicate_clusters": 0,
+        "extra_duplicate_rows": 0,
+        "largest_duplicate_cluster": 0
+      },
+      "complete_primary_row": {
+        "distinct_values": 26232,
+        "duplicate_clusters": 0,
+        "rows_in_duplicate_clusters": 0,
+        "extra_duplicate_rows": 0,
+        "largest_duplicate_cluster": 0
+      },
+      "statement": {
+        "distinct_values": 24995,
+        "duplicate_clusters": 1233,
+        "rows_in_duplicate_clusters": 2470,
+        "extra_duplicate_rows": 1237,
+        "largest_duplicate_cluster": 3
+      },
+      "news_body": {
+        "distinct_values": 24360,
+        "duplicate_clusters": 929,
+        "rows_in_duplicate_clusters": 2801,
+        "extra_duplicate_rows": 1872,
+        "largest_duplicate_cluster": 873
+      },
+      "statement_news_body_pair": {
+        "distinct_values": 25374,
+        "duplicate_clusters": 858,
+        "rows_in_duplicate_clusters": 1716,
+        "extra_duplicate_rows": 858,
+        "largest_duplicate_cluster": 2
+      }
+    }
+  },
+  "categorical_distributions": {
+    "fact_check_source": [
+      {
+        "value": "Factcrescendo.com",
+        "count": 10903
+      },
+      {
+        "value": "Alt News",
+        "count": 3343
+      },
+      {
+        "value": "India Today",
+        "count": 2495
+      },
+      {
+        "value": "Boomlive.in",
+        "count": 2272
+      },
+      {
+        "value": "Youturn.in",
+        "count": 1903
+      },
+      {
+        "value": "dfrac.org",
+        "count": 903
+      },
+      {
+        "value": "OpIndia",
+        "count": 650
+      },
+      {
+        "value": "IndiaSpend",
+        "count": 524
+      },
+      {
+        "value": "factchecker.in",
+        "count": 524
+      },
+      {
+        "value": "Vishvasnews",
+        "count": 513
+      },
+      {
+        "value": "SM Hoax Slayer",
+        "count": 491
+      },
+      {
+        "value": "The Times of India",
+        "count": 417
+      },
+      {
+        "value": "Scroll.in",
+        "count": 324
+      },
+      {
+        "value": "Newsmobile.in",
+        "count": 200
+      },
+      {
+        "value": "thip.media",
+        "count": 199
+      },
+      {
+        "value": "Factly.in",
+        "count": 198
+      },
+      {
+        "value": "digiteye.in",
+        "count": 177
+      },
+      {
+        "value": "Newschecker.in",
+        "count": 128
+      },
+      {
+        "value": "The Quint",
+        "count": 68
+      }
+    ],
+    "source_type": [
+      {
+        "value": "IFCN",
+        "count": 23826
+      },
+      {
+        "value": "Non_IFCN",
+        "count": 2406
+      }
+    ],
+    "language": [
+      {
+        "value": "English",
+        "count": 10010
+      },
+      {
+        "value": "Tamil",
+        "count": 4757
+      },
+      {
+        "value": "Hindi",
+        "count": 4192
+      },
+      {
+        "value": "Malayalam",
+        "count": 2723
+      },
+      {
+        "value": "Gujarati",
+        "count": 2205
+      },
+      {
+        "value": "Odia",
+        "count": 1268
+      },
+      {
+        "value": "Bangla",
+        "count": 584
+      },
+      {
+        "value": "Assamese",
+        "count": 409
+      },
+      {
+        "value": "Telugu",
+        "count": 84
+      }
+    ],
+    "news_category": [
+      {
+        "value": "Politics",
+        "count": 10436
+      },
+      {
+        "value": "Fact Check",
+        "count": 4807
+      },
+      {
+        "value": "Society",
+        "count": 4565
+      },
+      {
+        "value": "Society Viral",
+        "count": 953
+      },
+      {
+        "value": "Religion",
+        "count": 778
+      },
+      {
+        "value": "national",
+        "count": 453
+      },
+      {
+        "value": "Coronavirus",
+        "count": 429
+      },
+      {
+        "value": "Health",
+        "count": 414
+      },
+      {
+        "value": "International",
+        "count": 386
+      },
+      {
+        "value": "Social Viral",
+        "count": 380
+      },
+      {
+        "value": "News",
+        "count": 353
+      },
+      {
+        "value": "National",
+        "count": 308
+      },
+      {
+        "value": "international",
+        "count": 215
+      },
+      {
+        "value": "Society viral",
+        "count": 188
+      },
+      {
+        "value": "Country",
+        "count": 156
+      },
+      {
+        "value": "Sports",
+        "count": 100
+      },
+      {
+        "value": "health",
+        "count": 98
+      },
+      {
+        "value": "Viral",
+        "count": 84
+      },
+      {
+        "value": "Analytical",
+        "count": 75
+      },
+      {
+        "value": "Curiosity",
+        "count": 72
+      },
+      {
+        "value": "Fast Check",
+        "count": 64
+      },
+      {
+        "value": "Education",
+        "count": 59
+      },
+      {
+        "value": "politics",
+        "count": 58
+      },
+      {
+        "value": "CoronaVirus",
+        "count": 56
+      },
+      {
+        "value": "World",
+        "count": 56
+      },
+      {
+        "value": "Entertainment",
+        "count": 51
+      },
+      {
+        "value": "entertainment",
+        "count": 45
+      },
+      {
+        "value": "Finance",
+        "count": 44
+      },
+      {
+        "value": "Business",
+        "count": 43
+      },
+      {
+        "value": "Communal",
+        "count": 32
+      },
+      {
+        "value": "Crime",
+        "count": 32
+      },
+      {
+        "value": "Science",
+        "count": 31
+      },
+      {
+        "value": "finance",
+        "count": 29
+      },
+      {
+        "value": "coronavirus",
+        "count": 27
+      },
+      {
+        "value": "Elections",
+        "count": 25
+      },
+      {
+        "value": "Covid-19",
+        "count": 23
+      },
+      {
+        "value": "Medical",
+        "count": 21
+      },
+      {
+        "value": "Vaccine",
+        "count": 19
+      },
+      {
+        "value": "Climate Change",
+        "count": 18
+      },
+      {
+        "value": "Health and Wellness",
+        "count": 17
+      },
+      {
+        "value": "Science And Technicalnology",
+        "count": 17
+      },
+      {
+        "value": "Visual",
+        "count": 17
+      },
+      {
+        "value": "NA",
+        "count": 16
+      },
+      {
+        "value": "religion",
+        "count": 16
+      },
+      {
+        "value": "Economy",
+        "count": 15
+      },
+      {
+        "value": "History",
+        "count": 15
+      },
+      {
+        "value": "Weather",
+        "count": 15
+      },
+      {
+        "value": "Covid",
+        "count": 14
+      },
+      {
+        "value": "Technicalnical",
+        "count": 10
+      },
+      {
+        "value": "communal",
+        "count": 10
+      },
+      {
+        "value": "Riot",
+        "count": 9
+      },
+      {
+        "value": "Explainers",
+        "count": 8
+      },
+      {
+        "value": "Supernatural",
+        "count": 7
+      },
+      {
+        "value": "Wildlife",
+        "count": 7
+      },
+      {
+        "value": "Collective",
+        "count": 5
+      },
+      {
+        "value": "Financial",
+        "count": 5
+      },
+      {
+        "value": "Local",
+        "count": 5
+      },
+      {
+        "value": "Cultural",
+        "count": 4
+      },
+      {
+        "value": "Law",
+        "count": 4
+      },
+      {
+        "value": "Space",
+        "count": 3
+      },
+      {
+        "value": "Technicalnology",
+        "count": 3
+      },
+      {
+        "value": "Agriculture",
+        "count": 2
+      },
+      {
+        "value": "Banking",
+        "count": 2
+      },
+      {
+        "value": "Defense",
+        "count": 2
+      },
+      {
+        "value": "Desi",
+        "count": 2
+      },
+      {
+        "value": "Technical",
+        "count": 2
+      },
+      {
+        "value": "Attack",
+        "count": 1
+      },
+      {
+        "value": "Culture",
+        "count": 1
+      },
+      {
+        "value": "Development",
+        "count": 1
+      },
+      {
+        "value": "Disaster",
+        "count": 1
+      },
+      {
+        "value": "Enertainment",
+        "count": 1
+      },
+      {
+        "value": "Explanatory",
+        "count": 1
+      },
+      {
+        "value": "Natural",
+        "count": 1
+      },
+      {
+        "value": "Politcs",
+        "count": 1
+      },
+      {
+        "value": "Religion ",
+        "count": 1
+      },
+      {
+        "value": "Satire",
+        "count": 1
+      },
+      {
+        "value": "Security",
+        "count": 1
+      },
+      {
+        "value": "Telecom",
+        "count": 1
+      },
+      {
+        "value": "War",
+        "count": 1
+      },
+      {
+        "value": "Wealth",
+        "count": 1
+      },
+      {
+        "value": "crime",
+        "count": 1
+      },
+      {
+        "value": "education",
+        "count": 1
+      },
+      {
+        "value": "politcs",
+        "count": 1
+      }
+    ],
+    "platform": [
+      {
+        "value": "Twitter",
+        "count": 21879
+      },
+      {
+        "value": "twitter",
+        "count": 1713
+      },
+      {
+        "value": "facbook",
+        "count": 1252
+      },
+      {
+        "value": "Facebook",
+        "count": 625
+      },
+      {
+        "value": "Twitter, Facebook",
+        "count": 315
+      },
+      {
+        "value": "Facbook",
+        "count": 313
+      },
+      {
+        "value": "facebook",
+        "count": 120
+      },
+      {
+        "value": "twitter ",
+        "count": 15
+      }
+    ],
+    "source_concentration": {
+      "nonmissing_source_records": 26232,
+      "distinct_fact_check_sources": 19,
+      "largest_source": {
+        "value": "Factcrescendo.com",
+        "count": 10903
+      },
+      "largest_source_share_pct": 41.56,
+      "herfindahl_hirschman_index": 0.21
+    }
+  },
+  "temporal_profile": {
+    "publish_date_field": "Publish_Date",
+    "typed_or_unambiguous_iso_date_count": 13728,
+    "literal_missing_date_count": 0,
+    "nonmissing_unparsed_date_count": 12504,
+    "stored_value_representation_counts": {
+      "ambiguous_numeric_date_string": 590,
+      "other_string": 11914,
+      "typed_datetime": 13728
+    },
+    "earliest_parsed_date": "2012-09-10",
+    "latest_parsed_date": "2022-12-07",
+    "year_distribution": [
+      {
+        "value": "2022",
+        "count": 4225
+      },
+      {
+        "value": "2020",
+        "count": 3533
+      },
+      {
+        "value": "2021",
+        "count": 3249
+      },
+      {
+        "value": "2019",
+        "count": 2290
+      },
+      {
+        "value": "2018",
+        "count": 235
+      },
+      {
+        "value": "2017",
+        "count": 106
+      },
+      {
+        "value": "2015",
+        "count": 36
+      },
+      {
+        "value": "2014",
+        "count": 24
+      },
+      {
+        "value": "2016",
+        "count": 16
+      },
+      {
+        "value": "2013",
+        "count": 8
+      },
+      {
+        "value": "2012",
+        "count": 6
+      }
+    ]
+  },
+  "figure_files": [
+    "docs/research/figures/01_label_distribution.svg",
+    "docs/research/figures/02_dataset_composition.svg",
+    "docs/research/figures/03_article_length_histogram.svg",
+    "docs/research/figures/04_headline_length_histogram.svg",
+    "docs/research/figures/05_word_count_distribution.svg",
+    "docs/research/figures/06_character_count_distribution.svg",
+    "docs/research/figures/07_missing_values.svg",
+    "docs/research/figures/08_duplicate_analysis.svg",
+    "docs/research/figures/09_source_distribution.svg",
+    "docs/research/figures/10_top_raw_word_tokens.svg",
+    "docs/research/figures/11_language_distribution.svg",
+    "docs/research/figures/12_category_distribution.svg",
+    "docs/research/figures/13_publication_year_distribution.svg",
+    "docs/research/figures/14_possible_encoding_artifacts.svg"
+  ],
+  "status": "descriptive_raw_eda_complete; semantic label, formula provenance, auxiliary-sheet purpose, and any derivative/split decisions remain pending"
+}

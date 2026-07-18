@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="560" viewBox="0 0 1440 560" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Source-provided language distribution</title>
+<desc id="chart-desc">Raw Language values in sheet A. Horizontal bars report records.</desc>
+<rect width="1440" height="560" fill="#FFFFFF"/>
+
+<style>
+  .title { font: 600 28px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .subtitle { font: 15px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .axis { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .small { font: 12px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .value { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .axis-line { stroke: #6C757D; stroke-width: 1.2; }
+  .grid { stroke: #D9E1E8; stroke-width: 1; }
+</style>
+<text x="60.0" y="54.0" class="title" text-anchor="start">Source-provided language distribution</text>
+<text x="60.0" y="82.0" class="subtitle" text-anchor="start">Raw Language values in sheet A</text>
+<line x1="410.0" y1="145" x2="410.0" y2="480" class="grid"/>
+<text x="410.0" y="518.0" class="small" text-anchor="middle">0</text>
+<line x1="582.0" y1="145" x2="582.0" y2="480" class="grid"/>
+<text x="582.0" y="518.0" class="small" text-anchor="middle">2,002</text>
+<line x1="754.0" y1="145" x2="754.0" y2="480" class="grid"/>
+<text x="754.0" y="518.0" class="small" text-anchor="middle">4,004</text>
+<line x1="926.0" y1="145" x2="926.0" y2="480" class="grid"/>
+<text x="926.0" y="518.0" class="small" text-anchor="middle">6,006</text>
+<line x1="1098.0" y1="145" x2="1098.0" y2="480" class="grid"/>
+<text x="1098.0" y="518.0" class="small" text-anchor="middle">8,008</text>
+<line x1="1270.0" y1="145" x2="1270.0" y2="480" class="grid"/>
+<text x="1270.0" y="518.0" class="small" text-anchor="middle">10,010</text>
+<line x1="410" y1="480" x2="1270" y2="480" class="axis-line"/>
+<text x="394.0" y="168.5" class="axis" text-anchor="end">English</text>
+<rect x="410.0" y="151.3" width="860.0" height="23.8" fill="#6A3D9A" opacity="1.000"/>
+<text x="1282.0" y="168.5" class="value" text-anchor="start">10,010</text>
+<text x="394.0" y="205.7" class="axis" text-anchor="end">Tamil</text>
+<rect x="410.0" y="188.6" width="408.7" height="23.8" fill="#6A3D9A" opacity="1.000"/>
+<text x="830.7" y="205.7" class="value" text-anchor="start">4,757</text>
+<text x="394.0" y="242.9" class="axis" text-anchor="end">Hindi</text>
+<rect x="410.0" y="225.8" width="360.2" height="23.8" fill="#6A3D9A" opacity="1.000"/>
+<text x="782.2" y="242.9" class="value" text-anchor="start">4,192</text>
+<text x="394.0" y="280.1" class="axis" text-anchor="end">Malayalam</text>
+<rect x="410.0" y="263.0" width="233.9" height="23.8" fill="#6A3D9A" opacity="1.000"/>
+<text x="655.9" y="280.1" class="value" text-anchor="start">2,723</text>
+<text x="394.0" y="317.4" class="axis" text-anchor="end">Gujarati</text>
+<rect x="410.0" y="300.2" width="189.4" height="23.8" fill="#6A3D9A" opacity="1.000"/>
+<text x="611.4" y="317.4" class="value" text-anchor="start">2,205</text>
+<text x="394.0" y="354.6" class="axis" text-anchor="end">Odia</text>
+<rect x="410.0" y="337.4" width="108.9" height="23.8" fill="#6A3D9A" opacity="1.000"/>
+<text x="530.9" y="354.6" class="value" text-anchor="start">1,268</text>
+<text x="394.0" y="391.8" class="axis" text-anchor="end">Bangla</text>
+<rect x="410.0" y="374.7" width="50.2" height="23.8" fill="#6A3D9A" opacity="1.000"/>
+<text x="472.2" y="391.8" class="value" text-anchor="start">584</text>
+<text x="394.0" y="429.0" class="axis" text-anchor="end">Assamese</text>
+<rect x="410.0" y="411.9" width="35.1" height="23.8" fill="#6A3D9A" opacity="1.000"/>
+<text x="457.1" y="429.0" class="value" text-anchor="start">409</text>
+<text x="394.0" y="466.3" class="axis" text-anchor="end">Telugu</text>
+<rect x="410.0" y="449.1" width="7.2" height="23.8" fill="#6A3D9A" opacity="1.000"/>
+<text x="429.2" y="466.3" class="value" text-anchor="start">84</text>
+<text x="840.0" y="544.0" class="axis" text-anchor="middle">records</text>
+</svg>

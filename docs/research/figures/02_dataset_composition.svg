@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Unmodified workbook composition</title>
+<desc id="chart-desc">Nonempty rows by raw worksheet; sheet A includes its header row in this workbook-level view. Vertical bars report records.</desc>
+<rect width="1440" height="820" fill="#FFFFFF"/>
+
+<style>
+  .title { font: 600 28px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .subtitle { font: 15px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .axis { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .small { font: 12px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .value { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .axis-line { stroke: #6C757D; stroke-width: 1.2; }
+  .grid { stroke: #D9E1E8; stroke-width: 1; }
+</style>
+<text x="60.0" y="54.0" class="title" text-anchor="start">Unmodified workbook composition</text>
+<text x="60.0" y="82.0" class="subtitle" text-anchor="start">Nonempty rows by raw worksheet; sheet A includes its header row in this workbook-level view</text>
+<line x1="130" y1="640.0" x2="1370" y2="640.0" class="grid"/>
+<text x="118.0" y="644.0" class="small" text-anchor="end">0</text>
+<line x1="130" y1="541.0" x2="1370" y2="541.0" class="grid"/>
+<text x="118.0" y="545.0" class="small" text-anchor="end">5,247</text>
+<line x1="130" y1="442.0" x2="1370" y2="442.0" class="grid"/>
+<text x="118.0" y="446.0" class="small" text-anchor="end">10,493</text>
+<line x1="130" y1="343.0" x2="1370" y2="343.0" class="grid"/>
+<text x="118.0" y="347.0" class="small" text-anchor="end">15,740</text>
+<line x1="130" y1="244.0" x2="1370" y2="244.0" class="grid"/>
+<text x="118.0" y="248.0" class="small" text-anchor="end">20,986</text>
+<line x1="130" y1="145.0" x2="1370" y2="145.0" class="grid"/>
+<text x="118.0" y="149.0" class="small" text-anchor="end">26,233</text>
+<line x1="130" y1="145" x2="130" y2="640" class="axis-line"/>
+<line x1="130" y1="640" x2="1370" y2="640" class="axis-line"/>
+<rect x="204.4" y="145.0" width="264.5" height="495.0" fill="#0072B2" opacity="1.000"/>
+<text x="336.7" y="135.0" class="value" text-anchor="middle">26,233</text>
+<text x="336.7" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 336.7 670.0)">A</text>
+<rect x="617.7" y="622.9" width="264.5" height="17.1" fill="#D55E00" opacity="1.000"/>
+<text x="750.0" y="612.9" class="value" text-anchor="middle">908</text>
+<text x="750.0" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 750.0 670.0)">Sheet1</text>
+<rect x="1031.1" y="640.0" width="264.5" height="0.0" fill="#6C757D" opacity="1.000"/>
+<text x="1163.3" y="630.0" class="value" text-anchor="middle">0</text>
+<text x="1163.3" y="670.0" class="axis" text-anchor="end" transform="rotate(-38 1163.3 670.0)">Sheet3</text>
+<text x="750.0" y="796.0" class="axis" text-anchor="middle">records</text>
+</svg>

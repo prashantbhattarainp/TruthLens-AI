@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Headline-field length distribution</title>
+<desc id="chart-desc">Raw case-preserving token counts in Statement (n = 26,232). Histogram uses 26,232 non-empty raw values.</desc>
+<rect width="1440" height="820" fill="#FFFFFF"/>
+
+<style>
+  .title { font: 600 28px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .subtitle { font: 15px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .axis { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .small { font: 12px Arial, Helvetica, sans-serif; fill: #6C757D; }
+  .value { font: 13px Arial, Helvetica, sans-serif; fill: #1F2937; }
+  .axis-line { stroke: #6C757D; stroke-width: 1.2; }
+  .grid { stroke: #D9E1E8; stroke-width: 1; }
+</style>
+<text x="60.0" y="54.0" class="title" text-anchor="start">Headline-field length distribution</text>
+<text x="60.0" y="82.0" class="subtitle" text-anchor="start">Raw case-preserving token counts in Statement (n = 26,232)</text>
+<line x1="130" y1="720.0" x2="1380" y2="720.0" class="grid"/>
+<text x="118.0" y="724.0" class="small" text-anchor="end">0</text>
+<line x1="130" y1="605.0" x2="1380" y2="605.0" class="grid"/>
+<text x="118.0" y="609.0" class="small" text-anchor="end">499</text>
+<line x1="130" y1="490.0" x2="1380" y2="490.0" class="grid"/>
+<text x="118.0" y="494.0" class="small" text-anchor="end">997</text>
+<line x1="130" y1="375.0" x2="1380" y2="375.0" class="grid"/>
+<text x="118.0" y="379.0" class="small" text-anchor="end">1,496</text>
+<line x1="130" y1="260.0" x2="1380" y2="260.0" class="grid"/>
+<text x="118.0" y="264.0" class="small" text-anchor="end">1,994</text>
+<line x1="130" y1="145.0" x2="1380" y2="145.0" class="grid"/>
+<text x="118.0" y="149.0" class="small" text-anchor="end">2,493</text>
+<line x1="130.0" y1="720" x2="130.0" y2="726" class="axis-line"/>
+<text x="130.0" y="768.0" class="small" text-anchor="middle">2</text>
+<line x1="442.5" y1="720" x2="442.5" y2="726" class="axis-line"/>
+<text x="442.5" y="768.0" class="small" text-anchor="middle">5</text>
+<line x1="755.0" y1="720" x2="755.0" y2="726" class="axis-line"/>
+<text x="755.0" y="768.0" class="small" text-anchor="middle">13</text>
+<line x1="1067.5" y1="720" x2="1067.5" y2="726" class="axis-line"/>
+<text x="1067.5" y="768.0" class="small" text-anchor="middle">34</text>
+<line x1="1380.0" y1="720" x2="1380.0" y2="726" class="axis-line"/>
+<text x="1380.0" y="768.0" class="small" text-anchor="middle">89</text>
+<line x1="130" y1="145" x2="130" y2="720" class="axis-line"/>
+<line x1="130" y1="720" x2="1380" y2="720" class="axis-line"/>
+<rect x="130.8" y="719.8" width="24.4" height="0.2" fill="#D55E00" opacity="0.860"/>
+<rect x="156.8" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="182.9" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="208.9" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="235.0" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="261.0" y="719.3" width="24.4" height="0.7" fill="#D55E00" opacity="0.860"/>
+<rect x="287.1" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="313.1" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="339.1" y="717.9" width="24.4" height="2.1" fill="#D55E00" opacity="0.860"/>
+<rect x="365.2" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="391.2" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="417.3" y="715.8" width="24.4" height="4.2" fill="#D55E00" opacity="0.860"/>
+<rect x="443.3" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="469.3" y="709.2" width="24.4" height="10.8" fill="#D55E00" opacity="0.860"/>
+<rect x="495.4" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="521.4" y="689.3" width="24.4" height="30.7" fill="#D55E00" opacity="0.860"/>
+<rect x="547.5" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="573.5" y="655.4" width="24.4" height="64.6" fill="#D55E00" opacity="0.860"/>
+<rect x="599.5" y="720.0" width="24.4" height="0.0" fill="#D55E00" opacity="0.860"/>
+<rect x="625.6" y="607.7" width="24.4" height="112.3" fill="#D55E00" opacity="0.860"/>
+<rect x="651.6" y="521.4" width="24.4" height="198.6" fill="#D55E00" opacity="0.860"/>
+<rect x="677.7" y="358.6" width="24.4" height="361.4" fill="#D55E00" opacity="0.860"/>
+<rect x="703.7" y="403.8" width="24.4" height="316.2" fill="#D55E00" opacity="0.860"/>
+<rect x="729.8" y="451.1" width="24.4" height="268.9" fill="#D55E00" opacity="0.860"/>
+<rect x="755.8" y="468.8" width="24.4" height="251.2" fill="#D55E00" opacity="0.860"/>
+<rect x="781.8" y="507.3" width="24.4" height="212.7" fill="#D55E00" opacity="0.860"/>
+<rect x="807.9" y="556.7" width="24.4" height="163.3" fill="#D55E00" opacity="0.860"/>
+<rect x="833.9" y="462.1" width="24.4" height="257.9" fill="#D55E00" opacity="0.860"/>
+<rect x="860.0" y="619.4" width="24.4" height="100.6" fill="#D55E00" opacity="0.860"/>
+<rect x="886.0" y="497.7" width="24.4" height="222.3" fill="#D55E00" opacity="0.860"/>
+<rect x="912.0" y="418.1" width="24.4" height="301.9" fill="#D55E00" opacity="0.860"/>
+<rect x="938.1" y="355.1" width="24.4" height="364.9" fill="#D55E00" opacity="0.860"/>
+<rect x="964.1" y="314.1" width="24.4" height="405.9" fill="#D55E00" opacity="0.860"/>
+<rect x="990.2" y="289.6" width="24.4" height="430.4" fill="#D55E00" opacity="0.860"/>
+<rect x="1016.2" y="300.9" width="24.4" height="419.1" fill="#D55E00" opacity="0.860"/>
+<rect x="1042.3" y="145.0" width="24.4" height="575.0" fill="#D55E00" opacity="0.860"/>
+<rect x="1068.3" y="312.4" width="24.4" height="407.6" fill="#D55E00" opacity="0.860"/>
+<rect x="1094.3" y="505.3" width="24.4" height="214.7" fill="#D55E00" opacity="0.860"/>
+<rect x="1120.4" y="587.8" width="24.4" height="132.2" fill="#D55E00" opacity="0.860"/>
+<rect x="1146.4" y="621.1" width="24.4" height="98.9" fill="#D55E00" opacity="0.860"/>
+<rect x="1172.5" y="661.9" width="24.4" height="58.1" fill="#D55E00" opacity="0.860"/>
+<rect x="1198.5" y="686.1" width="24.4" height="33.9" fill="#D55E00" opacity="0.860"/>
+<rect x="1224.5" y="705.9" width="24.4" height="14.1" fill="#D55E00" opacity="0.860"/>
+<rect x="1250.6" y="710.3" width="24.4" height="9.7" fill="#D55E00" opacity="0.860"/>
+<rect x="1276.6" y="716.3" width="24.4" height="3.7" fill="#D55E00" opacity="0.860"/>
+<rect x="1302.7" y="719.1" width="24.4" height="0.9" fill="#D55E00" opacity="0.860"/>
+<rect x="1328.7" y="719.8" width="24.4" height="0.2" fill="#D55E00" opacity="0.860"/>
+<rect x="1354.8" y="719.5" width="24.4" height="0.5" fill="#D55E00" opacity="0.860"/>
+<text x="755.0" y="804.0" class="axis" text-anchor="middle">Raw Statement token count (logarithmic scale)</text>
+</svg>
