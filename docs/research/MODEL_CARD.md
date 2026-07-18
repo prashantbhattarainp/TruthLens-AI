@@ -22,3 +22,7 @@ Each successful prediction exposes bounded local SHAP and LIME margin explanatio
 ## Responsible AI considerations
 
 The model retains known source/template sensitivity, limited language and cohort coverage, weak absolute performance, uncalibrated output, and licence/content-rights constraints. Explanations make these behaviours inspectable but do not mitigate them. Any calibration, deployment, multilingual expansion, fairness claim, or consequential use requires a new governed decision and evidence package.
+
+## Phase 4.2 benchmark relationship
+
+The LinearSVC remains the current internal research champion and is not retrained or re-tested by Phase 4.2. Transformer candidates are separate research-only challengers governed by [RDL-013](../../research/decision-log/RDL-013-Transformer-Benchmark-and-Champion-Challenger-Boundary.md). IndicBERT is currently access-limited; DistilBERT is collecting CPU evidence; BERT base and RoBERTa are queued. No challenger has a promotion or deployment approval, and no benchmark outcome can automatically replace this model. See [DATA_CARD.md](DATA_CARD.md) and [MODEL_SELECTION_UPDATE.md](MODEL_SELECTION_UPDATE.md).

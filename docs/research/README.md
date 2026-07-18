@@ -47,6 +47,11 @@ This directory is the canonical home for the Phase 3 research package. It define
 | [Experiment registry](EXPERIMENT_REGISTRY.md) | Reserves the comparable-experiment register and required fields. | Three r2 baseline entries recorded |
 | [Model registry](MODEL_REGISTRY.md) | Defines model-release metadata and lifecycle requirements. | Phase 3.9 conditional champion and challengers recorded; no deployment approval |
 | [Model Card](MODEL_CARD.md) | Documents intended research use, performance context, explainability, and responsible-AI limits. | Added in Phase 4.1; deployment remains prohibited |
+| [Data Card](DATA_CARD.md) | Records the frozen derivative and Phase 4.2 data-handling boundary. | Added; no dataset version change |
+| [Transformer benchmark](TRANSFORMER_BENCHMARK.md) | Defines the frozen-input transformer protocol and evidence state. | Evidence collection in progress; no automatic promotion |
+| [Classical vs transformers](CLASSICAL_VS_TRANSFORMERS.md) | Separates incumbent validation evidence from transformer run outcomes. | In progress; incomplete candidates have no score |
+| [Resource comparison](RESOURCE_COMPARISON.md) | Records host constraints and measured per-candidate resource evidence. | CPU-only execution; timings pending completed runs |
+| [Model selection update](MODEL_SELECTION_UPDATE.md) | Documents the Phase 4.2 champion-challenger non-promotion boundary. | Current LinearSVC unchanged |
 | [Explainable AI framework](EXPLAINABLE_AI.md) | Defines reusable local SHAP/LIME explanations and global research analysis. | Complete for the existing LinearSVC champion |
 | [Explanation methodology](EXPLANATION_METHODOLOGY.md) | Freezes XAI data access, reference, configuration, and reproducibility controls. | Complete; training-only aggregation |
 | [XAI evaluation report](XAI_EVALUATION_REPORT.md) | Records technical validation and bounded research artifacts. | Complete; no validation/protected-test access |

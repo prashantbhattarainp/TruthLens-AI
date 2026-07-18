@@ -4,7 +4,7 @@ TruthLens AI is a research-oriented platform for explainable fake news detection
 
 ## Project status
 
-Phase 4.1 is complete. `TL-LSVM-TFIDF-v1.1.0-rc.1` remains packaged behind the Python service with integrity checks, readiness, lineage metadata, privacy-safe logging, and bounded SHAP/LIME explanations. It remains **untested after tuning**, `integrated_not_deployment_approved`, and unsuitable as a fact checker or factual-verdict system. The Phase 3.8 protected test was not reused. See the [XAI framework](docs/research/EXPLAINABLE_AI.md), [integration guide](docs/production/SERVICE_INTEGRATION.md), and [Phase 3 summary](docs/PHASE3_SUMMARY.md).
+Phase 4.2 transformer benchmark evidence collection is in progress. `TL-LSVM-TFIDF-v1.1.0-rc.1` remains the packaged internal champion with integrity checks, readiness, lineage metadata, privacy-safe logging, and bounded SHAP/LIME explanations. It remains **untested after tuning**, `integrated_not_deployment_approved`, and unsuitable as a fact checker or factual-verdict system. The Phase 3.8 protected test is not reused. Transformer challengers are research-only and cannot replace it automatically; see the [transformer benchmark](docs/research/TRANSFORMER_BENCHMARK.md), [model-selection update](docs/research/MODEL_SELECTION_UPDATE.md), [XAI framework](docs/research/EXPLAINABLE_AI.md), and [Phase 3 summary](docs/PHASE3_SUMMARY.md).
 
 ## Current architecture
 
@@ -66,4 +66,4 @@ Setup instructions will be added in a later milestone.
 
 The implementation roadmap is maintained in the [research and implementation roadmap](docs/architecture/Research-Roadmap.md).
 
-Phase 4.1 is complete. Public deployment remains blocked pending a new governed release process, post-tuning evaluation plan, calibration, robustness/fairness evidence, rights review, monitoring, and human-review controls.
+Phase 4.2 evidence collection is in progress. Public deployment remains blocked pending a new governed release process, post-tuning evaluation plan, calibration, robustness/fairness evidence, rights review, monitoring, and human-review controls.
