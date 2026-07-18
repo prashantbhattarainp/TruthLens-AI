@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "dataset_integrity",
+  "dataset_id": "indian-digital-media-2026.07.17-r1",
+  "registry_id": "DSR-001",
+  "checked_at": "2026-07-17T23:14:07.100800+05:30",
+  "integrity_checks": {
+    "raw_archive_sha256": "330feb9b24b48f49c4113ca6de87695f1bd0821d29361a86e2b27ab35a77c69c",
+    "raw_archive_size_bytes": 10735967,
+    "raw_archive_zip_test_passed": true,
+    "raw_archive_duplicate_filenames": [],
+    "source_workbook_sha256": "6b3435a29eba8df3d7ac5d027808277e4d1a67189beea052aea2298eb8a61fb8",
+    "source_workbook_size_bytes": 11463031,
+    "source_workbook_zip_test_passed": true,
+    "source_workbook_duplicate_filenames": [],
+    "source_workbook_xml_utf8_valid": true,
+    "source_workbook_loadable_read_only": true
+  },
+  "integrity_status": "pass_with_semantic_validation_findings",
+  "scope_note": "Cryptographic and container checks establish file identity and readability. They do not resolve label validity, source-content rights, formula provenance, or research fitness."
+}

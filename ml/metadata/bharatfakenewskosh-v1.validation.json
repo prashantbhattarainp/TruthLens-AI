@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "dataset_validation",
+  "dataset_id": "indian-digital-media-2026.07.17-r1",
+  "registry_id": "DSR-001",
+  "validated_at": "2026-07-17T23:14:07.100800+05:30",
+  "validation_mode": "read_only_no_transformation",
+  "raw_archive": "ml/data/raw/bharatfakenewskosh-v1.zip",
+  "file_checks": {
+    "exists": true,
+    "outer_zip_valid": true,
+    "outer_entry_count": 1,
+    "outer_duplicate_filenames": [],
+    "source_workbook_loadable": true,
+    "source_workbook_zip_valid": true,
+    "source_workbook_duplicate_filenames": [],
+    "source_workbook_xml_utf8_valid": true,
+    "corrupted_files_detected": []
+  },
+  "workbook_structure": {
+    "sheet_names": ["A", "Sheet1", "Sheet3"],
+    "primary_data_sheet": "A",
+    "primary_data_header_count": 19,
+    "primary_data_headers": [
+      "id", "Author_Name", "Fact_Check_Source", "Source_Type", "Statement", "Eng_Trans_Statement", "News Body", "Eng_Trans_News_Body", "Media_Link", "Publish_Date", "Fact_Check_Link", "News_Category", "Language", "Region", "Platform", "Text", "Video", "Image", "Label"
+    ],
+    "required_raw_columns_present": {
+      "id": true,
+      "Statement": true,
+      "News Body": true,
+      "Eng_Trans_News_Body": true,
+      "Label": true,
+      "Language": true,
+      "Fact_Check_Link": true
+    },
+    "auxiliary_sheets": [
+      {
+        "name": "Sheet1",
+        "nonempty_rows": 908,
+        "declared_header": false,
+        "status": "undocumented_auxiliary_content_review_required"
+      },
+      {
+        "name": "Sheet3",
+        "nonempty_rows": 0,
+        "status": "empty"
+      }
+    ]
+  },
+  "primary_data_results": {
+    "nonempty_data_rows": 26232,
+    "empty_rows": 0,
+    "missing_id_count": 0,
+    "duplicate_id_count": 0,
+    "missing_label_count": 0,
+    "label_counts": {
+      "True": 15913,
+      "False": 10319
+    },
+    "missing_text_by_field": {
+      "Statement": 0,
+      "Eng_Trans_Statement": 0,
+      "News Body": 0,
+      "Eng_Trans_News_Body": 0,
+      "Text": 0
+    }
+  },
+  "review_required_findings": [
+    {
+      "id": "VAL-001",
+      "severity": "high",
+      "finding": "Observed raw label counts differ from the public record's reported 13,721 legitimate and 12,511 fraudulent items.",
+      "observed": "15,913 True and 10,319 False in sheet A.",
+      "required_resolution": "Reconcile release version, raw labels, and publication/landing-page statistics before binary mapping, split generation, or modelling."
+    },
+    {
+      "id": "VAL-002",
+      "severity": "medium",
+      "finding": "Formula cells occur in six columns of the primary sheet.",
+      "observed": {
+        "Region": 22769,
+        "Text": 180,
+        "Video": 132,
+        "Image": 122,
+        "Media_Link": 47,
+        "News_Category": 316
+      },
+      "required_resolution": "Document formula provenance and decide the permitted raw-value representation without editing the source workbook."
+    },
+    {
+      "id": "VAL-003",
+      "severity": "medium",
+      "finding": "Sheet1 contains 908 nonempty, headerless rows and Sheet3 is empty.",
+      "required_resolution": "Identify the source purpose and relationship of auxiliary sheets before defining the approved data unit."
+    }
+  ],
+  "validation_status": "review_required_no_preprocessing_authorised"
+}

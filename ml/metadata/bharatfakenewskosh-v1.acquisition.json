@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "dataset_acquisition",
+  "dataset_id": "indian-digital-media-2026.07.17-r1",
+  "registry_id": "DSR-001",
+  "acquisition_id": "ACQ-2026-07-17-DSR-001-R1",
+  "dataset_name": "BharatFakeNewsKosh",
+  "source_release": {
+    "provider": "Kaggle",
+    "owner": "Dr. Manish Kumar Singh",
+    "dataset_ref": "man2191989/bharatfakenewskosh",
+    "version": 1,
+    "version_note": "Initial release",
+    "published_at": "2023-08-31T01:52:53.943Z",
+    "official_landing_url": "https://www.kaggle.com/datasets/man2191989/bharatfakenewskosh",
+    "official_download_url": "https://www.kaggle.com/api/v1/datasets/download/man2191989/bharatfakenewskosh?datasetVersionNumber=1",
+    "source_publication_url": "https://doi.org/10.1007/978-981-99-0838-7_24"
+  },
+  "acquired_at": "2026-07-17T23:09:33.932666+05:30",
+  "licence": {
+    "identifier": "CC BY-NC 4.0",
+    "name": "Attribution-NonCommercial 4.0 International",
+    "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "scope_note": "Acquired for non-commercial research only. This record does not resolve third-party source-content, translation, platform, or future deployment rights."
+  },
+  "raw_artifacts": [
+    {
+      "path": "ml/data/raw/bharatfakenewskosh-v1.zip",
+      "format": "ZIP archive",
+      "size_bytes": 10735967,
+      "sha256": "330feb9b24b48f49c4113ca6de87695f1bd0821d29361a86e2b27ab35a77c69c",
+      "immutable_policy": "Raw archive is git-ignored and must never be edited, replaced, extracted into place, or overwritten."
+    },
+    {
+      "container_member": "bharatfakenewskosh (3).xlsx",
+      "format": "XLSX workbook",
+      "size_bytes": 11463031,
+      "sha256": "6b3435a29eba8df3d7ac5d027808277e4d1a67189beea052aea2298eb8a61fb8"
+    }
+  ],
+  "reported_dataset_properties": {
+    "languages": "Nine Indian languages; English translation fields are present",
+    "labels": "True / False",
+    "reported_samples": 26232,
+    "reported_attributes": 19
+  },
+  "governance_status": "acquired_and_manifested_validation_review_required",
+  "deferred_selected_candidates": [
+    "DSR-002 FactDrill: explicit reuse licence and binary-label mapping remain unresolved",
+    "DSR-003 COVID-19 Fake News Dataset: explicit dataset licence and shared-task terms remain unresolved"
+  ]
+}
