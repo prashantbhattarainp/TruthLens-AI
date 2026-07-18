@@ -1,0 +1,18 @@
+{
+  "optimization_framework_version": "1.0.0",
+  "model": "logistic_regression",
+  "model_version": "1.1.0",
+  "search_strategy": "grid",
+  "scoring": "macro_f1",
+  "random_seed": 42,
+  "n_splits": 5,
+  "parameter_grid": [
+    {
+      "C": [0.1, 1.0, 10.0],
+      "penalty": ["l1", "l2"],
+      "solver": ["liblinear"],
+      "class_weight": [null, "balanced"],
+      "max_iter": [1000, 2000]
+    }
+  ]
+}

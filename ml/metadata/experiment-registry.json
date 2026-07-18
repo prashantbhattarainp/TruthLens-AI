@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "local_experiment_registry",
+  "status": "phase_3_9_completed",
+  "dataset_version": "TL-BFNK-EN-v1.0",
+  "derivative_release": "DER-20260718-r2",
+  "invalidated_releases": [
+    {
+      "release": "DER-20260718-r1",
+      "reason": "Missing spreadsheet cells were rendered as the literal token nan by pandas string conversion; retained for audit and excluded from all conclusions."
+    }
+  ],
+  "entries": [
+    {
+      "experiment_id": "EXP-20260717-logistic-regression-e7612c6153",
+      "status": "completed",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
+      "model": "logistic_regression",
+      "model_version": "1.0.0",
+      "primary_metric": "macro_f1",
+      "macro_f1": 0.4976044716,
+      "artifact_location": "ml/data/experiments/TL-BFNK-EN-v1.0/phase-3-8-r2/EXP-20260717-logistic-regression-e7612c6153"
+    },
+    {
+      "experiment_id": "EXP-20260717-multinomial-naive-bayes-7869d12afd",
+      "status": "completed",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
+      "model": "multinomial_naive_bayes",
+      "model_version": "1.0.0",
+      "primary_metric": "macro_f1",
+      "macro_f1": 0.425132594,
+      "artifact_location": "ml/data/experiments/TL-BFNK-EN-v1.0/phase-3-8-r2/EXP-20260717-multinomial-naive-bayes-7869d12afd"
+    },
+    {
+      "experiment_id": "EXP-20260717-linear-svm-177d71e9c9",
+      "status": "completed_selected_candidate",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
+      "model": "linear_svm",
+      "model_version": "1.0.0",
+      "primary_metric": "macro_f1",
+      "macro_f1": 0.5323245878,
+      "validation_macro_f1": 0.5273731497,
+      "protected_test_macro_f1": 0.5486345744,
+      "artifact_location": "ml/data/experiments/TL-BFNK-EN-v1.0/phase-3-8-r2/EXP-20260717-linear-svm-177d71e9c9"
+    }
+  ],
+  "optimization_entries": [
+    {
+      "optimization_id": "OPT-20260718-logistic-regression-15115d5c12",
+      "status": "completed_challenger",
+      "model": "logistic_regression",
+      "model_version": "1.1.0",
+      "baseline_experiment_id": "EXP-20260717-logistic-regression-e7612c6153",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "split_id": "SPL-TL-BFNK-EN-v1.0",
+      "primary_metric": "macro_f1",
+      "training_oof_macro_f1": 0.5393665633,
+      "validation_macro_f1": 0.5371415941,
+      "test_access": "none",
+      "artifact_location": "ml/data/optimization/TL-BFNK-EN-v1.0/phase-3-9-r1/OPT-20260718-logistic-regression-15115d5c12"
+    },
+    {
+      "optimization_id": "OPT-20260718-multinomial-naive-bayes-60fad40e22",
+      "status": "completed_primary_challenger",
+      "model": "multinomial_naive_bayes",
+      "model_version": "1.1.0",
+      "baseline_experiment_id": "EXP-20260717-multinomial-naive-bayes-7869d12afd",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "split_id": "SPL-TL-BFNK-EN-v1.0",
+      "primary_metric": "macro_f1",
+      "training_oof_macro_f1": 0.5268673043,
+      "validation_macro_f1": 0.5399108734,
+      "test_access": "none",
+      "artifact_location": "ml/data/optimization/TL-BFNK-EN-v1.0/phase-3-9-r1/OPT-20260718-multinomial-naive-bayes-60fad40e22"
+    },
+    {
+      "optimization_id": "OPT-20260718-linear-svm-faafafe15e",
+      "status": "completed_conditional_champion_untested_after_tuning",
+      "model": "linear_svm",
+      "model_version": "1.1.0",
+      "baseline_experiment_id": "EXP-20260717-linear-svm-177d71e9c9",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "split_id": "SPL-TL-BFNK-EN-v1.0",
+      "primary_metric": "macro_f1",
+      "training_oof_macro_f1": 0.5346219364,
+      "validation_macro_f1": 0.5397794548,
+      "validation_mcc": 0.1014417439,
+      "test_access": "none; Phase 3.8 test evidence is not reused",
+      "artifact_location": "ml/data/optimization/TL-BFNK-EN-v1.0/phase-3-9-r1/OPT-20260718-linear-svm-faafafe15e"
+    }
+  ],
+  "policy": "Only r2 records support Phase 3 conclusions. The protected test was accessed once in Phase 3.8 before tuning; Phase 3.9 uses train grouped-CV and frozen validation only. Synthetic fixtures and invalidated r1 artifacts are excluded."
+}
