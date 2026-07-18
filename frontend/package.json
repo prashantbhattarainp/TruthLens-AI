@@ -1,0 +1,17 @@
+{
+  "name": "@truthlens-ai/frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Static frontend foundation for TruthLens AI.",
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "scripts": {
+    "test": "node --test",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+}
