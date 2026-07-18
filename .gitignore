@@ -67,6 +67,8 @@ ml/data/optimization/*
 !ml/data/optimization/.gitkeep
 ml/data/transformer-benchmarks/*
 !ml/data/transformer-benchmarks/.gitkeep
+ml/data/ensemble-benchmarks/*
+!ml/data/ensemble-benchmarks/.gitkeep
 ml/logs/experiments/*
 !ml/logs/experiments/.gitkeep
 ml-service/artifacts/candidate/*
@@ -79,6 +81,8 @@ ml-service/artifacts/reports/*
 !ml-service/artifacts/reports/.gitkeep
 ml-service/artifacts/transformers/*
 !ml-service/artifacts/transformers/.gitkeep
+ml-service/artifacts/ensembles/*
+!ml-service/artifacts/ensembles/.gitkeep
 
 # Operating system and editor files
 .DS_Store
