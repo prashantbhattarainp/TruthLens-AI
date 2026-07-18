@@ -9,9 +9,9 @@
 | --- | --- | ---: | ---: | --- | --- |
 | `TL-LSVM-TFIDF-v1.1.0-rc.1` | TF-IDF unigram/bigram + LinearSVC | 0.5398 | 0.1014 | Prohibited after Phase 3.9 tuning | Internal champion; not deployment-approved |
 | IndicBERT | Multilingual ALBERT | — | — | Not accessed | Access-limited; not evaluated |
-| DistilBERT base uncased | Distilled English transformer | — | — | Not yet accessed | CPU run in progress |
-| BERT base uncased | English transformer | — | — | Not accessed | Queued, not evaluated |
-| RoBERTa base | English transformer | — | — | Not accessed | Queued, not evaluated |
+| DistilBERT base uncased | Distilled English transformer | — | — | Not accessed | Resource-limited; stopped before checkpoint |
+| BERT base uncased | English transformer | — | — | Not accessed | Not started after lower-cost candidate exceeded CPU window |
+| RoBERTa base | English transformer | — | — | Not accessed | Not started after lower-cost candidate exceeded CPU window |
 
 The LinearSVC test result from Phase 3.8 is deliberately absent: it was measured before the Phase 3.9 tuning that created the current candidate and cannot be reused for a post-tuning comparison. No transformer candidate may fill a result cell until its immutable local run manifest and `results.json` are both complete.
 

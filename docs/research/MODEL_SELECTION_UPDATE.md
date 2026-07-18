@@ -19,8 +19,8 @@ A model cannot be promoted just because a single metric is greater than 0.5398. 
 | Candidate | Registry disposition | Promotion eligibility |
 | --- | --- | --- |
 | IndicBERT | `not_evaluated_access_limited` | No; no trained/evaluated artifact |
-| DistilBERT | `benchmark_in_progress` | No; incomplete evidence |
-| BERT base | `queued_not_evaluated` | No; no evidence |
-| RoBERTa base | `queued_not_evaluated` | No; no evidence |
+| DistilBERT | `not_evaluated_resource_limited` | No; stopped before checkpoint/validation/test evidence |
+| BERT base | `not_evaluated_resource_limited` | No; not started after lower-cost CPU limitation |
+| RoBERTa base | `not_evaluated_resource_limited` | No; not started after lower-cost CPU limitation |
 
-The next decision remains pending until completed candidate artifacts can be reviewed. That review is explicitly outside automatic benchmark execution.
+The next decision remains pending until completed candidate artifacts can be reviewed on suitable compute. That review is explicitly outside automatic benchmark execution.

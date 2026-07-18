@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "record_type": "model_registry",
-  "status": "phase_4_2_transformer_benchmark_in_progress",
+  "status": "phase_4_2_transformer_benchmark_resource_limited_complete",
   "current_model": {
     "model_id": "MDL-TL-LSVM-TFIDF-v1.1.0-rc.1",
     "model_version": "TL-LSVM-TFIDF-v1.1.0-rc.1",
@@ -95,37 +95,37 @@
     {
       "model_id": "MDL-TL-DISTILBERT-v1.0.0-p42",
       "model_version": "1.0.0-p42",
-      "status": "benchmark_in_progress",
+      "status": "not_evaluated_resource_limited",
       "dataset_version": "TL-BFNK-EN-v1.0",
       "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
       "split_id": "SPL-TL-BFNK-EN-v1.0",
       "model_source": "distilbert/distilbert-base-uncased",
       "experiment_id": "P42-distilbert-20260718T115744Z",
-      "protected_test_access": "none until validation checkpoint selection completes",
+      "protected_test_access": "none",
       "artifact_location": "ml/data/transformer-benchmarks/P42-distilbert-20260718T115744Z",
-      "notes": "Serial CPU run under RDL-013 fixed protocol. No metric, selected checkpoint, or promotion decision exists until a complete evidence bundle is written."
+      "notes": "Serial CPU run exceeded 86 CPU-minutes without a checkpoint or result artifact and was stopped. Validation selection and protected-test access did not occur; no metric or promotion decision exists."
     },
     {
       "model_id": "MDL-TL-BERT-BASE-v1.0.0-p42",
       "model_version": "1.0.0-p42",
-      "status": "queued_not_evaluated",
+      "status": "not_evaluated_resource_limited",
       "dataset_version": "TL-BFNK-EN-v1.0",
       "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
       "split_id": "SPL-TL-BFNK-EN-v1.0",
       "model_source": "google-bert/bert-base-uncased",
       "protected_test_access": "none",
-      "notes": "Pre-specified challenger awaiting the serial CPU resource slot; no run artifact or performance evidence exists."
+      "notes": "Not started after the public DistilBERT candidate exceeded the host's practical CPU benchmark window. No run artifact, protected-test access, or performance evidence exists."
     },
     {
       "model_id": "MDL-TL-ROBERTA-v1.0.0-p42",
       "model_version": "1.0.0-p42",
-      "status": "queued_not_evaluated",
+      "status": "not_evaluated_resource_limited",
       "dataset_version": "TL-BFNK-EN-v1.0",
       "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
       "split_id": "SPL-TL-BFNK-EN-v1.0",
       "model_source": "FacebookAI/roberta-base",
       "protected_test_access": "none",
-      "notes": "Pre-specified challenger awaiting the serial CPU resource slot; no run artifact or performance evidence exists."
+      "notes": "Not started after the public DistilBERT candidate exceeded the host's practical CPU benchmark window. No run artifact, protected-test access, or performance evidence exists."
     }
   ],
   "policy": "No registry entry is approved for deployment. The current champion is packaged for internal service integration only. Phase 4.1 explanations describe an uncalibrated margin, not confidence or factual truth; global XAI uses the frozen train partition only. Phase 3.8 test evidence must not be reused after Phase 3.9 tuning; r1 artifacts are invalidated and are not registry candidates. Phase 4.2 transformer entries are research-only challengers: their test evidence, if produced, is non-selection evidence and cannot automatically replace the incumbent."

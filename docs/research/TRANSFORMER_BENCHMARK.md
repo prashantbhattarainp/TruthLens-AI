@@ -2,7 +2,7 @@
 
 **Scope:** Frozen-data, research-only comparison of the existing LinearSVC candidate with four transformer challengers.  
 **Decision authority:** [RDL-013](../../research/decision-log/RDL-013-Transformer-Benchmark-and-Champion-Challenger-Boundary.md).  
-**Status:** Evidence collection in progress; incomplete candidates have no performance claim.
+**Status:** Complete at a documented resource-limited evidence boundary; no incomplete candidate has a performance claim.
 
 ## Frozen inputs and fair-comparison boundary
 
@@ -38,11 +38,11 @@ The runner verifies the input SHA-256 and partition counts before it contacts a 
 | Candidate | Upstream identifier | State | Protected test | Reason / next action |
 | --- | --- | --- | --- | --- |
 | IndicBERT | `ai4bharat/indic-bert` | Not evaluated | Not accessed | Upstream gated-repository access was rejected before data access. A Hugging Face account must accept the model conditions and supply credentials before a new governed run. |
-| DistilBERT | `distilbert/distilbert-base-uncased` | Running | Not yet accessed | Serial CPU run in progress under the fixed protocol. |
-| BERT base | `google-bert/bert-base-uncased` | Queued | Not accessed | Waits for the serial CPU resource slot. |
-| RoBERTa base | `FacebookAI/roberta-base` | Queued | Not accessed | Waits for the serial CPU resource slot. |
+| DistilBERT | `distilbert/distilbert-base-uncased` | Not evaluated | Not accessed | Fixed CPU run exceeded 86 CPU-minutes without a checkpoint/result artifact and was stopped. |
+| BERT base | `google-bert/bert-base-uncased` | Not evaluated | Not accessed | Not started: the larger encoder is impractical after the DistilBERT CPU limitation. |
+| RoBERTa base | `FacebookAI/roberta-base` | Not evaluated | Not accessed | Not started: the larger encoder is impractical after the DistilBERT CPU limitation. |
 
-No blank cell in this table represents a zero score. A candidate becomes `evaluated_research_only` only when its local run manifest and result bundle are complete.
+No blank cell in this table represents a zero score. A candidate becomes `evaluated_research_only` only when its local run manifest and result bundle are complete. The local `resource-limitation.json` retains the DistilBERT stop evidence; it is not an evaluation artifact.
 
 ## Evaluation and error analysis
 

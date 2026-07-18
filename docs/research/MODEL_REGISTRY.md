@@ -71,8 +71,8 @@ RDL-013 adds independent transformer registry entries without changing the curre
 | Model ID | Source | Registry status | Protected-test state | Disposition |
 | --- | --- | --- | --- | --- |
 | `MDL-TL-INDICBERT-v1.0.0-p42` | `ai4bharat/indic-bert` | `not_evaluated_access_limited` | None | Gated upstream repository rejected unauthenticated access before data use |
-| `MDL-TL-DISTILBERT-v1.0.0-p42` | `distilbert/distilbert-base-uncased` | `benchmark_in_progress` | None until validation selection finishes | Serial CPU evidence collection in progress |
-| `MDL-TL-BERT-BASE-v1.0.0-p42` | `google-bert/bert-base-uncased` | `queued_not_evaluated` | None | Awaiting the serial CPU resource slot |
-| `MDL-TL-ROBERTA-v1.0.0-p42` | `FacebookAI/roberta-base` | `queued_not_evaluated` | None | Awaiting the serial CPU resource slot |
+| `MDL-TL-DISTILBERT-v1.0.0-p42` | `distilbert/distilbert-base-uncased` | `not_evaluated_resource_limited` | None | Stopped after >86 CPU-minutes without checkpoint/results |
+| `MDL-TL-BERT-BASE-v1.0.0-p42` | `google-bert/bert-base-uncased` | `not_evaluated_resource_limited` | None | Not started after lower-cost CPU limitation |
+| `MDL-TL-ROBERTA-v1.0.0-p42` | `FacebookAI/roberta-base` | `not_evaluated_resource_limited` | None | Not started after lower-cost CPU limitation |
 
 See [TRANSFORMER_BENCHMARK.md](TRANSFORMER_BENCHMARK.md), [CLASSICAL_VS_TRANSFORMERS.md](CLASSICAL_VS_TRANSFORMERS.md), and [MODEL_SELECTION_UPDATE.md](MODEL_SELECTION_UPDATE.md) for protocol, result-state, and non-promotion limits.

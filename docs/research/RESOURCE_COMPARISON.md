@@ -20,12 +20,12 @@ The project’s OneDrive path caused a Windows filename-length error while PyTor
 | Candidate | Download/load state | Training state | Measured training / inference | Resource conclusion |
 | --- | --- | --- | --- | --- |
 | IndicBERT | Upstream gated access rejected | Not started | None | Access-limited, not a performance result |
-| DistilBERT | Public model load initiated | Serial CPU run active | Pending completed artifact | Chosen first because it is the lower-cost public encoder challenger |
-| BERT base | Not invoked | Queued | None | Must wait for CPU/memory slot |
-| RoBERTa base | Not invoked | Queued | None | Must wait for CPU/memory slot |
+| DistilBERT | Public model load initiated | Stopped before checkpoint | >86 CPU-minutes; no validation/test result | Lower-cost challenger still exceeded the practical CPU benchmark window |
+| BERT base | Not invoked | Not started | None | Larger encoder not attempted after lower-cost CPU limitation |
+| RoBERTa base | Not invoked | Not started | None | Larger encoder not attempted after lower-cost CPU limitation |
 | LinearSVC incumbent | Existing package | Not retrained | Existing service timing is not a comparable Phase 4.2 measurement | Retained as a low-resource internal baseline |
 
-The runner records elapsed training seconds, training examples/second, validation and test inference seconds, and inference examples/second once a candidate completes. It does not estimate missing timings or compare model parameter counts from unverified memory.
+The runner records elapsed training seconds, training examples/second, validation and test inference seconds, and inference examples/second once a candidate completes. No candidate completed on this host, so no estimate is substituted for those metrics. The observed `>86 CPU-minutes` is a lower bound at interruption, not a completed training time.
 
 ## Interpretation limits
 

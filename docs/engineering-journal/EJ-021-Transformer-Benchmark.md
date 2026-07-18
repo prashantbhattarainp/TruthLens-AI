@@ -16,7 +16,7 @@
 
 The available host reported 12 logical CPUs, 15.6 GiB RAM (4.2 GiB available at measurement), 271.6 GiB free disk, and no CUDA-visible GPU. The project path exceeded the Windows filename limit during a PyTorch installation, so the benchmark runtime was installed in a short temporary virtual environment. The repository retains the declared dependencies; each run manifest records the exact resolved runtime versions. This operational workaround does not alter versioned source, data, or model artifacts.
 
-`ai4bharat/indic-bert` is a gated upstream repository. Its attempted run correctly stopped before tokenization, training, validation, or protected-test access and wrote an ignored `not_evaluated` manifest. The remaining candidates are run serially on CPU to avoid memory contention; no result is reported until its complete artifact is present.
+`ai4bharat/indic-bert` is a gated upstream repository. Its attempted run correctly stopped before tokenization, training, validation, or protected-test access and wrote an ignored `not_evaluated` manifest. The lower-cost public DistilBERT run then exceeded 86 CPU-minutes without reaching a checkpoint or result artifact, so it was stopped before validation selection or protected-test access. BERT base and RoBERTa were not started because they are larger CPU candidates. The ignored DistilBERT resource-limitation record retains the measured stop boundary; no performance score is reported.
 
 ## Governance outcome
 
