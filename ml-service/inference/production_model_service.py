@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import sys
 import threading
 import time
 from dataclasses import dataclass
@@ -12,12 +11,6 @@ from pathlib import Path
 from typing import Any
 
 import joblib
-
-
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-ML_SOURCE_ROOT = PROJECT_ROOT / 'ml' / 'src'
-if str(ML_SOURCE_ROOT) not in sys.path:
-    sys.path.insert(0, str(ML_SOURCE_ROOT))
 
 from preprocessing import InputDocument, PreprocessingConfig, PreprocessingPipeline
 
