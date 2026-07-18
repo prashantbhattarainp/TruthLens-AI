@@ -1,25 +1,19 @@
 # Engineering Journal Index
 
-- [EJ-009 - Machine Learning Research Methodology](EJ-009-ML-Research-Methodology.md)
-- [EJ-010 - Dataset Landscape and Conditional Selection](EJ-010-Dataset-Landscape-and-Selection.md)
-- [EJ-011 - Dataset Acquisition and Validation](EJ-011-Dataset-Acquisition-and-Validation.md)
-- [EJ-012 - Exploratory Data Analysis and Dataset Assessment](EJ-012-Exploratory-Data-Analysis-and-Assessment.md)
-- [EJ-013 - Configurable Preprocessing Pipeline](EJ-013-Configurable-Preprocessing-Pipeline.md)
-- [EJ-014 - Feature Engineering Framework](EJ-014-Feature-Engineering-Framework.md)
-- [EJ-015 - Baseline Experiment Framework](EJ-015-Baseline-Experiment-Framework.md)
-- [EJ-016 - Dataset Finalization and Experiment Readiness](EJ-016-Dataset-Finalization-and-Experiment-Readiness.md)
-- [EJ-017 - Baseline Model Evaluation and Candidate Selection](EJ-017-Baseline-Model-Evaluation-and-Candidate-Selection.md)
-- [EJ-018 - Hyperparameter Optimization and Conditional Candidate](EJ-018-Hyperparameter-Optimization-and-Conditional-Candidate.md)
-- [EJ-019 - Internal Model Integration and Phase 3 Completion](EJ-019-Internal-Model-Integration-and-Phase3-Completion.md)
-- [EJ-020 - Explainable AI Framework](EJ-020-Explainable-AI-Framework.md)
-- [EJ-021 - Transformer Benchmark](EJ-021-Transformer-Benchmark.md)
-- [EJ-022 - Hybrid and Ensemble Learning](EJ-022-Hybrid-and-Ensemble-Learning.md)
-- [EJ-023 - Multilingual Evaluation](EJ-023-Multilingual-Evaluation.md)
-- [EJ-024 - Robustness, Reliability, and Fairness Evaluation](EJ-024-Robustness-Reliability-and-Fairness.md)
+The Engineering Journal records implementation work and verification at each tracked milestone.
 
-- [EJ-002 — Backend Foundation](EJ-002-Backend-Foundation.md)
-- [EJ-004 — Frontend Foundation](EJ-004-Frontend-Foundation.md)
-- [EJ-005 — Frontend Mock Prediction Workflow](EJ-005-Frontend-Mock-Prediction-Workflow.md)
-- [EJ-006 — Mock Prediction API](EJ-006-Mock-Prediction-API.md)
-- [EJ-007 — Frontend-to-Backend Prediction Integration](EJ-007-Frontend-Backend-Prediction-Integration.md)
-- [EJ-008 — ML Microservice Prediction Delegation](EJ-008-ML-Microservice-Prediction-Delegation.md)
+## Tracked milestone records
+
+| ID | Milestone |
+| --- | --- |
+| [EJ-019](EJ-019-Internal-Model-Integration-and-Phase3-Completion.md) | Internal model integration and Phase 3 completion |
+| [EJ-020](EJ-020-Explainable-AI-Framework.md) | Phase 4.1 explainable AI framework |
+| [EJ-021](EJ-021-Transformer-Benchmark.md) | Phase 4.2 transformer benchmark |
+| [EJ-022](EJ-022-Hybrid-and-Ensemble-Learning.md) | Phase 4.3 hybrid and ensemble learning |
+| [EJ-023](EJ-023-Multilingual-Evaluation.md) | Phase 4.4 multilingual evaluation |
+| [EJ-024](EJ-024-Robustness-Reliability-and-Fairness.md) | Phase 4.5 robustness, reliability, and fairness |
+| [EJ-025](EJ-025-Research-Finalization-and-Publication-Package.md) | Phase 4.6 research finalization and publication package |
+
+## Historical record availability
+
+Earlier engineering-journal entries referenced by prior indexes are not present in this checkout. This index intentionally links only tracked primary records and does not reconstruct unavailable historical implementation evidence.

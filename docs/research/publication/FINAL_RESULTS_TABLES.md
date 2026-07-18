@@ -1,6 +1,6 @@
 # Final Results Tables
 
-**Phase:** 4.6 research finalization  
+**Phase:** 4.6 research finalization
 **Evidence boundary:** frozen validation evidence unless stated otherwise. `—` means that no valid measurement exists; it is not a zero result.
 
 ## Evidence scope

@@ -1,6 +1,6 @@
 # Experiment Registry
 
-**Scope:** Phase 4.2 transformer and Phase 4.3 ensemble benchmark records. Historical Phase 3 experiment bundles remain in their immutable local artifact locations and are not reconstructed here.
+**Scope:** Phase 4.2-4.6 research records. Historical Phase 3 experiment bundles remain in their immutable local artifact locations and are not reconstructed here.
 
 | Experiment ID / candidate | Status | Frozen data evidence | Validation selection | Protected-test access | Artifact evidence |
 | --- | --- | --- | --- | --- | --- |
@@ -11,6 +11,7 @@
 | `P43-classical-ensemble-20260718T125724Z` | `evaluated_research_only_validation_only` | Hash/split verified; immutable Phase 3.9 components | Frozen validation only | None | Ignored run manifest, aggregate metrics, and stacking meta-model; no raw text/predictions |
 | `P44-multilingual-assessment-20260718T133030Z` | `completed_research_only_multilingual_compatibility_assessment` | Hash/split verified; English derivative scanned only for descriptive language appearance | Frozen validation descriptive slices only; no selection | None | Ignored aggregate manifest/results; 12-record synthetic language-processing fixture has no REAL/FAKE labels |
 | `P45-reliability-assessment-20260718T140601Z` | `completed_research_only_reliability_assessment` | Hash/split verified; integrity-checked packaged champion and frozen preprocessing | Frozen validation stress/slice diagnostics only; no selection | None | Ignored aggregate results/manifest plus tracked aggregate figure hashes; no raw text, identifiers, scores, or predictions |
+| `P46-research-finalization-20260718` | `completed_documentation_and_publication_consolidation` | References only the frozen Phase 3/4 identities and tracked aggregate artifacts | None; no model selection run | None | Tracked publication package, registry/card synchronization, and non-data QA script |
 
 Every completed record must retain dataset/derivative/split identity, dataset SHA-256, code revision, model identifier and resolved revision, fixed protocol, runtime package versions, hardware, timing, checkpoint file checksums, full-precision metrics, confusion matrix, cohort/error aggregates, and an explicit research-only limitation statement. The tracker must not store raw article text or use protected-test results as model-selection evidence.
 
@@ -19,3 +20,5 @@ The Phase 4.3 record evaluates hard voting, weighted voting, soft voting, and st
 The Phase 4.4 record neither trains nor compares a multilingual classifier. Its Devanagari-bearing and Hinglish-heuristic validation slices are not independently labelled language datasets, so their descriptive metrics cannot select a model or establish Hindi/Hinglish performance. The protected test remains untouched.
 
 The Phase 4.5 record runs pre-specified deterministic perturbations, non-fitted margin-proxy reliability diagnostics, descriptive slices, and inference-only ablations. It does not fit calibration, modify the champion, establish fairness/generalization claims, or access the protected test.
+
+The Phase 4.6 record is a documentation and consistency-review milestone. It does not execute a dataset/model experiment, create a metric, alter a registry candidate, or access any governed data. It consolidates the existing evidence and records that the final Phase 4 champion remains the internal, non-production LinearSVC.

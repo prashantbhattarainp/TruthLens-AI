@@ -8,6 +8,7 @@
 | Algorithm | TF-IDF unigram/bigram + LinearSVC |
 | Dataset | `TL-BFNK-EN-v1.0`, `DER-20260718-r2` |
 | Status | `integrated_not_deployment_approved` |
+| Production model | No (`production_model=false`) |
 | Validation Macro F1 / MCC | 0.5398 / 0.1014 |
 | Protected test after tuning | Not accessed |
 
@@ -40,3 +41,9 @@ Phase 4.4 adds a separate research preprocessing/audit layer, not multilingual m
 The integrity-checked champion was evaluated on frozen validation-only deterministic stressors. It is not robustly invariant: capitalization changes flip 29.0% of labels, neutral appended context flips 27.0%, and stop-word deletion flips 11.6%. The inference-only ablation diagnostics also show lower Macro F1 without frozen preprocessing (0.5127) or bigram influence (0.5024). These findings do not change the package or qualify as retrained-component effects.
 
 The LinearSVC remains uncalibrated. A non-fitted sigmoid-margin diagnostic produced ECE/Brier proxies of 0.0620/0.2395; they are neither probabilities nor confidence, and `confidence` remains unavailable. Source/topic/length/time/language-appearance slices are descriptive only; publisher-level generalization, demographic fairness, and Hindi/Hinglish performance are not established. The model remains unsuitable for automated factual verdicts, reliability/risk scoring, or deployment without new governed data, calibration, robustness, fairness, rights, monitoring, and human-review evidence. See [RELIABILITY_ASSESSMENT.md](RELIABILITY_ASSESSMENT.md) and [RDL-016](../../research/decision-log/RDL-016-Robustness-Reliability-and-Fairness-Boundary.md).
+
+## Phase 4.6 final selection and deployment guidance
+
+Phase 4 finalization retains this model as the **final internal research champion**, not as a production model. Hard/weighted voting reached Macro F1 0.5447 and soft voting 0.5443 on the same frozen validation set, but their gains are inside the 0.005 practical-tie tolerance and add false-positive, operational, and explanation trade-offs. Transformer candidates have no completed metrics; multilingual evidence remains compatibility-only. The retained LinearSVC is the most integrated and explainable documented option, not a validated best model for real-world fake-news detection.
+
+Use only for bounded internal research with human review and explicit uncertainty. Do not expose its margin as confidence, use it to make a factual verdict, prioritize people/content by risk, or describe it as Hindi/Hinglish-capable. Any deployment consideration requires a new governed data/model release, post-tuning evaluation plan, fitted calibration evidence, robustness and fairness remediation/evaluation, data-rights review, monitoring, incident response, and meaningful human-review controls. See the [publication package](publication/README.md).

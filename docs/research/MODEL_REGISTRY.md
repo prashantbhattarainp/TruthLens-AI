@@ -1,8 +1,8 @@
 # Model Registry
 
-**Scope:** Model-candidate and release-governance design
-**Status:** Empty by design — no trained or approved model exists
-**Related documents:** [Experiment registry](EXPERIMENT_REGISTRY.md), [Research methodology](RESEARCH_METHODOLOGY.md)
+**Scope:** Model-candidate and release-governance record
+**Status:** Records the integrated internal research champion and challengers; no model is approved for deployment.
+**Related documents:** [Experiment registry](EXPERIMENT_REGISTRY.md), [publication package](publication/README.md)
 
 ## Purpose
 
@@ -108,3 +108,7 @@ The English derivative supplied only 9 Devanagari-bearing and 2 conservative Hin
 `P45-reliability-assessment-20260718T140601Z` uses the integrity-checked package and frozen validation partition only. It does not create a new model entry or change the champion. Baseline Macro F1/MCC remain 0.5398/0.1014. Capitalization and neutral expansion stressors flip 29.0% and 27.0% of validation labels; preprocessing and bigram-weight inference ablations reduce Macro F1 to 0.5127 and 0.5024. These are research diagnostics, not a promotion trigger.
 
 The non-fitted sigmoid-margin ECE/Brier proxies (0.0620 / 0.2395) are not calibration evidence: `confidence` remains unavailable. Source, length, topic, temporal-appearance, and language-appearance slices are descriptive and do not establish fairness, unseen-publisher generalization, or multilingual ability. See [RELIABILITY_ASSESSMENT.md](RELIABILITY_ASSESSMENT.md), [CALIBRATION_ANALYSIS.md](CALIBRATION_ANALYSIS.md), and [BIAS_AND_FAIRNESS.md](BIAS_AND_FAIRNESS.md).
+
+## Phase 4.6 finalization
+
+The machine-readable registry advances to schema `1.4.0` with the documentation-only record `P46-research-finalization-20260718`. It retains `MDL-TL-LSVM-TFIDF-v1.1.0-rc.1` as champion, `production_model=false`, and `integrated_not_deployment_approved`. The final publication comparison does not promote an ensemble, transformer, or multilingual variant, and no new model version is created. See [FINAL_RESULTS_TABLES.md](publication/FINAL_RESULTS_TABLES.md).

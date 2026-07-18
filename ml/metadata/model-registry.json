@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
   "record_type": "model_registry",
-  "status": "phase_4_5_reliability_assessment_complete_validation_only",
+  "status": "phase_4_complete_publication_package_validation_only",
   "current_model": {
     "model_id": "MDL-TL-LSVM-TFIDF-v1.1.0-rc.1",
     "model_version": "TL-LSVM-TFIDF-v1.1.0-rc.1",
@@ -57,6 +57,22 @@
       "model_change": "none; no retraining, calibrator fit, threshold change, promotion, or service integration",
       "fairness_and_generalization": "descriptive source/topic/language/length/time-appearance slices only; no fairness or unseen-publisher claim"
     }
+  },
+  "phase_4_finalization": {
+    "experiment_id": "P46-research-finalization-20260718",
+    "status": "completed_documentation_and_publication_consolidation",
+    "scope": "documentation, comparison, figure indexing, reproducibility guidance, and consistency QA only",
+    "publication_package": "docs/research/publication",
+    "final_model_selection": {
+      "model_id": "MDL-TL-LSVM-TFIDF-v1.1.0-rc.1",
+      "selection_status": "final_internal_research_champion",
+      "production_model": false,
+      "deployment_status": "integrated_not_deployment_approved",
+      "rationale": "Evaluated ensemble Macro F1 gains are within the practical tie tolerance and add operational/explanation trade-offs; transformers have no completed artifact and multilingual evidence is compatibility-only."
+    },
+    "protected_test_access": "none",
+    "model_or_data_change": "none",
+    "architecture_change": "none"
   },
   "entries": [
     {

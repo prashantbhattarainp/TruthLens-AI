@@ -1,7 +1,7 @@
-# Data Card - TruthLens Transformer Benchmark Input
+# Data Card - TruthLens Frozen Research Derivative
 
-**Scope:** Phase 4.2 input record for the already frozen research derivative.  
-**Status:** No new dataset, collection, relabelling, split, or preprocessing derivative was created.
+**Scope:** Final Phase 4 record for the already frozen research derivative.
+**Status:** No new dataset, collection, relabelling, split, translation, or preprocessing derivative was created in Phase 4.
 
 ## Dataset identity
 
@@ -42,5 +42,9 @@ Phase 4.5 reuses the frozen validation partition only. The runner verifies the f
 Date analysis uses `publish_date_raw` descriptive buckets because normalized `publish_date` is absent. Fact-check source is not publisher identity. Topic, language, and length slices are non-training descriptive heuristics. No data source, label, derivative, split, translation, or model training change occurred.
 
 ## Limitations
+
+## Phase 4.6 finalization
+
+Phase 4.6 only consolidates the Phase 4 evidence into publication documentation. It does not read the derivative, alter a row, create a release, expose raw text, or change the controls above. The final package continues to describe this dataset as English BFNK-derived and treats the 9 Devanagari-bearing and 2 Hinglish-heuristic validation records as insufficient descriptive appearance slices, never as a multilingual benchmark. See [the reproducibility guide](publication/REPRODUCIBILITY_GUIDE.md) and [threats to validity](publication/THREATS_TO_VALIDITY.md).
 
 The source, language, temporal, template, duplicate, and label limitations recorded during Phase 3 still apply. A public transformer repository’s pretraining language coverage does not make the derivative multilingual, repair label noise, or remove source/template sensitivity. Any data-scope expansion requires a new dataset/model version and governed decision.
