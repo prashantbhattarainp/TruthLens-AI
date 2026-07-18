@@ -27,6 +27,6 @@
 - Calibration, robustness, fairness, and external validity require independently designed evidence, not retrospective proxies.
 - Maintaining immutable identifiers, explicit non-results, aggregate-only artifacts, and decision logs is essential for credible applied-ML research.
 
-## Remaining work for Phase 5
+## Phase 5 completion and remaining work
 
-Phase 5 must begin only after approval. Its candidate scope includes new governed data, multilingual/external evaluation, calibration and robustness remediation, fairness design, transformer compute/access, and any separate release/deployment decision. The full roadmap is in [the publication future-work plan](research/publication/FUTURE_WORK.md).
+Phase 5 is complete through the controlled `v1.0.0-RC1` integration/release-candidate milestone. It improves the frontend, existing API integration, dashboards, validation, documentation, and deployment readiness without changing Phase 4 research evidence or approving the model for deployment. Phase 6 requires approval and governed work on data, multilingual/external evaluation, calibration, robustness/fairness, transformer compute/access, human review, and any separate public-release decision. See the [Phase 5 summary](PHASE5_SUMMARY.md) and [publication future-work plan](research/publication/FUTURE_WORK.md).
