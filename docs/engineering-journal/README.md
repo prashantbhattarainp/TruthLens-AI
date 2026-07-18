@@ -13,6 +13,7 @@
 - [EJ-019 - Internal Model Integration and Phase 3 Completion](EJ-019-Internal-Model-Integration-and-Phase3-Completion.md)
 - [EJ-020 - Explainable AI Framework](EJ-020-Explainable-AI-Framework.md)
 - [EJ-021 - Transformer Benchmark](EJ-021-Transformer-Benchmark.md)
+- [EJ-022 - Hybrid and Ensemble Learning](EJ-022-Hybrid-and-Ensemble-Learning.md)
 
 - [EJ-002 — Backend Foundation](EJ-002-Backend-Foundation.md)
 - [EJ-004 — Frontend Foundation](EJ-004-Frontend-Foundation.md)
