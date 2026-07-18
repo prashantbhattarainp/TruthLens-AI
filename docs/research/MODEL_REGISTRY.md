@@ -102,3 +102,9 @@ No new model was trained, registered as a challenger, or integrated in Phase 4.4
 | Phase 4.3 ensembles | No language-specific inference evidence | English validation-only aggregate comparison | No Hindi/Hinglish assessment and no promotion |
 
 The English derivative supplied only 9 Devanagari-bearing and 2 conservative Hinglish-heuristic validation records. Any slice result is a descriptive input-compatibility diagnostic, not a language-wise evaluation. See [MULTILINGUAL_EVALUATION.md](MULTILINGUAL_EVALUATION.md) and [LANGUAGE_COMPARISON.md](LANGUAGE_COMPARISON.md).
+
+## Phase 4.5 reliability assessment
+
+`P45-reliability-assessment-20260718T140601Z` uses the integrity-checked package and frozen validation partition only. It does not create a new model entry or change the champion. Baseline Macro F1/MCC remain 0.5398/0.1014. Capitalization and neutral expansion stressors flip 29.0% and 27.0% of validation labels; preprocessing and bigram-weight inference ablations reduce Macro F1 to 0.5127 and 0.5024. These are research diagnostics, not a promotion trigger.
+
+The non-fitted sigmoid-margin ECE/Brier proxies (0.0620 / 0.2395) are not calibration evidence: `confidence` remains unavailable. Source, length, topic, temporal-appearance, and language-appearance slices are descriptive and do not establish fairness, unseen-publisher generalization, or multilingual ability. See [RELIABILITY_ASSESSMENT.md](RELIABILITY_ASSESSMENT.md), [CALIBRATION_ANALYSIS.md](CALIBRATION_ANALYSIS.md), and [BIAS_AND_FAIRNESS.md](BIAS_AND_FAIRNESS.md).

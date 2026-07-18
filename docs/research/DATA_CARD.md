@@ -35,6 +35,12 @@ Phase 4.4 does not create a Hindi or Hinglish dataset. The existing English deri
 
 `ml/fixtures/multilingual/phase-4-4-language-probe.json` is a manually authored 12-record language-processing fixture. It contains expected language labels only; it has no REAL/FAKE target, no translated derivative text, and no role in training, model scoring, or selection. Ignored Phase 4.4 artifacts retain aggregate counts/metrics and checksums only. No external multilingual source, synthetic fake-news translation/transliteration, label change, or split change occurred.
 
+## Phase 4.5 robustness/reliability handling
+
+Phase 4.5 reuses the frozen validation partition only. The runner verifies the full derivative SHA-256 and split cardinality, then applies the integrity-checked packaged candidate and frozen preprocessing to original and deterministic in-memory stress variants. It records aggregate metrics, group counts, and figure hashes only; raw text, document identifiers, per-record scores, and per-record predictions are excluded from tracked reports and figures. Training/test rows are counted only for split integrity and never retained, transformed, labelled for a model, or predicted.
+
+Date analysis uses `publish_date_raw` descriptive buckets because normalized `publish_date` is absent. Fact-check source is not publisher identity. Topic, language, and length slices are non-training descriptive heuristics. No data source, label, derivative, split, translation, or model training change occurred.
+
 ## Limitations
 
 The source, language, temporal, template, duplicate, and label limitations recorded during Phase 3 still apply. A public transformer repository’s pretraining language coverage does not make the derivative multilingual, repair label noise, or remove source/template sensitivity. Any data-scope expansion requires a new dataset/model version and governed decision.

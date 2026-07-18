@@ -62,6 +62,14 @@ This directory is the canonical home for the Phase 3/4 research package. It defi
 | [Language comparison](LANGUAGE_COMPARISON.md) | Compares tokenization and vocabulary-compatibility aggregates by detector-defined slice. | Complete; diagnostic only |
 | [Multilingual error analysis](MULTILINGUAL_ERROR_ANALYSIS.md) | Records aggregate language-appearance error diagnostics and limitations. | Complete; no language-wise rate claim |
 | [Multilingual research findings](MULTILINGUAL_RESEARCH_FINDINGS.md) | Synthesizes multilingual implications and next evidence gate. | Complete; no architecture or champion change |
+| [Robustness evaluation](ROBUSTNESS_EVALUATION.md) | Reports validation-only deterministic input stress diagnostics. | Complete; no model change or promotion |
+| [Calibration analysis](CALIBRATION_ANALYSIS.md) | Records non-fitted margin-proxy reliability diagnostics and calibration limits. | Complete; confidence remains unavailable |
+| [Bias and fairness](BIAS_AND_FAIRNESS.md) | Reports descriptive source/topic/language/length performance variation. | Complete; not a demographic fairness claim |
+| [Generalization study](GENERALIZATION_STUDY.md) | Records source and temporal-appearance evidence plus missing metadata limits. | Complete; no external/unseen-publisher estimate |
+| [Error analysis report](ERROR_ANALYSIS_REPORT.md) | Records aggregate Phase 4.5 error themes and limitations. | Complete; keyword cohorts only |
+| [Ablation study](ABLATION_STUDY.md) | Records inference-only preprocessing and bigram diagnostics. | Complete; no refitting |
+| [Model limitations](MODEL_LIMITATIONS.md) | Consolidates current model scope and evidence limitations. | Complete |
+| [Reliability assessment](RELIABILITY_ASSESSMENT.md) | Summarizes robustness, stability, calibration, and deployment implications. | Complete; deployment remains prohibited |
 | [Explainable AI framework](EXPLAINABLE_AI.md) | Defines reusable local SHAP/LIME explanations and global research analysis. | Complete for the existing LinearSVC champion |
 | [Explanation methodology](EXPLANATION_METHODOLOGY.md) | Freezes XAI data access, reference, configuration, and reproducibility controls. | Complete; training-only aggregation |
 | [XAI evaluation report](XAI_EVALUATION_REPORT.md) | Records technical validation and bounded research artifacts. | Complete; no validation/protected-test access |

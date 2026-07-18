@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.2.0",
+  "schema_version": "1.3.0",
   "record_type": "model_registry",
-  "status": "phase_4_4_multilingual_compatibility_assessment_complete",
+  "status": "phase_4_5_reliability_assessment_complete_validation_only",
   "current_model": {
     "model_id": "MDL-TL-LSVM-TFIDF-v1.1.0-rc.1",
     "model_version": "TL-LSVM-TFIDF-v1.1.0-rc.1",
@@ -33,6 +33,29 @@
       "protected_test_access": "none",
       "model_change": "none; no retraining, calibration, threshold change, promotion, or service integration",
       "transformer_status": "IndicBERT remains not_evaluated_access_limited"
+    },
+    "reliability_assessment": {
+      "experiment_id": "P45-reliability-assessment-20260718T140601Z",
+      "status": "completed_research_only_validation_only",
+      "baseline_validation_metrics": {
+        "macro_f1": 0.5397794548,
+        "mcc": 0.1014417439,
+        "fake_recall": 0.3182608696
+      },
+      "robustness_highlights": {
+        "capitalization_prediction_flip_rate": 0.2895277207,
+        "neutral_expansion_prediction_flip_rate": 0.2703627652,
+        "stop_word_variation_prediction_flip_rate": 0.1156741958
+      },
+      "calibration": {
+        "status": "diagnostic_margin_proxy_not_fitted_calibration",
+        "expected_calibration_error_proxy": 0.0619980734,
+        "brier_score_proxy": 0.2394942817,
+        "confidence_status": "unavailable"
+      },
+      "protected_test_access": "none",
+      "model_change": "none; no retraining, calibrator fit, threshold change, promotion, or service integration",
+      "fairness_and_generalization": "descriptive source/topic/language/length/time-appearance slices only; no fairness or unseen-publisher claim"
     }
   },
   "entries": [
@@ -209,5 +232,5 @@
       "notes": "Rejected despite higher accuracy because it correctly identifies only 10 of 575 FAKE validation records."
     }
   ],
-  "policy": "No registry entry is approved for deployment. The current champion is packaged for internal service integration only. Phase 4.1 explanations describe an uncalibrated margin, not confidence or factual truth; global XAI uses the frozen train partition only. Phase 3.8 test evidence must not be reused after Phase 3.9 tuning; r1 artifacts are invalidated and are not registry candidates. Phase 4.2 transformer entries are research-only challengers: their test evidence, if produced, is non-selection evidence and cannot automatically replace the incumbent. Phase 4.3 ensembles use validation-only evidence and cannot automatically replace the incumbent; blending and classical-transformer hybrids were excluded because frozen-protocol prerequisites are absent. Phase 4.4 records multilingual input compatibility only; no Hindi/Hinglish slice can establish multilingual performance, promotion, or deployment suitability."
+  "policy": "No registry entry is approved for deployment. The current champion is packaged for internal service integration only. Phase 4.1 explanations describe an uncalibrated margin, not confidence or factual truth; global XAI uses the frozen train partition only. Phase 3.8 test evidence must not be reused after Phase 3.9 tuning; r1 artifacts are invalidated and are not registry candidates. Phase 4.2 transformer entries are research-only challengers: their test evidence, if produced, is non-selection evidence and cannot automatically replace the incumbent. Phase 4.3 ensembles use validation-only evidence and cannot automatically replace the incumbent; blending and classical-transformer hybrids were excluded because frozen-protocol prerequisites are absent. Phase 4.4 records multilingual input compatibility only; no Hindi/Hinglish slice can establish multilingual performance, promotion, or deployment suitability. Phase 4.5 robustness/reliability diagnostics are validation-only; non-fitted margin proxies are not confidence/calibration evidence, and descriptive slices cannot establish fairness, external generalization, promotion, or deployment suitability."
 }

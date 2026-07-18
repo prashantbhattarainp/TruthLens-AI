@@ -12,4 +12,4 @@
 
 ## Verification and outcome
 
-The audit completed from code revision `d2a4f96` with hash/split verification and `protected_test_access: none`. Its major finding is reliability limitation, not promotion: capitalization and neutral appended context flip 29.0% and 27.0% of validation predictions respectively. The margin diagnostic does not create confidence evidence. The full ML-service regression suite is rerun before branch handoff.
+The audit completed from code revision `d2a4f96` with hash/split verification and `protected_test_access: none`. Its major finding is reliability limitation, not promotion: capitalization and neutral appended context flip 29.0% and 27.0% of validation predictions respectively. The margin diagnostic does not create confidence evidence. All 19 ML-service unit tests, targeted compilation, registry JSON validation, and all eight Phase 4.5 figure-hash checks passed before handoff.
