@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "record_type": "model_registry",
-  "status": "phase_3_complete_internal_candidate_integrated",
+  "status": "phase_4_1_xai_complete_internal_candidate_integrated",
   "current_model": {
     "model_id": "MDL-TL-LSVM-TFIDF-v1.1.0-rc.1",
     "model_version": "TL-LSVM-TFIDF-v1.1.0-rc.1",
@@ -9,7 +9,18 @@
     "production_model": false,
     "deployment_status": "integrated_not_deployment_approved",
     "package_location": "ml-service/artifacts/candidate/TL-LSVM-TFIDF-v1.1.0-rc.1",
-    "package_manifest_sha256": "20b6efe11714f263d90fe892640ac6d9dce1da90c2d9c364a23a3bf624850a9e"
+    "package_manifest_sha256": "20b6efe11714f263d90fe892640ac6d9dce1da90c2d9c364a23a3bf624850a9e",
+    "explainability": {
+      "status": "integrated_research_only",
+      "methods": [
+        "SHAP LinearExplainer with zero TF-IDF reference",
+        "LIME text margin surrogate"
+      ],
+      "artifact_manifest": "docs/research/XAI_ARTIFACT_MANIFEST.json",
+      "global_reference_partition": "train_only",
+      "validation_and_protected_test_access": "none",
+      "confidence_status": "unavailable"
+    }
   },
   "entries": [
     {
@@ -69,5 +80,5 @@
       "model_sha256": "ce71b623325bc6c3f358ce39631ec54142040c5c00f1d98f2b59d5a47d5a391f"
     }
   ],
-  "policy": "No registry entry is approved for deployment. The current champion is packaged for internal service integration only. Phase 3.8 test evidence must not be reused after Phase 3.9 tuning; r1 artifacts are invalidated and are not registry candidates."
+  "policy": "No registry entry is approved for deployment. The current champion is packaged for internal service integration only. Phase 4.1 explanations describe an uncalibrated margin, not confidence or factual truth; global XAI uses the frozen train partition only. Phase 3.8 test evidence must not be reused after Phase 3.9 tuning; r1 artifacts are invalidated and are not registry candidates."
 }

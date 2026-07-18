@@ -86,6 +86,32 @@ All successful responses use the established API envelope.
 
 The Linear SVM candidate returns `confidence: null`, `confidence_status: "unavailable"`, an uncalibrated `decision_score`, and `risk_level: "not_assessed"`. A decision score is not a probability or factual-confidence value. See the updated [production API reference](../production/API_REFERENCE.md) for the current schema and model endpoints.
 
+## Explainability metadata
+
+Phase 4.1 adds an optional `explainability` object without changing the request contract or established prediction fields. On a normal successful response it contains bounded top features plus:
+
+```json
+{
+  "metadata": {
+    "status": "available",
+    "prediction_confidence_status": "unavailable",
+    "decision_score_interpretation": "uncalibrated_linear_svm_margin",
+    "preprocessing_reused": true,
+    "feature_engineering_reused": true
+  },
+  "shap": {
+    "method": "linear_shap",
+    "baseline": "zero_tfidf_reference"
+  },
+  "lime": {
+    "method": "lime_text_margin_surrogate",
+    "target": "fake_margin"
+  }
+}
+```
+
+Positive contributions increase the Fake-class margin; negative contributions increase the Real-class margin. They describe model behaviour only and are not factual evidence, causal explanations, or calibrated confidence. If an internal explanation dependency fails, prediction remains available and metadata reports `status: "unavailable"` without exposing request text.
+
 ## Validation error response
 
 Validation failures use the standard error envelope and return HTTP `400`.

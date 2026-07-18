@@ -38,3 +38,9 @@ The shared prediction schema now represents the Linear SVM honestly:
 ```
 
 `decision_score` is an uncalibrated classifier margin, not a probability. The frontend renders “Not calibrated” rather than a percentage. Full field definitions are in the [shared response schema](../../shared/contracts/prediction-response.schema.json).
+
+## Phase 4.1 explanation extension
+
+Successful Python and Node prediction payloads now include an optional `explainability` object. It contains bounded feature contributions, `linear_shap` metadata, and a deterministic `lime_text_margin_surrogate` result. The extension is additive: headline/article input, prediction, confidence fields, decision score, risk-level value, Node envelope, and request ID behaviour are unchanged.
+
+`explainability.metadata.status` is `available` or `unavailable`. Neither status creates a probability: `prediction_confidence_status` is always `unavailable`. Feature scores explain the signed LinearSVC margin only.

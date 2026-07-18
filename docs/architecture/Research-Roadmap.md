@@ -1,7 +1,7 @@
 # TruthLens AI Research and Implementation Roadmap
 
 **Updated:** 2026-07-18  
-**Current position:** Phase 3 complete at the internal-integration boundary; approval is required before Phase 4. Public deployment remains blocked by RDL-011.
+**Current position:** Phase 4.1 Explainable AI is complete at the internal-integration boundary. Public deployment remains blocked by RDL-011 and RDL-012.
 
 ## Completed phases
 
@@ -25,7 +25,7 @@
 
 | Milestone                                     | Planned outcome                                                                                              | Prerequisite                          |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
-| 4.1 - Explainability and research reporting | Bounded feature explanations, stability checks, reports, figures, model cards, and paper-ready result package. | Phase 3 approval and a new governed protocol where needed |
+| 4.1 - Explainability and research reporting | Bounded SHAP/LIME explanations, train-only global feature analysis, figures, Model Card, and reproducibility records. | Complete; RDL-012 preserves non-deployment gates |
 
 ## Later platform phases
 

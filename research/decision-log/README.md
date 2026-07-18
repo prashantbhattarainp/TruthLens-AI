@@ -13,3 +13,4 @@ Research Decision Log (RDL) entries capture methodological and research-governan
 - [RDL-009 - Baseline Model Evaluation and Candidate Selection](RDL-009-Baseline-Model-Evaluation-and-Candidate-Selection.md)
 - [RDL-010 - Hyperparameter Optimization and Conditional Champion Selection](RDL-010-Hyperparameter-Optimization-and-Conditional-Champion-Selection.md)
 - [RDL-011 - Internal Candidate Integration and Deployment Boundary](RDL-011-Internal-Candidate-Integration-and-Deployment-Boundary.md)
+- [RDL-012 - Explainability Evidence and Restricted Interpretation](RDL-012-Explainability-Evidence-and-Restricted-Interpretation.md)

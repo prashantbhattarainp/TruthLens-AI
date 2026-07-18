@@ -4,7 +4,7 @@ TruthLens AI is a research-oriented platform for explainable fake news detection
 
 ## Project status
 
-Phase 3 is complete at the **internal model-integration** boundary. `TL-LSVM-TFIDF-v1.1.0-rc.1` is packaged behind the Python service with integrity checks, readiness, lineage metadata, and privacy-safe logging. It remains **untested after tuning**, `integrated_not_deployment_approved`, and unsuitable as a fact checker or factual-verdict system. The Phase 3.8 protected test was not reused. See the [final selection report](docs/research/FINAL_MODEL_SELECTION_REPORT.md), [integration guide](docs/production/SERVICE_INTEGRATION.md), and [Phase 3 summary](docs/PHASE3_SUMMARY.md).
+Phase 4.1 is complete. `TL-LSVM-TFIDF-v1.1.0-rc.1` remains packaged behind the Python service with integrity checks, readiness, lineage metadata, privacy-safe logging, and bounded SHAP/LIME explanations. It remains **untested after tuning**, `integrated_not_deployment_approved`, and unsuitable as a fact checker or factual-verdict system. The Phase 3.8 protected test was not reused. See the [XAI framework](docs/research/EXPLAINABLE_AI.md), [integration guide](docs/production/SERVICE_INTEGRATION.md), and [Phase 3 summary](docs/PHASE3_SUMMARY.md).
 
 ## Current architecture
 
@@ -13,12 +13,12 @@ Frontend (HTML / CSS / JavaScript)
         ↓ public API
 Node.js Backend (Express: validation, API envelope, timeout/retry)
         ↓ private API
-Python ML Microservice (FastAPI: readiness, metadata, integrity-checked inference)
+Python ML Microservice (FastAPI: readiness, metadata, integrity-checked inference + XAI)
         ↓
 Versioned internal candidate package (preprocessing + TF-IDF + Linear SVM)
 ```
 
-The browser never calls the ML service directly. The current model response exposes an uncalibrated `decision_score`; `confidence` is intentionally unavailable and `risk_level` is not assessed.
+The browser never calls the ML service directly. The current model response exposes an uncalibrated `decision_score`; `confidence` is intentionally unavailable and `risk_level` is not assessed. Successful predictions include optional explanation metadata for the same model margin; it is not a factual explanation or confidence score.
 
 ## Model information
 
@@ -66,4 +66,4 @@ Setup instructions will be added in a later milestone.
 
 The implementation roadmap is maintained in the [research and implementation roadmap](docs/architecture/Research-Roadmap.md).
 
-Phase 4 may begin only after approval. Public deployment remains blocked pending a new governed release process, post-tuning evaluation plan, calibration, robustness/fairness evidence, rights review, monitoring, and human-review controls.
+Phase 4.1 is complete. Public deployment remains blocked pending a new governed release process, post-tuning evaluation plan, calibration, robustness/fairness evidence, rights review, monitoring, and human-review controls.

@@ -59,3 +59,7 @@ The current deterministic mock response identifies itself as a mock contract fix
 | `MDL-TL-LR-TFIDF-v1.1.0-rc.1` | Challenger | `OPT-20260718-logistic-regression-15115d5c12` | OOF Macro F1 0.5394; FAKE recall 0.4365 | Retain for recall/fairness investigation |
 
 The tracked registry is [`ml/metadata/model-registry.json`](../../ml/metadata/model-registry.json). `MDL-TL-LSVM-TFIDF-v1.1.0-rc.1` is now the current **internal integration** package, with deployment status `integrated_not_deployment_approved` and a package-manifest checksum. It remains `production_model=false`: all tuned candidates are untested after tuning, have weak absolute performance, and remain subject to known source/template sensitivity. The r1 artifacts are invalidated and are not model candidates.
+
+## Phase 4.1 explainability evidence
+
+The current-model record now links the Phase 4.1 SHAP/LIME methods, train-only global-reference policy, unavailable confidence state, and [XAI artifact manifest](XAI_ARTIFACT_MANIFEST.json). This is model-behaviour evidence only: it does not alter the classifier, validation results, deployment status, or protected-test restriction. See the [Model Card](MODEL_CARD.md) and [XAI limitations](XAI_LIMITATIONS.md).

@@ -46,6 +46,10 @@ This directory is the canonical home for the Phase 3 research package. It define
 | [Feature importance analysis](FEATURE_IMPORTANCE_ANALYSIS.md) | Documents aggregate linear-coefficient diagnostics and use limits. | Complete |
 | [Experiment registry](EXPERIMENT_REGISTRY.md) | Reserves the comparable-experiment register and required fields. | Three r2 baseline entries recorded |
 | [Model registry](MODEL_REGISTRY.md) | Defines model-release metadata and lifecycle requirements. | Phase 3.9 conditional champion and challengers recorded; no deployment approval |
+| [Model Card](MODEL_CARD.md) | Documents intended research use, performance context, explainability, and responsible-AI limits. | Added in Phase 4.1; deployment remains prohibited |
+| [Explainable AI framework](EXPLAINABLE_AI.md) | Defines reusable local SHAP/LIME explanations and global research analysis. | Complete for the existing LinearSVC champion |
+| [Explanation methodology](EXPLANATION_METHODOLOGY.md) | Freezes XAI data access, reference, configuration, and reproducibility controls. | Complete; training-only aggregation |
+| [XAI evaluation report](XAI_EVALUATION_REPORT.md) | Records technical validation and bounded research artifacts. | Complete; no validation/protected-test access |
 | [Hyperparameter optimization report](HYPERPARAMETER_OPTIMIZATION_REPORT.md) | Records bounded grouped-CV searches, results, uncertainty, and tuning limits. | Complete; protected test not reused |
 | [Final model selection report](FINAL_MODEL_SELECTION_REPORT.md) | Documents the conditional champion, challengers, and selection evidence. | Complete; untested after tuning |
 | [Model versioning](MODEL_VERSIONING.md) | Defines model identifier, immutability, and release controls. | Effective for Phase 3.9 candidates |
