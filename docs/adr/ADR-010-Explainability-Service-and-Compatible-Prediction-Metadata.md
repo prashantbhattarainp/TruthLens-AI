@@ -1,6 +1,6 @@
 # ADR-010 - Explainability Service and Compatible Prediction Metadata
 
-**Status:** Accepted  
+**Status:** Accepted
 **Date:** 2026-07-18
 
 ## Context

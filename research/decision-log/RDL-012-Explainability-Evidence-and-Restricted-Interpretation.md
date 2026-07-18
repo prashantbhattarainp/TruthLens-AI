@@ -1,7 +1,7 @@
 # RDL-012 - Explainability Evidence and Restricted Interpretation
 
-**Date:** 2026-07-18  
-**Status:** Accepted  
+**Date:** 2026-07-18
+**Status:** Accepted
 **Phase:** 4.1
 
 ## Decision

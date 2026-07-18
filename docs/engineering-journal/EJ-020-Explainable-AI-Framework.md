@@ -1,6 +1,6 @@
 # EJ-020 - Explainable AI Framework
 
-**Date:** 2026-07-18  
+**Date:** 2026-07-18
 **Milestone:** Phase 4.1
 
 ## Completed work
