@@ -17,3 +17,7 @@ Research Decision Log (RDL) entries record methodological and research-governanc
 ## Historical record availability
 
 Earlier index entries RDL-001 through RDL-010 are referenced by later records, but their primary Markdown files are not present in this checkout. Phase 4.6 does not recreate or infer those unavailable records. The tracked Phase 3/4 registry, card, report, and decision files are the source of truth for the publication package.
+
+## Phase 5.5 release-candidate review
+
+Phase 5.5 performs controlled integration verification and documentation only. It creates no dataset/model/research decision, metric, release approval, or deployment authorization; therefore no new RDL entry is required. RDL-011 through RDL-017 remain the governing research boundary.

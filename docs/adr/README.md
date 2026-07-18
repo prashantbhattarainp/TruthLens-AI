@@ -23,3 +23,7 @@ The prediction dashboard consumes the existing public prediction envelope and op
 ## Phase 5.3 review
 
 The analytics dashboard adds a static evidence presentation layer and user-triggered reads of existing public health/model endpoints. It adds no persistence, polling, backend route, database integration, model/data change, or new monitoring/deployment semantics. ADR-007, ADR-009, and ADR-010 remain sufficient; no Phase 5.3 ADR is required.
+
+## Phase 5.5 review
+
+The release-candidate milestone adds verification, documentation, original SVG diagrams, and local RC evidence only. It does not alter the browser -> Node.js -> Python boundary, public/private endpoints, model package, persistence, or deployment decision. ADR-007, ADR-009, and ADR-010 remain sufficient; no Phase 5.5 ADR is required.

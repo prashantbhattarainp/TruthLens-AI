@@ -22,3 +22,7 @@ The Phase 4.4 record neither trains nor compares a multilingual classifier. Its 
 The Phase 4.5 record runs pre-specified deterministic perturbations, non-fitted margin-proxy reliability diagnostics, descriptive slices, and inference-only ablations. It does not fit calibration, modify the champion, establish fairness/generalization claims, or access the protected test.
 
 The Phase 4.6 record is a documentation and consistency-review milestone. It does not execute a dataset/model experiment, create a metric, alter a registry candidate, or access any governed data. It consolidates the existing evidence and records that the final Phase 4 champion remains the internal, non-production LinearSVC.
+
+## Phase 5.5 release-candidate boundary
+
+Phase 5.5 validates the existing local integration path with one synthetic, non-sensitive API request and does not create an experiment record. It performs no training, tuning, evaluation against governed data, protected-test access, model selection, metric generation, or registry change. The release-candidate verifier and QA report are engineering evidence, not research experiment evidence.

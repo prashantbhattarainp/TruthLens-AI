@@ -112,3 +112,7 @@ The non-fitted sigmoid-margin ECE/Brier proxies (0.0620 / 0.2395) are not calibr
 ## Phase 4.6 finalization
 
 The machine-readable registry advances to schema `1.4.0` with the documentation-only record `P46-research-finalization-20260718`. It retains `MDL-TL-LSVM-TFIDF-v1.1.0-rc.1` as champion, `production_model=false`, and `integrated_not_deployment_approved`. The final publication comparison does not promote an ensemble, transformer, or multilingual variant, and no new model version is created. See [FINAL_RESULTS_TABLES.md](publication/FINAL_RESULTS_TABLES.md).
+
+## Phase 5.5 release-candidate verification
+
+The controlled `v1.0.0-RC1` verifier checks the existing Node/ML integration using synthetic input only. It does not register a release model, change `MDL-TL-LSVM-TFIDF-v1.1.0-rc.1`, alter metrics, create calibration evidence, or satisfy any deployment approval gate. The candidate remains `production_model=false` and `integrated_not_deployment_approved`.

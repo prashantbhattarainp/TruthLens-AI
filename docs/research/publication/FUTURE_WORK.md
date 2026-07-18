@@ -1,6 +1,6 @@
 # Future Work
 
-This roadmap records remaining research and release gates. It does not start Phase 5.
+This roadmap records remaining research and release gates after Phase 5's controlled `v1.0.0-RC1` completion. It does not authorize or start Phase 6.
 
 ## Highest-priority evidence gaps
 
