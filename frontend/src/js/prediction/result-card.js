@@ -4,6 +4,7 @@ function getResultElements(resultCard) {
     confidenceProgress: resultCard.querySelector('[data-confidence-progress]'),
     confidenceProgressFill: resultCard.querySelector('[data-confidence-progress-fill]'),
     datasetVersion: resultCard.querySelector('[data-dataset-version]'),
+    decisionScore: resultCard.querySelector('[data-decision-score]'),
     error: resultCard.querySelector('[data-result-error]'),
     errorMessage: resultCard.querySelector('[data-result-error-message]'),
     errorTitle: resultCard.querySelector('[data-result-error-title]'),
@@ -24,6 +25,7 @@ function getResultElements(resultCard) {
     resultPrediction: resultCard.querySelector('[data-result-prediction]'),
     resultRisk: resultCard.querySelector('[data-result-risk]'),
     resultStatus: resultCard.querySelector('[data-result-status]'),
+    resultStatusDot: resultCard.querySelector('[data-result-status-dot]'),
     resultTime: resultCard.querySelector('[data-result-time]'),
   };
 }
@@ -79,6 +81,15 @@ function formatTimestamp(timestamp) {
   }).format(date);
 }
 
+function formatDecisionScore(score) {
+  return Number.isFinite(score) ? score.toFixed(3) : 'Unavailable';
+}
+
+function setResultStatus(elements, message, state = 'pending') {
+  elements.resultStatus.textContent = message;
+  elements.resultStatusDot?.classList.toggle('status-dot--success', state === 'success');
+}
+
 function hideAllResultStates(elements) {
   elements.error.hidden = true;
   elements.initial.hidden = true;
@@ -94,6 +105,7 @@ export function showInitialResult(resultCard) {
   resultCard.setAttribute('aria-busy', 'false');
   resultCard.setAttribute('aria-labelledby', 'result-title');
   resultCard.removeAttribute('aria-label');
+  setResultStatus(elements, 'Waiting for input');
 }
 
 export function showLoadingState(resultCard, loadingState) {
@@ -106,6 +118,7 @@ export function showLoadingState(resultCard, loadingState) {
   resultCard.setAttribute('aria-busy', 'true');
   resultCard.setAttribute('aria-label', loadingState.title);
   resultCard.removeAttribute('aria-labelledby');
+  setResultStatus(elements, 'Request in progress');
 }
 
 export function showPredictionResult(resultCard, response) {
@@ -120,6 +133,7 @@ export function showPredictionResult(resultCard, response) {
   elements.resultPrediction.textContent = data.prediction;
   elements.resultConfidence.textContent = confidencePercent === null ? 'Not calibrated' : `${confidencePercent}%`;
   elements.resultRisk.textContent = formatRiskLevel(data.risk_level);
+  elements.decisionScore.textContent = formatDecisionScore(data.decision_score);
   elements.resultTime.textContent = `${data.processing_time_ms} ms`;
   elements.confidenceLabel.textContent = confidenceLabel;
   elements.confidenceProgress.setAttribute('aria-valuenow', String(confidencePercent ?? 0));
@@ -127,18 +141,19 @@ export function showPredictionResult(resultCard, response) {
     'aria-valuetext',
     confidencePercent === null ? 'Not calibrated; decision score is not a probability.' : `${confidencePercent}% - ${confidenceLabel}`,
   );
+  elements.confidenceProgress.dataset.status = 'unavailable';
   elements.confidenceProgressFill.style.setProperty(
     '--confidence-progress',
     `${confidencePercent ?? 0}%`,
   );
-  elements.resultStatus.textContent = 'Response received from backend';
-  elements.explanationSummary.textContent = data.explanation.summary;
+  setResultStatus(elements, 'Response received from backend', 'success');
+  elements.explanationSummary.textContent = data.explanation?.summary ?? 'Explanation metadata was unavailable.';
   elements.modelName.textContent = data.model;
   elements.modelVersion.textContent = data.model_version;
   elements.datasetVersion.textContent = data.dataset_version;
   elements.responseTimestamp.textContent = formatTimestamp(response.timestamp);
   elements.requestId.textContent = response.requestId ?? 'Not provided';
-  renderList(elements.explanationList, data.explanation.reasons, 'explanation-list__item');
+  renderList(elements.explanationList, data.explanation?.reasons ?? [], 'explanation-list__item');
   renderList(elements.keywordList, data.keywords, 'keyword-list__item', 'span');
   resultCard.setAttribute('aria-busy', 'false');
   resultCard.setAttribute('aria-labelledby', 'result-title-complete');
@@ -156,5 +171,6 @@ export function showErrorState(resultCard, { message, title }) {
   resultCard.setAttribute('aria-busy', 'false');
   resultCard.setAttribute('aria-labelledby', 'result-error-title');
   resultCard.removeAttribute('aria-label');
+  setResultStatus(elements, 'Prediction unavailable');
   resultCard.focus();
 }

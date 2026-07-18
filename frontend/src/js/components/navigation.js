@@ -1,12 +1,9 @@
-const navigationItems = [
-  { id: 'home', label: 'Home', href: 'index.html' },
-  { id: 'detection', label: 'Detection', href: 'detection.html' },
-  { id: 'research', label: 'Research', href: 'research.html' },
-  { id: 'about', label: 'About', href: 'about.html' },
-  { id: 'contact', label: 'Contact', href: 'contact.html' },
-];
+import { icon } from './icon.js';
+import { getRouteHref, routes } from '../routing/routes.js';
 
-export function renderNavigation(activePage) {
+const navigationItems = ['home', 'predict', 'dashboard', 'models', 'research', 'about'];
+
+export function renderNavigation(activeRouteId) {
   const navigationContainer = document.querySelector('[data-component="navigation"]');
 
   if (!navigationContainer) {
@@ -14,17 +11,21 @@ export function renderNavigation(activePage) {
   }
 
   const navigationLinks = navigationItems
-    .map(({ id, label, href }) => {
-      const currentPageAttribute = id === activePage ? ' aria-current="page"' : '';
+    .map((routeId) => {
+      const route = routes[routeId];
+      const currentPageAttribute = route.id === activeRouteId ? ' aria-current="page"' : '';
 
-      return `<li><a class="site-nav__link" href="${href}"${currentPageAttribute}>${label}</a></li>`;
+      return `<li><a class="site-nav__link" href="${getRouteHref(route.id)}"${currentPageAttribute}>${route.label}</a></li>`;
     })
     .join('');
 
   navigationContainer.innerHTML = `
     <header class="site-header">
       <div class="container site-header__inner">
-        <a class="site-brand" href="index.html" aria-label="TruthLens AI home">TruthLens AI</a>
+        <a class="site-brand" href="${getRouteHref('home')}" aria-label="TruthLens AI home">
+          <span class="brand-mark">${icon('spark')}</span>
+          <span>TruthLens AI</span>
+        </a>
         <nav class="site-nav" aria-label="Primary navigation">
           <button
             class="site-nav__toggle"
@@ -32,7 +33,8 @@ export function renderNavigation(activePage) {
             aria-expanded="false"
             aria-controls="primary-navigation"
           >
-            Menu
+            ${icon('menu')}
+            <span>Menu</span>
           </button>
           <ul class="site-nav__list" id="primary-navigation" data-expanded="false">
             ${navigationLinks}
@@ -45,11 +47,24 @@ export function renderNavigation(activePage) {
   const navigationToggle = navigationContainer.querySelector('.site-nav__toggle');
   const navigationList = navigationContainer.querySelector('.site-nav__list');
 
-  navigationToggle?.addEventListener('click', () => {
-    const isExpanded = navigationToggle.getAttribute('aria-expanded') === 'true';
-    const nextExpandedValue = String(!isExpanded);
+  const setExpanded = (expanded) => {
+    navigationToggle?.setAttribute('aria-expanded', String(expanded));
+    navigationList?.setAttribute('data-expanded', String(expanded));
+    document.body.dataset.menuOpen = String(expanded);
+  };
 
-    navigationToggle.setAttribute('aria-expanded', nextExpandedValue);
-    navigationList?.setAttribute('data-expanded', nextExpandedValue);
+  navigationToggle?.addEventListener('click', () => {
+    setExpanded(navigationToggle.getAttribute('aria-expanded') !== 'true');
+  });
+  navigationList?.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
+      setExpanded(false);
+    }
+  });
+  navigationContainer.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setExpanded(false);
+      navigationToggle?.focus();
+    }
   });
 }

@@ -1,3 +1,5 @@
+import { getRouteHref } from '../routing/routes.js';
+
 export function renderFooter() {
   const footerContainer = document.querySelector('[data-component="footer"]');
 
@@ -10,17 +12,16 @@ export function renderFooter() {
       <div class="container site-footer__inner">
         <div>
           <div class="site-footer__brand">TruthLens AI</div>
-          <p class="site-footer__text">
-            Research-oriented, explainable fake news detection for Indian digital media.
-          </p>
+          <p class="site-footer__copy">Research-oriented, explainable classification for Indian digital-media research.</p>
         </div>
         <div>
           <nav class="site-footer__links" aria-label="Footer navigation">
-            <a href="research.html">Research</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="${getRouteHref('predict')}">Predict</a>
+            <a href="${getRouteHref('research')}">Research</a>
+            <a href="${getRouteHref('models')}">Models</a>
+            <a href="${getRouteHref('about')}">About</a>
           </nav>
-          <p class="site-footer__meta">Platform foundation · Phase 2</p>
+          <p class="site-footer__meta">UI foundation · Phase 5.1 · Research use only</p>
         </div>
       </div>
     </footer>

@@ -1,13 +1,17 @@
 # Frontend Component Contracts
 
-The static frontend uses small, focused components to keep the initial vanilla JavaScript implementation extensible.
+TruthLens uses small vanilla-JavaScript renderers plus a CSS component layer. Page modules compose the components; they do not fetch data directly or embed repeated navigation/footer markup.
 
-- `js/components/navigation.js` renders the primary navigation and its accessible mobile-menu control.
-- `js/components/footer.js` renders the shared footer.
-- Reusable visual component patterns are defined by CSS classes: `hero`, `feature-card`, `section-heading`, `architecture-flow`, and `cta-panel`.
-- `js/modules/detection-interface.js` is a focused controller for the backend prediction request lifecycle.
-- `js/api/api.js` is the only frontend fetch boundary. `js/api/prediction-api.js` exposes the prediction-specific request function.
-- `js/prediction/validation.js`, `character-counter.js`, `ui.js`, `loading.js`, `result-card.js`, and `state.js` separate validation, local UI behaviour, loading, response rendering, and request state.
-- `public/config.js` supplies the runtime API base URL and timeout without placing those values in UI components.
+| Component | Location | Contract |
+| --- | --- | --- |
+| Navigation | `js/components/navigation.js` | Renders hash-route navigation, active state, mobile disclosure, and Escape-to-close behaviour. |
+| Footer | `js/components/footer.js` | Renders shared research-use footer links. |
+| Breadcrumbs | `js/components/breadcrumbs.js` | Adds semantic route context to non-home views. |
+| Icon | `js/components/icon.js` | Supplies consistent inline SVG icons without an icon dependency. |
+| Modal | `js/components/modal.js` | Creates an accessible native-dialog shell with backdrop and close controls. |
+| Toast | `js/components/toast.js` | Adds short non-blocking messages to the polite live region. |
+| Prediction interface | `js/modules/detection-interface.js` | Coordinates validation, API state, loading, error, reset, and result rendering. |
 
-All pages load `js/app.js`, which composes these components according to the page identifier in the document body.
+The reusable visual primitives live in `css/components.css`: buttons, cards, badges, alerts, form fields, tables, empty states, loading panels, dialogs, toasts, and footer/navigation. Prediction-specific visual patterns are in `css/pages.css`.
+
+No component may treat `decision_score` as confidence or display a calibrated-confidence badge. The public API boundary remains `js/api/api.js`; `js/api/prediction-api.js` is the prediction-specific adapter.
