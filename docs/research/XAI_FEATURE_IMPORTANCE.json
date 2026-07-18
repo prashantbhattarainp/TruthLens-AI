@@ -1,0 +1,251 @@
+{
+  "artifact_type": "phase_4_1_global_feature_importance",
+  "model_version": "TL-LSVM-TFIDF-v1.1.0-rc.1",
+  "dataset_version": "TL-BFNK-EN-v1.0",
+  "dataset_partition": "train_only",
+  "reference_document_count": 512,
+  "coefficient_top_features": [
+    {
+      "feature": "Societymedia with",
+      "contribution": 1.3815444785113815,
+      "direction": "supports_fake_margin",
+      "rank": 1
+    },
+    {
+      "feature": "online",
+      "contribution": 1.3207583611177032,
+      "direction": "supports_fake_margin",
+      "rank": 2
+    },
+    {
+      "feature": "Societymedia ,",
+      "contribution": 1.2187669942874182,
+      "direction": "supports_fake_margin",
+      "rank": 3
+    },
+    {
+      "feature": "Of A",
+      "contribution": 1.1817317041310054,
+      "direction": "supports_fake_margin",
+      "rank": 4
+    },
+    {
+      "feature": "hospital",
+      "contribution": 1.1473030530303483,
+      "direction": "supports_fake_margin",
+      "rank": 5
+    },
+    {
+      "feature": "Pulwama",
+      "contribution": 1.1412829463165088,
+      "direction": "supports_fake_margin",
+      "rank": 6
+    },
+    {
+      "feature": "not the",
+      "contribution": -1.1201884211883226,
+      "direction": "supports_real_margin",
+      "rank": 7
+    },
+    {
+      "feature": "Societymedia",
+      "contribution": 1.0736960762687795,
+      "direction": "supports_fake_margin",
+      "rank": 8
+    },
+    {
+      "feature": "Getting",
+      "contribution": -1.0660052399062128,
+      "direction": "supports_real_margin",
+      "rank": 9
+    },
+    {
+      "feature": "media post",
+      "contribution": 1.0647596461757607,
+      "direction": "supports_fake_margin",
+      "rank": 10
+    },
+    {
+      "feature": "on Societymedia",
+      "contribution": 1.0600701723248545,
+      "direction": "supports_fake_margin",
+      "rank": 11
+    },
+    {
+      "feature": "where",
+      "contribution": 1.051688127669796,
+      "direction": "supports_fake_margin",
+      "rank": 12
+    },
+    {
+      "feature": "photo is",
+      "contribution": -1.028539142248157,
+      "direction": "supports_real_margin",
+      "rank": 13
+    },
+    {
+      "feature": "Cyclone",
+      "contribution": -0.9862261825584776,
+      "direction": "supports_real_margin",
+      "rank": 14
+    },
+    {
+      "feature": "sites .",
+      "contribution": -0.9207894739929942,
+      "direction": "supports_real_margin",
+      "rank": 15
+    },
+    {
+      "feature": "This",
+      "contribution": -0.9088409985503132,
+      "direction": "supports_real_margin",
+      "rank": 16
+    },
+    {
+      "feature": "media with",
+      "contribution": -0.8935905223655378,
+      "direction": "supports_real_margin",
+      "rank": 17
+    },
+    {
+      "feature": "videos",
+      "contribution": -0.8847415586471119,
+      "direction": "supports_real_margin",
+      "rank": 18
+    },
+    {
+      "feature": "India BOOM",
+      "contribution": -0.8799226832844609,
+      "direction": "supports_real_margin",
+      "rank": 19
+    },
+    {
+      "feature": "Indians",
+      "contribution": -0.8789563136123446,
+      "direction": "supports_real_margin",
+      "rank": 20
+    }
+  ],
+  "mean_absolute_shap_top_features": [
+    {
+      "feature": "that",
+      "contribution": 0.01693315771952575,
+      "direction": "supports_fake_margin",
+      "rank": 1
+    },
+    {
+      "feature": "Fact",
+      "contribution": 0.015229911244700155,
+      "direction": "supports_fake_margin",
+      "rank": 2
+    },
+    {
+      "feature": "Check",
+      "contribution": 0.014256447292164992,
+      "direction": "supports_fake_margin",
+      "rank": 3
+    },
+    {
+      "feature": "a",
+      "contribution": -0.0138748002127976,
+      "direction": "supports_real_margin",
+      "rank": 4
+    },
+    {
+      "feature": "being",
+      "contribution": -0.012266048411870544,
+      "direction": "supports_real_margin",
+      "rank": 5
+    },
+    {
+      "feature": "media post",
+      "contribution": 0.0108964020170342,
+      "direction": "supports_fake_margin",
+      "rank": 6
+    },
+    {
+      "feature": "Society media",
+      "contribution": 0.010628415853405043,
+      "direction": "supports_fake_margin",
+      "rank": 7
+    },
+    {
+      "feature": "media",
+      "contribution": 0.010506596027661325,
+      "direction": "supports_fake_margin",
+      "rank": 8
+    },
+    {
+      "feature": "A Society",
+      "contribution": 0.009817880644729906,
+      "direction": "supports_fake_margin",
+      "rank": 9
+    },
+    {
+      "feature": "The",
+      "contribution": 0.009537078226666376,
+      "direction": "supports_fake_margin",
+      "rank": 10
+    },
+    {
+      "feature": "Fact Check",
+      "contribution": -0.009418252446289464,
+      "direction": "supports_real_margin",
+      "rank": 11
+    },
+    {
+      "feature": "on Society",
+      "contribution": -0.008692527142713033,
+      "direction": "supports_real_margin",
+      "rank": 12
+    },
+    {
+      "feature": "to",
+      "contribution": 0.00851276716681194,
+      "direction": "supports_fake_margin",
+      "rank": 13
+    },
+    {
+      "feature": "A",
+      "contribution": -0.008395319636458105,
+      "direction": "supports_real_margin",
+      "rank": 14
+    },
+    {
+      "feature": "shared",
+      "contribution": 0.00838974567159299,
+      "direction": "supports_fake_margin",
+      "rank": 15
+    },
+    {
+      "feature": "media with",
+      "contribution": -0.007581615858187575,
+      "direction": "supports_real_margin",
+      "rank": 16
+    },
+    {
+      "feature": "of",
+      "contribution": -0.0067793554513422205,
+      "direction": "supports_real_margin",
+      "rank": 17
+    },
+    {
+      "feature": "is being",
+      "contribution": -0.0063271028390024416,
+      "direction": "supports_real_margin",
+      "rank": 18
+    },
+    {
+      "feature": "This",
+      "contribution": -0.006245651733482685,
+      "direction": "supports_real_margin",
+      "rank": 19
+    },
+    {
+      "feature": "being widely",
+      "contribution": -0.005143224233742905,
+      "direction": "supports_real_margin",
+      "rank": 20
+    }
+  ]
+}

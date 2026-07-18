@@ -1,0 +1,29 @@
+{
+  "artifact_type": "phase_4_1_xai_report",
+  "model_version": "TL-LSVM-TFIDF-v1.1.0-rc.1",
+  "dataset_version": "TL-BFNK-EN-v1.0",
+  "dataset_partition": "train_only",
+  "reference_document_count": 512,
+  "reference_selection": "first deterministic class-balanced records in frozen train partition",
+  "protected_test_access": "none",
+  "validation_partition_access": "none",
+  "shap_method": "LinearExplainer with zero TF-IDF reference",
+  "lime_method": "LimeTextExplainer over the uncalibrated Fake-class margin",
+  "lime_sample_count": 1000,
+  "lime_random_seed": 42,
+  "synthetic_local_example_only": true,
+  "figures": [
+    "lime-local-example.png",
+    "shap-feature-importance.png",
+    "shap-global-summary.png",
+    "shap-local-waterfall-example.png",
+    "top-feature-rankings.png"
+  ],
+  "global_feature_report": "XAI_FEATURE_IMPORTANCE.json",
+  "source_derivative_sha256": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
+  "limitations": [
+    "Feature contributions explain the model margin, not factual truth or calibrated confidence.",
+    "The candidate remains integrated_not_deployment_approved and untested after tuning.",
+    "No raw document text, document identifiers, or protected-test content is emitted in the report."
+  ]
+}
