@@ -1,0 +1,22 @@
+{
+  "experiment_framework_version": "1.0.0",
+  "model": "logistic_regression",
+  "model_version": "1.0.0",
+  "hyperparameters": {
+    "C": 1.0,
+    "max_iter": 1000,
+    "solver": "liblinear",
+    "class_weight": null
+  },
+  "cross_validation": {
+    "strategy": "stratified_group_kfold",
+    "n_splits": 5,
+    "shuffle": true
+  },
+  "random_seed": 42,
+  "metrics": {
+    "primary_metric": "macro_f1",
+    "positive_label": 1,
+    "zero_division": 0
+  }
+}

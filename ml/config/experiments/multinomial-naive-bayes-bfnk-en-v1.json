@@ -1,0 +1,20 @@
+{
+  "experiment_framework_version": "1.0.0",
+  "model": "multinomial_naive_bayes",
+  "model_version": "1.0.0",
+  "hyperparameters": {
+    "alpha": 1.0,
+    "fit_prior": true
+  },
+  "cross_validation": {
+    "strategy": "stratified_group_kfold",
+    "n_splits": 5,
+    "shuffle": true
+  },
+  "random_seed": 42,
+  "metrics": {
+    "primary_metric": "macro_f1",
+    "positive_label": 1,
+    "zero_division": 0
+  }
+}
