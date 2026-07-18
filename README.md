@@ -1,6 +1,6 @@
 # TruthLens AI
 
-TruthLens AI is a research-oriented platform for transparent fake-news classification research in Indian digital-media contexts. **Phase 4 is complete and Phase 5.2 is complete.** The repository now includes the Phase 4.6 publication package, a professional accessible frontend foundation, and a bounded prediction/explainability dashboard.
+TruthLens AI is a research-oriented platform for transparent fake-news classification research in Indian digital-media contexts. **Phase 4 is complete and Phase 5.3 is complete.** The repository now includes the Phase 4.6 publication package, a professional accessible frontend foundation, a bounded prediction/explainability workflow, and an industrial analytics/research dashboard.
 
 ## Research status
 
@@ -34,7 +34,7 @@ The browser never calls the ML service directly. The response exposes an uncalib
 
 ## Frontend foundation
 
-Phase 5.1 adds a dependency-free single-page application shell under `frontend/`. Phase 5.2 completes the core `/predict` experience: validated headline/article input, loading/reset/error states, response trace metadata, explicit unavailable confidence, and optional bounded SHAP/LIME contribution panels. It reuses the existing public API client and does not change backend or ML behaviour.
+Phase 5.1 adds a dependency-free single-page application shell under `frontend/`. Phase 5.2 completes the core `/predict` experience: validated headline/article input, loading/reset/error states, response trace metadata, explicit unavailable confidence, and optional bounded SHAP/LIME contribution panels. Phase 5.3 makes `#/dashboard` an industrial analytics and research workspace with frozen evidence charts and on-demand public service checks. It does not change backend or ML behaviour.
 
 - [Frontend documentation](docs/frontend/README.md)
 - [UI guidelines](docs/frontend/UI_GUIDELINES.md)
@@ -45,8 +45,20 @@ Phase 5.1 adds a dependency-free single-page application shell under `frontend/`
 - [Prediction dashboard](docs/frontend/PREDICTION_PAGE.md)
 - [Frontend API integration](docs/frontend/API_INTEGRATION.md)
 - [Explainability UI guide](docs/frontend/XAI_UI_GUIDE.md)
+- [Analytics dashboard](docs/frontend/ANALYTICS_DASHBOARD.md)
+- [Chart guidelines](docs/frontend/CHART_GUIDELINES.md)
+- [Analytics UI component reference](docs/frontend/UI_COMPONENT_REFERENCE.md)
+- [Visual asset inventory](docs/frontend/VISUAL_ASSET_INVENTORY.md)
 
 The UI intentionally shows **Confidence unavailable** rather than a percentage, labels the decision score as an uncalibrated margin, treats missing XAI as unavailable, and does not make a Hindi/Hinglish, fact-checking, or production-readiness claim. URL analysis remains a disabled placeholder because it is not supported by the current API contract.
+
+## Analytics dashboard
+
+The `#/dashboard` route presents a portfolio-ready research and operational overview: project/model trace, frozen validation comparisons, dataset composition, train-only aggregate SHAP terms, research-insight cards, a no-retention recent-predictions state, and a user-triggered status check for the existing public backend/ML/model endpoints. The prediction distribution is visibly marked illustrative because the project does not retain prediction history; database monitoring is visibly marked not instrumented.
+
+![Analytics dashboard illustration placeholder](frontend/assets/images/analytics-research-flow.svg)
+
+The illustration is a local placeholder for a future approved dashboard screenshot. It is not a product screenshot or a source of research evidence. See the [visual asset inventory](docs/frontend/VISUAL_ASSET_INVENTORY.md) for provenance and licence information.
 
 ## Phase 4 milestones
 
@@ -65,6 +77,7 @@ The UI intentionally shows **Confidence unavailable** rather than a percentage, 
 | --- | --- |
 | 5.1 | Professional UI/UX foundation: design system, reusable components, responsive app shell, prepared routes, and frontend documentation |
 | 5.2 | Prediction and explainability dashboard: validated existing-API workflow, status/error handling, governed model trace, and bounded XAI visualization |
+| 5.3 | Industrial analytics and research dashboard: evidence-aware charts, on-demand public status checks, reusable analytics components, and local SVG assets |
 
 ## Publication and research documentation
 
@@ -92,4 +105,4 @@ See the [reproducibility guide](docs/research/publication/REPRODUCIBILITY_GUIDE.
 
 ## Roadmap
 
-Phase 4 is closed and Phase 5.2 is the approved prediction-dashboard increment. Future multilingual/external data, transformer compute, calibrated release evidence, robustness/fairness remediation, and deployment review remain separate governed research work. Phase 5.3 requires approval before it begins. See [future work](docs/research/publication/FUTURE_WORK.md).
+Phase 4 is closed and Phase 5.3 is the approved analytics-dashboard increment. Future multilingual/external data, transformer compute, calibrated release evidence, robustness/fairness remediation, and deployment review remain separate governed research work. Phase 5.4 requires approval before it begins. See [future work](docs/research/publication/FUTURE_WORK.md).

@@ -11,6 +11,9 @@
 | Confidence badge | Result card | Displays unavailable calibration distinctly from a percentage |
 | Result card | `/predict` | Live result state, focus on result/error, governed prediction/model trace |
 | Explainability dashboard | Result card | Textual and colour-coded bounded feature directions; unavailable states stay explicit |
+| Analytics dashboard | `/dashboard` | Evidence-aware research and operational overview; does not imply live analytics |
+| Status pill and monitoring item | Analytics dashboard | Textual healthy/unavailable/not-instrumented status, updated only on user refresh |
+| Evidence chart | Analytics dashboard | Accessible frozen/illustrative chart with explicit data-class label |
 | Modal | Future actions | Native `<dialog>`, labelled title, backdrop close |
 | Toast | Future acknowledgements | Polite live-region update |
 | Empty state | Planned routes | Explains scope rather than presenting a broken screen |
@@ -28,3 +31,5 @@ The result card is deliberately a presentation layer for the public Node envelop
 5. Document any API field that becomes visible in the UI, especially its interpretation boundary.
 
 The initial library intentionally avoids a third-party component framework. Phase 5.1 prioritizes a small, auditable surface that can evolve without disrupting the current API architecture.
+
+Phase 5.3 retains that approach: the analytics dashboard uses local SVG/CSS charts and a small public-status client rather than a charting or monitoring dependency. See [Analytics UI Component Reference](UI_COMPONENT_REFERENCE.md).
