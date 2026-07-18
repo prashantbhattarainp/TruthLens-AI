@@ -1,4 +1,4 @@
-"""Publication-oriented figure helpers that expose only aggregate feature terms and scores."""
+"""Feature-contribution visualization helpers for local operational use."""
 
 from __future__ import annotations
 
@@ -50,7 +50,7 @@ def save_absolute_importance_plot(
     figure, axis = plt.subplots(figsize=(9, max(4, len(ordered) * 0.38 + 1.6)), constrained_layout=True)
     axis.barh(labels, values, color='#5d8f62')
     axis.set_title(title, fontweight='bold')
-    axis.set_xlabel('Mean absolute SHAP value (LinearSVC margin units)')
+    axis.set_xlabel('Mean absolute feature contribution')
     axis.grid(axis='x', alpha=0.2)
     figure.savefig(path, dpi=300, bbox_inches='tight')
     plt.close(figure)
@@ -64,7 +64,7 @@ def save_waterfall_plot(
     contributions: list[FeatureContribution],
 ) -> None:
     ordered = sorted(contributions, key=lambda item: abs(item.contribution), reverse=True)
-    labels = ['Base margin', *[item.feature for item in ordered]]
+    labels = ['Base classification signal', *[item.feature for item in ordered]]
     values = [base_value, *[item.contribution for item in ordered]]
     running = 0.0
     starts: list[float] = []
@@ -79,7 +79,7 @@ def save_waterfall_plot(
     axis.bar(range(len(values)), heights, bottom=starts, color=colors)
     axis.axhline(0, color='#3f3f3f', linewidth=0.8)
     axis.set_xticks(range(len(labels)), labels, rotation=38, ha='right')
-    axis.set_ylabel('LinearSVC Fake-class margin')
+    axis.set_ylabel('Classification signal')
     axis.set_title(title, fontweight='bold')
     axis.grid(axis='y', alpha=0.2)
     figure.savefig(path, dpi=300, bbox_inches='tight')

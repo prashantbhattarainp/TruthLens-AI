@@ -1,4 +1,4 @@
-"""Focused safeguards for Phase 3.10 package loading and configuration."""
+"""Focused safeguards for runtime package loading and configuration."""
 
 from __future__ import annotations
 

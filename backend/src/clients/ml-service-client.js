@@ -43,28 +43,6 @@ class MlServiceClient {
     });
   }
 
-  async getReady({ requestId } = {}) {
-    return this.request({
-      method: 'GET',
-      path: 'ready',
-      requestId,
-      timeoutMs: this.startupTimeoutMs,
-    });
-  }
-
-  async getMetadata({ requestId } = {}) {
-    return this.request({
-      method: 'GET',
-      path: 'metadata',
-      requestId,
-      timeoutMs: this.startupTimeoutMs,
-    });
-  }
-
-  async getVersion({ requestId } = {}) {
-    return this.request({ method: 'GET', path: 'version', requestId });
-  }
-
   async request({ body, method, path, requestId, timeoutMs = this.timeoutMs }) {
     if (!this.baseUrl) {
       logger.warn(

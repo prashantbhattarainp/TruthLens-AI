@@ -161,7 +161,7 @@ class ProductionModelService:
             if not path.is_file() or _sha256(path) != expected_hash:
                 raise ModelPackageError('MODEL_INTEGRITY_CHECK_FAILED', f'Model package integrity check failed for {filename}.')
         metadata = _read_json(self.package_directory / 'model-metadata.json')
-        required_metadata = {'model_version', 'dataset_version', 'feature_engineering_version', 'preprocessing_version', 'experiment_id', 'deployment_status'}
+        required_metadata = {'model_version', 'dataset_version', 'feature_engineering_version', 'preprocessing_version', 'deployment_status'}
         if not required_metadata <= set(metadata):
             raise ModelPackageError('MODEL_METADATA_INVALID', 'Model metadata is incomplete.')
         pipeline = joblib.load(self.package_directory / 'model-pipeline.joblib')

@@ -418,7 +418,7 @@
   text-align: right;
 }
 
-.research-callout {
+.guidance-callout {
   border-left: 3px solid var(--color-accent);
   background: var(--color-accent-soft);
   padding: var(--space-3);

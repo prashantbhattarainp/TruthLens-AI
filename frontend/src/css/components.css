@@ -215,12 +215,6 @@
   letter-spacing: 0.015em;
 }
 
-.badge--research {
-  border-color: #bddcdb;
-  background: var(--color-brand-soft);
-  color: var(--color-brand-strong);
-}
-
 .badge--success {
   border-color: #b6e3d1;
   background: var(--color-success-soft);

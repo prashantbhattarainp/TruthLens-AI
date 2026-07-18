@@ -12,6 +12,6 @@ test('renders an announced skeleton and a recoverable unknown-route page', async
   assert.match(root.innerHTML, /page-skeleton/);
 
   await renderPage(root, routes.notFound);
-  assert.match(root.innerHTML, /This research workspace does not exist/);
+  assert.match(root.innerHTML, /That page is not available/);
   assert.match(root.innerHTML, /Return home/);
 });

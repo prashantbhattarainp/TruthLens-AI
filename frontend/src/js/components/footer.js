@@ -12,16 +12,16 @@ export function renderFooter() {
       <div class="container site-footer__inner">
         <div>
           <div class="site-footer__brand">TruthLens AI</div>
-          <p class="site-footer__copy">Research-oriented, explainable classification for Indian digital-media research.</p>
+          <p class="site-footer__copy">AI-assisted content analysis with transparent, review-oriented results.</p>
         </div>
         <div>
           <nav class="site-footer__links" aria-label="Footer navigation">
             <a href="${getRouteHref('predict')}">Predict</a>
-            <a href="${getRouteHref('research')}">Research</a>
-            <a href="${getRouteHref('models')}">Models</a>
+            <a href="${getRouteHref('dashboard')}">Dashboard</a>
             <a href="${getRouteHref('about')}">About</a>
+            <a href="${getRouteHref('contact')}">Contact</a>
           </nav>
-          <p class="site-footer__meta">Analytics dashboard - Phase 5.3 - Research use only</p>
+          <p class="site-footer__meta">TruthLens AI &middot; v1.0.0</p>
         </div>
       </div>
     </footer>

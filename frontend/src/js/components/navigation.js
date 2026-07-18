@@ -1,7 +1,7 @@
 import { icon } from './icon.js';
 import { getRouteHref, routes } from '../routing/routes.js';
 
-const navigationItems = ['home', 'predict', 'dashboard', 'models', 'research', 'about'];
+const navigationItems = ['home', 'predict', 'dashboard', 'about', 'contact', 'settings'];
 
 export function renderNavigation(activeRouteId) {
   const navigationContainer = document.querySelector('[data-component="navigation"]');
@@ -27,19 +27,11 @@ export function renderNavigation(activeRouteId) {
           <span>TruthLens AI</span>
         </a>
         <nav class="site-nav" aria-label="Primary navigation">
-          <button
-            class="site-nav__toggle"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-            aria-controls="primary-navigation"
-          >
+          <button class="site-nav__toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
             ${icon('menu')}
             <span>Menu</span>
           </button>
-          <ul class="site-nav__list" id="primary-navigation" data-expanded="false">
-            ${navigationLinks}
-          </ul>
+          <ul class="site-nav__list" id="primary-navigation" data-expanded="false">${navigationLinks}</ul>
         </nav>
       </div>
     </header>
@@ -55,9 +47,7 @@ export function renderNavigation(activeRouteId) {
     document.body.dataset.menuOpen = String(expanded);
   };
 
-  navigationToggle?.addEventListener('click', () => {
-    setExpanded(navigationToggle.getAttribute('aria-expanded') !== 'true');
-  });
+  navigationToggle?.addEventListener('click', () => setExpanded(navigationToggle.getAttribute('aria-expanded') !== 'true'));
   navigationList?.addEventListener('click', (event) => {
     if (event.target.closest('a')) {
       setExpanded(false);

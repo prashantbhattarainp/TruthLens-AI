@@ -6,7 +6,6 @@ from fastapi.responses import JSONResponse
 
 from api.dependencies import get_production_model_service
 from api.health import router as health_router
-from api.model import router as model_router
 from api.prediction import router as prediction_router
 from config import get_settings
 from logging_config import configure_logging, get_logger
@@ -40,7 +39,6 @@ app = FastAPI(
     lifespan=lifespan,
 )
 app.include_router(health_router)
-app.include_router(model_router)
 app.include_router(prediction_router)
 
 

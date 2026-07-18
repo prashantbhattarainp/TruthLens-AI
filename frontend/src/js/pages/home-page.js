@@ -2,35 +2,14 @@ import { icon } from '../components/icon.js';
 import { getRouteHref } from '../routing/routes.js';
 
 const featureCards = [
-  {
-    iconName: 'shield',
-    title: 'Bounded research signal',
-    copy: 'A transparent classification workflow with documented scope, limitations, and human-review expectations.',
-  },
-  {
-    iconName: 'spark',
-    tone: 'accent',
-    title: 'Inspectable output',
-    copy: 'Prediction responses can include bounded SHAP and LIME features that describe the model margin.',
-  },
-  {
-    iconName: 'layers',
-    tone: 'success',
-    title: 'Governed evidence',
-    copy: 'Model lineage, evaluation limits, multilingual boundaries, and reliability findings are recorded together.',
-  },
+  { iconName: 'shield', title: 'Privacy-aware input', copy: 'Submit only the content you want assessed. The interface does not provide a prediction history or user profiles.' },
+  { iconName: 'spark', tone: 'accent', title: 'Explainable results', copy: 'See the words and phrases that most influenced an automated classification outcome.' },
+  { iconName: 'layers', tone: 'success', title: 'Human review first', copy: 'Use the result as one signal alongside trusted reporting, primary sources, and your own judgement.' },
 ];
 
 function featureCard({ copy, iconName, title, tone = '' }) {
   const toneClass = tone ? ` card__icon--${tone}` : '';
-
-  return `
-    <article class="card">
-      <div class="card__icon${toneClass}">${icon(iconName)}</div>
-      <h3 class="card__title">${title}</h3>
-      <p class="card__copy">${copy}</p>
-    </article>
-  `;
+  return `<article class="card"><div class="card__icon${toneClass}">${icon(iconName)}</div><h3 class="card__title">${title}</h3><p class="card__copy">${copy}</p></article>`;
 }
 
 export function renderHomePage() {
@@ -38,31 +17,31 @@ export function renderHomePage() {
     <section class="hero">
       <div class="container hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow">Research workspace</p>
-          <h1>See the signal. Keep the uncertainty.</h1>
-          <p class="hero__lede">TruthLens AI is an explainable fake-news classification research platform for investigating text patterns in Indian digital-media contexts.</p>
+          <p class="eyebrow">AI-assisted content analysis</p>
+          <h1>Check the signal. Verify the story.</h1>
+          <p class="hero__lede">TruthLens AI helps you review news-style text with an automated fake-news classification signal and clear explanatory context.</p>
           <div class="button-group">
-            <a class="button button--primary" href="${getRouteHref('predict')}">Start a research prediction ${icon('arrowRight')}</a>
-            <a class="button button--secondary" href="${getRouteHref('research')}">Explore research evidence</a>
+            <a class="button button--primary" href="${getRouteHref('predict')}">Analyze content ${icon('arrowRight')}</a>
+            <a class="button button--secondary" href="${getRouteHref('about')}">How TruthLens helps</a>
           </div>
-          <p class="hero__fine-print">The current model is an internal research candidate. It is not a fact checker, a confidence score, or a production-approved decision system.</p>
+          <p class="hero__fine-print">TruthLens provides automated guidance, not a factual verdict. Independently verify important claims before sharing or acting on them.</p>
         </div>
-        <aside class="hero-panel" aria-label="Current research model status">
+        <aside class="hero-panel" aria-label="TruthLens product overview">
           <div class="hero-panel__header">
             <div>
-              <p class="eyebrow">Current model</p>
-              <h2 class="hero-panel__title">LinearSVC research champion</h2>
-              <p class="hero-panel__description">TF-IDF unigram/bigram · English-derived evidence</p>
+              <p class="eyebrow">Product workflow</p>
+              <h2 class="hero-panel__title">Clear input. Clear next step.</h2>
+              <p class="hero-panel__description">Content review, transparent signals, and service health in one focused interface.</p>
             </div>
-            <span class="badge badge--research">Research only</span>
+            <span class="badge badge--success">Ready to review</span>
           </div>
           <div class="hero-metrics">
-            <div class="hero-metric"><span>Validation Macro F1</span><strong>0.5398</strong></div>
-            <div class="hero-metric"><span>Validation MCC</span><strong>0.1014</strong></div>
-            <div class="hero-metric"><span>Confidence</span><strong>Unavailable</strong></div>
-            <div class="hero-metric"><span>Deployment</span><strong>Not approved</strong></div>
+            <div class="hero-metric"><span>Step 1</span><strong>Submit text</strong></div>
+            <div class="hero-metric"><span>Step 2</span><strong>Review signal</strong></div>
+            <div class="hero-metric"><span>Step 3</span><strong>Inspect factors</strong></div>
+            <div class="hero-metric"><span>Step 4</span><strong>Verify sources</strong></div>
           </div>
-          <p class="hero-panel__note">Phase 4 found sensitivity to capitalization and appended context. Read the result as a bounded research signal, with human review.</p>
+          <p class="hero-panel__note">For consequential decisions, consult credible sources and qualified professionals. Do not rely on a single automated result.</p>
         </aside>
       </div>
     </section>
@@ -70,13 +49,11 @@ export function renderHomePage() {
     <section class="page-section page-section--surface">
       <div class="container">
         <div class="section-heading">
-          <p class="section-heading__eyebrow">Platform foundation</p>
-          <h2>Designed for evidence-aware research</h2>
-          <p class="section-heading__copy">A focused interface makes the model’s output, explanation boundary, and research safeguards visible without overstating what the system knows.</p>
+          <p class="section-heading__eyebrow">Built for thoughtful review</p>
+          <h2>One product flow, with context.</h2>
+          <p class="section-heading__copy">A focused interface makes an automated outcome and its contributing signals easier to understand without overstating what the system knows.</p>
         </div>
-        <div class="grid grid--three">
-          ${featureCards.map(featureCard).join('')}
-        </div>
+        <div class="grid grid--three">${featureCards.map(featureCard).join('')}</div>
       </div>
     </section>
 
@@ -84,32 +61,23 @@ export function renderHomePage() {
       <div class="container">
         <div class="section-heading">
           <p class="section-heading__eyebrow">Architecture</p>
-          <h2>A deliberate three-layer trust boundary</h2>
-          <p class="section-heading__copy">The browser only talks to the validated public API. The backend and ML service retain the existing integrity, lineage, and explainability controls.</p>
+          <h2>A simple, dependable service boundary</h2>
+          <p class="section-heading__copy">The browser talks only to the validated public API. The backend coordinates requests with a dedicated ML service and returns a safe, consistent response.</p>
         </div>
         <div class="architecture-flow" aria-label="TruthLens system architecture">
-          <article class="architecture-flow__node"><small>01 · Browser</small><h3>Research interface</h3><p>Accessible forms, clear result states, and no direct ML-service access.</p></article>
+          <article class="architecture-flow__node"><small>01 · Browser</small><h3>Product interface</h3><p>Accessible forms, clear result states, and no direct ML-service access.</p></article>
           <div class="architecture-flow__connector" aria-hidden="true">→</div>
-          <article class="architecture-flow__node"><small>02 · Public API</small><h3>Node.js backend</h3><p>Validation, envelopes, retries, request IDs, and safe error handling.</p></article>
+          <article class="architecture-flow__node"><small>02 · Public API</small><h3>Node.js backend</h3><p>Validation, response envelopes, retries, request IDs, and safe error handling.</p></article>
           <div class="architecture-flow__connector" aria-hidden="true">→</div>
-          <article class="architecture-flow__node"><small>03 · ML service</small><h3>FastAPI + XAI</h3><p>Integrity-checked prediction plus optional SHAP/LIME margin explanation.</p></article>
+          <article class="architecture-flow__node"><small>03 · ML service</small><h3>FastAPI analysis</h3><p>Automated classification with optional contributing-word details.</p></article>
           <div class="architecture-flow__connector" aria-hidden="true">→</div>
-          <article class="architecture-flow__node"><small>04 · Evidence</small><h3>Frozen package</h3><p>Versioned candidate, research registry, cards, and reliability documentation.</p></article>
+          <article class="architecture-flow__node"><small>04 · Response</small><h3>Review guidance</h3><p>Outcome, explanation, processing details, and a reminder to independently verify important content.</p></article>
         </div>
       </div>
     </section>
 
     <section class="page-section page-section--compact">
-      <div class="container">
-        <div class="cta-panel">
-          <div>
-            <p class="eyebrow">Ready when you are</p>
-            <h2>Run a transparent research prediction.</h2>
-            <p>The prediction workspace keeps confidence unavailable, labels the decision score correctly, and returns model-behaviour evidence rather than a factual verdict.</p>
-          </div>
-          <a class="button button--primary" href="${getRouteHref('predict')}">Open prediction workspace ${icon('arrowRight')}</a>
-        </div>
-      </div>
+      <div class="container"><div class="cta-panel"><div><p class="eyebrow">Ready when you are</p><h2>Review a story with more context.</h2><p>The prediction workspace returns an automated classification and its contributing signals, never a factual guarantee.</p></div><a class="button button--primary" href="${getRouteHref('predict')}">Open prediction ${icon('arrowRight')}</a></div></div>
     </section>
   `;
 }

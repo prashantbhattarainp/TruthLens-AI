@@ -78,7 +78,7 @@ def get_settings() -> Settings:
         service_name='TruthLens ML Service',
         model_package_directory=_read_package_directory(os.getenv('MODEL_PACKAGE_DIR')),
         model_loading_mode=_read_loading_mode(os.getenv('MODEL_LOADING_MODE'), environment),
-        service_version=os.getenv('ML_SERVICE_VERSION', '0.2.0'),
+        service_version=os.getenv('ML_SERVICE_VERSION', '1.0.0'),
         xai_lime_random_seed=_read_bounded_integer(
             'XAI_LIME_RANDOM_SEED', os.getenv('XAI_LIME_RANDOM_SEED'), default=42, minimum=0, maximum=2**31 - 1
         ),

@@ -1,34 +1,11 @@
 import { renderBreadcrumbs } from '../components/breadcrumbs.js';
 
 const pageModules = {
-  dashboard: {
-    exportName: 'renderAnalyticsDashboardPage',
-    load: () => import('./analytics-dashboard-page.js'),
-  },
-  home: {
-    exportName: 'renderHomePage',
-    load: () => import('./home-page.js'),
-  },
-  models: {
-    exportName: 'renderModelsPage',
-    load: () => import('./models-page.js'),
-  },
-  notFound: {
-    exportName: 'renderNotFoundPage',
-    load: () => import('./not-found-page.js'),
-  },
-  placeholder: {
-    exportName: 'renderPlaceholderPage',
-    load: () => import('./placeholder-page.js'),
-  },
-  predict: {
-    exportName: 'renderPredictPage',
-    load: () => import('./predict-page.js'),
-  },
-  research: {
-    exportName: 'renderResearchPage',
-    load: () => import('./research-page.js'),
-  },
+  dashboard: { exportName: 'renderAnalyticsDashboardPage', load: () => import('./analytics-dashboard-page.js') },
+  home: { exportName: 'renderHomePage', load: () => import('./home-page.js') },
+  notFound: { exportName: 'renderNotFoundPage', load: () => import('./not-found-page.js') },
+  placeholder: { exportName: 'renderPlaceholderPage', load: () => import('./placeholder-page.js') },
+  predict: { exportName: 'renderPredictPage', load: () => import('./predict-page.js') },
 };
 
 function getPageModule(routeId) {
@@ -44,9 +21,7 @@ export function renderPageSkeleton(root, route) {
 
 export function renderPageError(root, route) {
   root.innerHTML = `${renderBreadcrumbs(route)}
-    <section class="page-section">
-      <div class="container"><div class="empty-state empty-state--error" role="alert"><h1>That workspace could not load.</h1><p>Refresh the page or return to the research home to continue. No prediction or research data was changed.</p><a class="button button--secondary" href="#/">Return home</a></div></div>
-    </section>`;
+    <section class="page-section"><div class="container"><div class="empty-state empty-state--error" role="alert"><h1>That page could not load.</h1><p>Refresh the page or return home to continue. No submitted content was changed.</p><a class="button button--secondary" href="#/">Return home</a></div></div></section>`;
 }
 
 export async function renderPage(root, route) {

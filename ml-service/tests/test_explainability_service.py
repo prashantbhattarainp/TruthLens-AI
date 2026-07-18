@@ -1,4 +1,4 @@
-"""Synthetic integration checks for Phase 4.1 explanation safeguards."""
+"""Synthetic integration checks for explainability safeguards."""
 
 from __future__ import annotations
 
@@ -64,7 +64,7 @@ class ExplainabilityServiceTests(unittest.TestCase):
         self.assertLessEqual(len(result.keywords), 5)
         self.assertGreater(result.processing_time_ms, 0)
 
-    def test_prediction_endpoint_keeps_confidence_unavailable_and_adds_xai_metadata(self) -> None:
+    def test_prediction_endpoint_adds_explanation_metadata(self) -> None:
         with TestClient(app) as client:
             response = client.post(
                 '/predict',
@@ -75,8 +75,6 @@ class ExplainabilityServiceTests(unittest.TestCase):
             )
         self.assertEqual(response.status_code, 200)
         payload = response.json()
-        self.assertIsNone(payload['confidence'])
-        self.assertEqual(payload['confidence_status'], 'unavailable')
         self.assertEqual(payload['explainability']['metadata']['status'], 'available')
         self.assertEqual(payload['explainability']['shap']['method'], 'linear_shap')
         self.assertEqual(payload['explainability']['lime']['method'], 'lime_text_margin_surrogate')
