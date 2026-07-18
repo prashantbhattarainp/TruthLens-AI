@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-17T23:14:07.100800+05:30",
+  "updated_at": "2026-07-18T00:00:00+05:30",
+  "registry": [
+    {
+      "registry_id": "DSR-001",
+      "dataset_id": "indian-digital-media-2026.07.17-r1",
+      "name": "BharatFakeNewsKosh",
+      "status": "governance_frozen_controlled_derivative_pending",
+      "role": "primary_training_source",
+      "metadata": [
+        "bharatfakenewskosh-v1.acquisition.json",
+        "bharatfakenewskosh-v1.validation.json",
+        "bharatfakenewskosh-v1.integrity.json",
+        "bharatfakenewskosh-v1.eda.json",
+        "truthlens-bfnk-en-v1.0.manifest.json"
+      ],
+      "data_readiness_status": "TL-BFNK-EN-v1.0_governance_frozen_derivative_and_split_pending",
+      "frozen_research_dataset_version": "TL-BFNK-EN-v1.0"
+    },
+    {
+      "registry_id": "DSR-002",
+      "name": "FactDrill",
+      "status": "deferred_pending_explicit_reuse_licence_and_binary_label_mapping",
+      "role": "indian_context_source"
+    },
+    {
+      "registry_id": "DSR-003",
+      "name": "COVID-19 Fake News Dataset",
+      "status": "deferred_pending_explicit_dataset_licence_and_shared_task_terms",
+      "role": "external_evaluation_source"
+    }
+  ]
+}
