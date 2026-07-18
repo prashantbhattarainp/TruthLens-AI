@@ -1,115 +1,157 @@
 # TruthLens AI
 
-TruthLens AI is a research-oriented platform for transparent fake-news classification research in Indian digital-media contexts. **Phase 4 is complete and Phase 5.4 is complete.** The repository now includes the Phase 4.6 publication package, a production-quality frontend hardening pass, a bounded prediction/explainability workflow, and an industrial analytics/research dashboard.
+TruthLens AI is a research-oriented platform for transparent fake-news classification research in Indian digital-media contexts. **Phase 5 is complete through `v1.0.0-RC1`.** This is a controlled integration release candidate for demonstration and deployment-readiness validation—not a public production release or model deployment approval.
+
+> The current `TL-LSVM-TFIDF-v1.1.0-rc.1` LinearSVC candidate is an internal research integration (`production_model=false`). It must not be described as a fact checker, factual-verdict tool, calibrated confidence system, autonomous moderation system, Hindi/Hinglish detector, or general Indian-media reliability assessor.
+
+## Architecture
+
+![TruthLens AI system architecture](docs/assets/release-candidate/system-architecture.svg)
+
+The browser uses a static frontend and calls only the public Node.js API. Node validates the contract, adds request correlation, and delegates to the private FastAPI ML service. FastAPI loads the integrity-checked model package and returns a bounded research prediction plus optional explainability metadata. There is no database, retention store, browser-to-ML connection, authentication layer, or telemetry platform in the approved architecture.
+
+## Features
+
+- Responsive, accessible dependency-free SPA with Home, Predict, Dashboard, Models, Research, About, placeholders, and not-found state.
+- Validated headline/article prediction flow with loading, success, reset, error, timeout, offline, invalid-response, 404, and 5xx feedback.
+- Honest model presentation: confidence is unavailable, decision score is an uncalibrated margin, and risk remains not assessed.
+- Optional local SHAP/LIME model-margin explanation metadata with explicit interpretation limits.
+- Industrial research dashboard with frozen validation evidence, accessible SVG charts, user-triggered API/ML/model health checks, and explicit no-retention/illustrative states.
+- Route-level lazy loading, skeletons, visible focus states, reduced-motion support, safe DOM rendering, and responsive QA.
+
+## Release-candidate visuals
+
+| Prediction and explainability workflow | Dashboard operational health |
+| --- | --- |
+| ![Synthetic local RC prediction and explanation workflow](docs/assets/release-candidate/screenshots/prediction-workflow-local.png) | ![Local RC dashboard health view](docs/assets/release-candidate/screenshots/dashboard-health-local.png) |
+
+The screenshots use synthetic, non-sensitive input from the controlled local RC verification. They are UI evidence only; neither screenshot establishes factual truth, model reliability, or public-production readiness.
+
+![Bounded prediction workflow](docs/assets/release-candidate/prediction-workflow.svg)
 
 ## Research status
 
-`TL-LSVM-TFIDF-v1.1.0-rc.1` is the final **internal research champion**: TF-IDF unigram/bigram plus LinearSVC, integrated through an integrity-checked package. It is not a production model (`production_model=false`) and has no post-tuning protected-test result.
-
-| Evidence | Result |
+| Evidence | Current state |
 | --- | --- |
-| Frozen validation performance | Macro F1 0.5398; MCC 0.1014; FAKE recall 0.3183 |
-| Best evaluated alternative | Hard/weighted ensemble Macro F1 0.5447, within the 0.005 practical-tie tolerance |
-| Explainability | Bounded SHAP/LIME explanations of the uncalibrated LinearSVC margin |
-| Transformer benchmark | No completed candidate metric: access/resource limited |
-| Multilingual assessment | Unicode compatibility only; no validated Hindi/Hinglish fake-news performance |
-| Reliability assessment | Capitalization and neutral expansion flip 29.0% and 27.0% of validation predictions |
-| Calibration | Unavailable; sigmoid ECE/Brier values are non-fitted proxies, not confidence |
+| Integrated candidate | `TL-LSVM-TFIDF-v1.1.0-rc.1`, TF-IDF unigram/bigram + LinearSVC; internal research only |
+| Frozen validation | Macro F1 `0.5398`; MCC `0.1014`; FAKE recall `0.3183` |
+| Best alternative | Hard/weighted ensemble Macro F1 `0.5447`, within the `0.005` practical-tie tolerance; not integrated |
+| Confidence | Unavailable; the margin is not calibrated probability |
+| Explainability | Bounded SHAP/LIME evidence of model-margin behaviour, not factual evidence |
+| Transformers | No completed metric: access/resource limited |
+| Multilingual | Unicode compatibility only; no validated Hindi/Hinglish performance |
+| Deployment | Blocked pending governed data, post-tuning evaluation, calibration, robustness/fairness, rights, monitoring, and human-review evidence |
 
-The model must not be described as a fact checker, factual-verdict tool, calibrated probability model, general Indian-media reliability assessor, Hindi/Hinglish detector, or autonomous moderation system. Public deployment remains blocked pending new governed data/model scope, post-tuning evaluation, calibration, robustness/fairness, rights, monitoring, and human-review evidence.
+Read the [Model Card](docs/research/MODEL_CARD.md), [Model Registry](docs/research/MODEL_REGISTRY.md), [Research Decision Log](research/decision-log/README.md), and [known limitations](docs/releases/KNOWN_LIMITATIONS.md) before relying on any output.
 
-## Current architecture
+## Installation
 
-```text
-Frontend (HTML / CSS / JavaScript)
-        ↓ public API
-Node.js Backend (Express: validation, API envelope, timeout/retry)
-        ↓ private API
-Python ML Microservice (FastAPI: readiness, metadata, integrity-checked inference + XAI)
-        ↓
-Versioned internal candidate package (preprocessing + TF-IDF + LinearSVC)
+### Prerequisites
+
+- Node.js `>=20.18.0`
+- Python compatible with `ml-service/requirements.txt`
+- The governed internal model package available at the configured package path
+
+### Configure local services
+
+```powershell
+Copy-Item backend/.env.example backend/.env
+Copy-Item ml-service/.env.example ml-service/.env
 ```
 
-The browser never calls the ML service directly. The response exposes an uncalibrated `decision_score`; `confidence` remains unavailable and `risk_level` is not assessed. Optional explanation metadata describes the model margin, not factual truth or confidence.
+The frontend configuration in `frontend/public/config.js` is public. Point `apiBaseUrl` at the Node API and never add tokens, credentials, model secrets, or private service URLs to it.
 
-## Frontend foundation
+### Install runtime dependencies
 
-Phase 5.1 adds a dependency-free single-page application shell under `frontend/`. Phase 5.2 completes the core `/predict` experience: validated headline/article input, loading/reset/error states, response trace metadata, explicit unavailable confidence, and optional bounded SHAP/LIME contribution panels. Phase 5.3 makes `#/dashboard` an industrial analytics and research workspace with frozen evidence charts and on-demand public service checks. Phase 5.4 hardens the existing frontend with route-level lazy loading and skeletons, recoverable not-found/failure states, accessible focus and form feedback, dismissible severity-aware notifications, responsive QA, safe DOM rendering, and resilient API presentation. It does not change backend or ML behaviour, and “production-quality frontend” does not mean the research model is production approved.
+```powershell
+cd backend
+pnpm install
 
-- [Frontend documentation](docs/frontend/README.md)
-- [UI guidelines](docs/frontend/UI_GUIDELINES.md)
-- [Design system](docs/frontend/DESIGN_SYSTEM.md)
-- [Component library](docs/frontend/COMPONENT_LIBRARY.md)
-- [Frontend architecture](docs/frontend/FRONTEND_ARCHITECTURE.md)
-- [Responsive design](docs/frontend/RESPONSIVE_DESIGN.md)
-- [Prediction dashboard](docs/frontend/PREDICTION_PAGE.md)
-- [Frontend API integration](docs/frontend/API_INTEGRATION.md)
-- [Explainability UI guide](docs/frontend/XAI_UI_GUIDE.md)
-- [Analytics dashboard](docs/frontend/ANALYTICS_DASHBOARD.md)
-- [Chart guidelines](docs/frontend/CHART_GUIDELINES.md)
-- [Analytics UI component reference](docs/frontend/UI_COMPONENT_REFERENCE.md)
-- [Visual asset inventory](docs/frontend/VISUAL_ASSET_INVENTORY.md)
+cd ../ml-service
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+Use the package manager/runtime approved by your environment. Do not commit `node_modules`, virtual environments, `.env` files, model packages, logs, or raw/derived data.
+
+## Usage
+
+Start the private ML service, then the public Node API, then a static frontend server in separate terminals:
+
+```powershell
+# ML service
+cd ml-service
+.\.venv\Scripts\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000
+
+# Node API
+cd backend
+node src/server.js
+
+# Static frontend from repository root
+python -m http.server 4173 --directory frontend
+```
+
+Open `http://127.0.0.1:4173/#/predict` or `#/dashboard`. Run the RC verifier against the started Node API with synthetic input only:
+
+```powershell
+.\ml-service\.venv\Scripts\python.exe scripts\release\verify_release_candidate.py --backend-url http://127.0.0.1:3000
+```
+
+## Configuration and deployment
+
+- [Release-candidate deployment guide](docs/deployment/RELEASE_CANDIDATE_DEPLOYMENT.md)
+- [Production integration guide](docs/production/PRODUCTION_DEPLOYMENT_GUIDE.md)
+- [Production checklist](docs/production/PRODUCTION_CHECKLIST.md)
+- [Service integration](docs/production/SERVICE_INTEGRATION.md)
+- [Release notes](docs/releases/RELEASE_NOTES_v1.0.0-RC1.md)
+- [Final QA report](docs/releases/FINAL_QA_REPORT.md)
+
+Deployment requires a hosting-owned HTTPS/reverse proxy, exact CORS origins, private ML-service network access, CSP/security headers, rate limiting, monitoring/privacy policy, rollback procedure, and incident response. The repository does not provide infrastructure-as-code, containers, a database, or a public-release approval.
+
+## API documentation
+
+The public contract is `POST /api/predict`; the browser never calls Python directly. Successful responses use a standard envelope with a `request_id`. Prediction fields retain `confidence: null`, `confidence_status: "unavailable"`, `risk_level: "not_assessed"`, and the uncalibrated `decision_score`.
+
+- [Prediction API](docs/api/Prediction-API.md)
+- [Production API reference](docs/production/API_REFERENCE.md)
+- [Shared contracts](shared/contracts/README.md)
+
+## Documentation
+
+### Frontend
+
+- [Frontend documentation index](docs/frontend/README.md)
 - [Accessibility guide](docs/frontend/ACCESSIBILITY_GUIDE.md)
 - [Performance optimization](docs/frontend/PERFORMANCE_OPTIMIZATION.md)
 - [UX review](docs/frontend/UX_REVIEW.md)
 - [Responsiveness report](docs/frontend/RESPONSIVENESS_REPORT.md)
 - [Frontend hardening](docs/frontend/FRONTEND_HARDENING.md)
-- [Frontend quality assurance](docs/frontend/QUALITY_ASSURANCE.md)
+- [Frontend QA](docs/frontend/QUALITY_ASSURANCE.md)
 
-The UI intentionally shows **Confidence unavailable** rather than a percentage, labels the decision score as an uncalibrated margin, treats missing XAI as unavailable, and does not make a Hindi/Hinglish, fact-checking, or production-readiness claim. URL analysis remains a disabled placeholder because it is not supported by the current API contract.
+### Research and governance
 
-## Analytics dashboard
-
-The `#/dashboard` route presents a portfolio-ready research and operational overview: project/model trace, frozen validation comparisons, dataset composition, train-only aggregate SHAP terms, research-insight cards, a no-retention recent-predictions state, and a user-triggered status check for the existing public backend/ML/model endpoints. The prediction distribution is visibly marked illustrative because the project does not retain prediction history; database monitoring is visibly marked not instrumented.
-
-![Analytics dashboard illustration placeholder](frontend/assets/images/analytics-research-flow.svg)
-
-The illustration is a local placeholder for a future approved dashboard screenshot. It is not a product screenshot or a source of research evidence. See the [visual asset inventory](docs/frontend/VISUAL_ASSET_INVENTORY.md) for provenance and licence information.
-
-## Phase 4 milestones
-
-| Milestone | Outcome |
-| --- | --- |
-| 4.1 | Explainable AI: SHAP/LIME model-behaviour evidence without changing the champion |
-| 4.2 | Transformer benchmark protocol; no completed transformer result |
-| 4.3 | Classical ensembles: bounded validation trade-off analysis; no champion change |
-| 4.4 | Unicode/Hindi/Hinglish processing audit; no multilingual classifier claim |
-| 4.5 | Robustness, calibration-proxy, slice, error, and inference-only ablation assessment |
-| 4.6 | Research finalization, publication artifacts, reproducibility, and documentation QA |
+- [Phase 5 summary](docs/PHASE5_SUMMARY.md)
+- [Phase 4 summary](docs/PHASE4_SUMMARY.md)
+- [Project research summary](docs/research/PROJECT_RESEARCH_SUMMARY.md)
+- [Experiment Registry](docs/research/EXPERIMENT_REGISTRY.md) and [Model Registry](docs/research/MODEL_REGISTRY.md)
+- [Engineering Journal](docs/engineering-journal/README.md), [ADRs](docs/adr/README.md), and [RDL](research/decision-log/README.md)
+- [Release documentation](docs/releases/README.md)
+- [Visual asset inventory](docs/assets/release-candidate/README.md)
 
 ## Phase 5 milestones
 
 | Milestone | Outcome |
 | --- | --- |
-| 5.1 | Professional UI/UX foundation: design system, reusable components, responsive app shell, prepared routes, and frontend documentation |
-| 5.2 | Prediction and explainability dashboard: validated existing-API workflow, status/error handling, governed model trace, and bounded XAI visualization |
-| 5.3 | Industrial analytics and research dashboard: evidence-aware charts, on-demand public status checks, reusable analytics components, and local SVG assets |
-| 5.4 | Production UX, performance, accessibility, responsiveness, security, and maintainability hardening of the existing frontend; no backend/ML/model change |
+| 5.1 | Professional UI/UX foundation: design system, reusable components, responsive app shell, prepared routes, and frontend documentation. |
+| 5.2 | Prediction and explainability workspace: validated existing-API workflow, governed model trace, unavailable confidence, and bounded XAI visualization. |
+| 5.3 | Industrial analytics dashboard: evidence-aware charts, on-demand public status checks, no-retention state, and original SVG assets. |
+| 5.4 | Frontend UX, performance, accessibility, responsiveness, security, and maintainability hardening. |
+| 5.5 | Controlled RC validation, release/deployment/QA documentation, original diagrams, local visual evidence, and repository-quality review. |
 
-## Publication and research documentation
+## Future roadmap
 
-- [Phase 4 publication package](docs/research/publication/README.md)
-- [Project research summary](docs/research/PROJECT_RESEARCH_SUMMARY.md)
-- [Phase 4 summary](docs/PHASE4_SUMMARY.md)
-- [Final results tables](docs/research/publication/FINAL_RESULTS_TABLES.md)
-- [Final comparison tables](docs/research/publication/FINAL_COMPARISON_TABLES.md)
-- [Model Card](docs/research/MODEL_CARD.md) and [Data Card](docs/research/DATA_CARD.md)
-- [Experiment Registry](docs/research/EXPERIMENT_REGISTRY.md) and [Model Registry](docs/research/MODEL_REGISTRY.md)
-- [Research Decision Log](research/decision-log/README.md), [Engineering Journal](docs/engineering-journal/README.md), and [ADRs](docs/adr/README.md)
+Phase 6 requires separate approval and governed evidence for new data, post-tuning protected evaluation, calibration, robustness/fairness/generalization, multilingual validation, human review, deployment security infrastructure, and public-release governance. See the [release roadmap](docs/releases/ROADMAP.md) and [publication future work](docs/research/publication/FUTURE_WORK.md).
 
-## Project structure
+## License and acknowledgements
 
-- `frontend/` - static application shell, reusable CSS/JS components, route renderers, and frontend tests
-- `backend/` - public Node.js API and ML-service client
-- `ml-service/` - FastAPI inference service and Git-ignored versioned packages
-- `ml/` - research protocols, multilingual/reliability harnesses, fixtures, and machine-readable registry
-- `docs/research/` - reports, cards, figures, and publication package
-- `research/decision-log/` - methodological governance evidence
-
-## Verification
-
-See the [reproducibility guide](docs/research/publication/REPRODUCIBILITY_GUIDE.md) for immutable identifiers, environment detail, execution order, and the publication-package verification command. Do not regenerate completed work or change the frozen protocol without a new governed decision.
-
-## Roadmap
-
-Phase 4 is closed and Phase 5.4 is the approved frontend-hardening increment. Future multilingual/external data, transformer compute, calibrated release evidence, robustness/fairness remediation, and deployment review remain separate governed research work. Phase 5.5 requires approval before it begins. See [future work](docs/research/publication/FUTURE_WORK.md).
+TruthLens AI is licensed under the [MIT License](LICENSE). The repository acknowledges the research contributors, the documented BFNK-derived governed dataset lineage, and the open-source communities behind Node.js, Express, FastAPI, scikit-learn, SHAP, LIME, spaCy, and the browser/platform standards used by the project. Consult the data and research documentation for scope, rights, and attribution boundaries.

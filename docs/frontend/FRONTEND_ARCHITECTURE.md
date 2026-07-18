@@ -2,7 +2,7 @@
 
 ## Scope
 
-Phase 5.1 establishes the dependency-free single-page application shell; Phase 5.2 adds the prediction/explainability workflow; Phase 5.3 adds the industrial analytics and research dashboard; Phase 5.4 hardens the existing UI. None changes backend routes, ML inference, model package loading, XAI generation, persistence, or the frontend -> Node.js -> Python trust boundary.
+Phase 5.1 establishes the dependency-free single-page application shell; Phase 5.2 adds the prediction/explainability workflow; Phase 5.3 adds the industrial analytics and research dashboard; Phase 5.4 hardens the existing UI; Phase 5.5 validates the completed workflow as a controlled release candidate. None changes backend routes, ML inference, model package loading, XAI generation, persistence, or the frontend -> Node.js -> Python trust boundary.
 
 ## Structure
 

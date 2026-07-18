@@ -1,6 +1,6 @@
 # Frontend Documentation
 
-Phase 5.1 establishes the frontend design system and application shell. Phase 5.2 adds the responsive prediction and explainability workflow. Phase 5.3 adds an industrial analytics/research dashboard. Phase 5.4 hardens the existing dependency-free HTML, CSS, and ES-module frontend for accessibility, responsiveness, resilience, safe rendering, route-level loading, and maintainability while preserving the browser -> Node.js public API boundary.
+Phase 5.1 establishes the frontend design system and application shell. Phase 5.2 adds the responsive prediction and explainability workflow. Phase 5.3 adds an industrial analytics/research dashboard. Phase 5.4 hardens the existing dependency-free HTML, CSS, and ES-module frontend for accessibility, responsiveness, resilience, safe rendering, route-level loading, and maintainability. Phase 5.5 records controlled `v1.0.0-RC1` end-to-end validation, visual evidence, and release documentation while preserving the browser -> Node.js public API boundary.
 
 | Document | Purpose |
 | --- | --- |
@@ -22,3 +22,4 @@ Phase 5.1 establishes the frontend design system and application shell. Phase 5.
 | [Responsiveness Report](RESPONSIVENESS_REPORT.md) | Route/viewport QA matrix and responsive implementation details |
 | [Frontend Hardening](FRONTEND_HARDENING.md) | Security, resilience, cleanup, and deployment boundaries |
 | [Quality Assurance](QUALITY_ASSURANCE.md) | Repeatable automated and browser QA evidence |
+| [RC final QA report](../releases/FINAL_QA_REPORT.md) | End-to-end RC verification, performance, security, and browser evidence |
