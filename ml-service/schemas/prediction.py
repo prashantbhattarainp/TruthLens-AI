@@ -2,6 +2,8 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from schemas.explainability import PredictionExplainability
+
 
 class PredictionRequest(BaseModel):
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
@@ -31,3 +33,4 @@ class PredictionResponse(BaseModel):
     model: str
     model_version: str
     dataset_version: str
+    explainability: PredictionExplainability | None = None

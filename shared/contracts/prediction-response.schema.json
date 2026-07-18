@@ -73,6 +73,71 @@
     },
     "dataset_version": {
       "type": "string"
+    },
+    "explainability": {
+      "description": "Optional Phase 4.1 explanation metadata. It explains the uncalibrated Linear SVM margin and does not add a calibrated confidence value.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metadata", "top_influential_features", "shap", "lime"],
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "prediction_confidence_status", "decision_score_interpretation", "preprocessing_reused", "feature_engineering_reused", "disclaimer"],
+          "properties": {
+            "status": {"type": "string", "enum": ["available", "unavailable"]},
+            "prediction_confidence_status": {"type": "string", "const": "unavailable"},
+            "decision_score_interpretation": {"type": "string", "const": "uncalibrated_linear_svm_margin"},
+            "preprocessing_reused": {"type": "boolean"},
+            "feature_engineering_reused": {"type": "boolean"},
+            "disclaimer": {"type": "string"}
+          }
+        },
+        "top_influential_features": {"type": "array", "items": {"$ref": "#/$defs/featureContribution"}},
+        "shap": {"anyOf": [{"$ref": "#/$defs/shapExplanation"}, {"type": "null"}]},
+        "lime": {"anyOf": [{"$ref": "#/$defs/limeExplanation"}, {"type": "null"}]}
+      }
+    }
+  },
+  "$defs": {
+    "featureContribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["feature", "contribution", "direction", "rank"],
+      "properties": {
+        "feature": {"type": "string", "minLength": 1},
+        "contribution": {"type": "number"},
+        "direction": {"type": "string", "enum": ["supports_fake_margin", "supports_real_margin", "minimal_effect"]},
+        "rank": {"type": "integer", "minimum": 1}
+      }
+    },
+    "shapExplanation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "baseline", "base_value", "additive_residual", "top_positive_features", "top_negative_features", "least_influential_features"],
+      "properties": {
+        "method": {"type": "string", "const": "linear_shap"},
+        "baseline": {"type": "string", "const": "zero_tfidf_reference"},
+        "base_value": {"type": "number"},
+        "additive_residual": {"type": "number"},
+        "top_positive_features": {"type": "array", "items": {"$ref": "#/$defs/featureContribution"}},
+        "top_negative_features": {"type": "array", "items": {"$ref": "#/$defs/featureContribution"}},
+        "least_influential_features": {"type": "array", "items": {"$ref": "#/$defs/featureContribution"}}
+      }
+    },
+    "limeExplanation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "target", "local_fidelity", "random_seed", "sample_count", "top_positive_features", "top_negative_features"],
+      "properties": {
+        "method": {"type": "string", "const": "lime_text_margin_surrogate"},
+        "target": {"type": "string", "const": "fake_margin"},
+        "local_fidelity": {"type": "number"},
+        "random_seed": {"type": "integer", "minimum": 0},
+        "sample_count": {"type": "integer", "minimum": 1},
+        "top_positive_features": {"type": "array", "items": {"$ref": "#/$defs/featureContribution"}},
+        "top_negative_features": {"type": "array", "items": {"$ref": "#/$defs/featureContribution"}}
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Header
 
-from api.dependencies import get_production_model_service
+from api.dependencies import get_explanation_service, get_production_model_service
 from logging_config import get_logger
 from schemas.prediction import PredictionExplanation, PredictionRequest, PredictionResponse
 
@@ -25,7 +25,11 @@ def predict(
     )
 
     service = get_production_model_service()
-    prediction = service.predict(headline=request.headline, article=request.article)
+    explained_prediction = get_explanation_service().predict_and_explain(
+        headline=request.headline,
+        article=request.article,
+    )
+    prediction = explained_prediction.prepared_prediction.prediction
     metadata = service.metadata()
     response = PredictionResponse(
         prediction=prediction.label,
@@ -41,11 +45,12 @@ def predict(
                 'Results are limited to the governed English research scope and require human review.',
             ],
         ),
-        keywords=[],
-        processing_time_ms=prediction.latency_ms,
+        keywords=explained_prediction.keywords,
+        processing_time_ms=explained_prediction.processing_time_ms,
         model=metadata['model_name'],
         model_version=metadata['model_version'],
         dataset_version=metadata['dataset_version'],
+        explainability=explained_prediction.explainability,
     )
 
     logger.info(
@@ -56,6 +61,7 @@ def predict(
             'prediction': response.prediction,
             'decision_score_recorded': True,
             'confidence_status': response.confidence_status,
+            'explainability_status': response.explainability.metadata.status if response.explainability else None,
             'latency_ms': response.processing_time_ms,
             'model_version': response.model_version,
             'status': 'success',
