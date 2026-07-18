@@ -117,7 +117,8 @@ def generate_figures(results: dict[str, Any], figure_directory: Path) -> list[Pa
     topic = bias["topic"]
     fig, (length_axis, topic_axis) = plt.subplots(1, 2, figsize=(10.0, 4.6))
     length_names = list(length)
-    length_axis.bar(length_names, [_metric(length[name]["metrics"].get("macro_f1")) for name in length_names], color=BLUE)
+    length_labels = {"long_400_plus": "Long (>=400)", "medium_151_399": "Medium (151-399)", "short_0_150": "Short (<=150)"}
+    length_axis.bar([length_labels[name] for name in length_names], [_metric(length[name]["metrics"].get("macro_f1")) for name in length_names], color=BLUE)
     length_axis.set(ylim=(0, 1), ylabel="Macro F1", title="Length-slice diagnostic")
     topic_names = [name for name, value in topic.items() if value["metrics"].get("macro_f1") is not None]
     topic_axis.bar(topic_names, [_metric(topic[name]["metrics"]["macro_f1"]) for name in topic_names], color=GREEN)
@@ -127,11 +128,12 @@ def generate_figures(results: dict[str, Any], figure_directory: Path) -> list[Pa
 
     ablation = results["ablation"]
     names = list(ablation["variants"])
+    labels = {"frozen_baseline": "Frozen\nbaseline", "raw_text_no_preprocessing": "Raw input\n(no preprocessing)", "bigram_weights_zeroed": "Bigram weights\nzeroed"}
     values = [_metric(ablation["variants"][name]["metrics"].get("macro_f1")) for name in names]
     fig, axis = plt.subplots(figsize=(8.4, 4.8))
-    bars = axis.bar(names, values, color=[BLUE, ORANGE, GREEN])
+    bars = axis.bar([labels[name] for name in names], values, color=[BLUE, ORANGE, GREEN])
     axis.set(ylim=(0, 1), ylabel="Macro F1", title="Inference-only ablation diagnostics")
-    axis.tick_params(axis="x", rotation=24)
+    axis.tick_params(axis="x")
     for bar, value in zip(bars, values, strict=True):
         if not np.isnan(value):
             axis.text(bar.get_x() + bar.get_width() / 2, value + 0.015, f"{value:.3f}", ha="center", va="bottom", fontsize=8)
