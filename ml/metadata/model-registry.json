@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "record_type": "model_registry",
-  "status": "phase_4_2_transformer_benchmark_resource_limited_complete",
+  "status": "phase_4_3_ensemble_benchmark_complete_validation_only",
   "current_model": {
     "model_id": "MDL-TL-LSVM-TFIDF-v1.1.0-rc.1",
     "model_version": "TL-LSVM-TFIDF-v1.1.0-rc.1",
@@ -126,7 +126,75 @@
       "model_source": "FacebookAI/roberta-base",
       "protected_test_access": "none",
       "notes": "Not started after the public DistilBERT candidate exceeded the host's practical CPU benchmark window. No run artifact, protected-test access, or performance evidence exists."
+    },
+    {
+      "model_id": "MDL-TL-HARD-VOTE-v1.0.0-p43",
+      "model_version": "1.0.0-p43",
+      "status": "evaluated_research_only_challenger",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
+      "split_id": "SPL-TL-BFNK-EN-v1.0",
+      "experiment_id": "P43-classical-ensemble-20260718T125724Z",
+      "components": ["MDL-TL-LSVM-TFIDF-v1.1.0-rc.1", "MDL-TL-MNB-TFIDF-v1.1.0-rc.1", "MDL-TL-LR-TFIDF-v1.1.0-rc.1"],
+      "ensemble_strategy": "majority hard vote; FAKE when at least two component labels are FAKE",
+      "validation_metrics": {"accuracy": 0.582477755, "precision_macro": 0.5504599041, "recall_macro": 0.5458730003, "macro_f1": 0.5446691327, "weighted_f1": 0.5725990175, "roc_auc": 0.5513269212, "pr_auc": 0.4352737244, "mcc": 0.0962236394, "cohen_kappa": 0.0949334308, "confusion_matrix": [[636, 250], [360, 215]]},
+      "protected_test_access": "none",
+      "artifact_location": "ml/data/ensemble-benchmarks/P43-classical-ensemble-20260718T125724Z",
+      "computational_requirements": "three immutable pipelines; 2.90 MiB combined serialized components; validation-only benchmark",
+      "deployment_suitability": "not_suitable_without_separate_release_review",
+      "notes": "Macro F1 gain is within the Phase 3.9 practical tie tolerance and trades 32 fewer false negatives for 49 additional false positives versus the incumbent. No automatic promotion."
+    },
+    {
+      "model_id": "MDL-TL-WEIGHTED-VOTE-v1.0.0-p43",
+      "model_version": "1.0.0-p43",
+      "status": "evaluated_research_only_challenger",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
+      "split_id": "SPL-TL-BFNK-EN-v1.0",
+      "experiment_id": "P43-classical-ensemble-20260718T125724Z",
+      "components": ["MDL-TL-LSVM-TFIDF-v1.1.0-rc.1", "MDL-TL-MNB-TFIDF-v1.1.0-rc.1", "MDL-TL-LR-TFIDF-v1.1.0-rc.1"],
+      "ensemble_strategy": "OOF-Macro-F1-weighted hard vote; normalized weights 0.3340/0.3291/0.3369",
+      "validation_metrics": {"accuracy": 0.582477755, "precision_macro": 0.5504599041, "recall_macro": 0.5458730003, "macro_f1": 0.5446691327, "weighted_f1": 0.5725990175, "roc_auc": 0.5509363039, "pr_auc": 0.4384104257, "mcc": 0.0962236394, "cohen_kappa": 0.0949334308, "confusion_matrix": [[636, 250], [360, 215]]},
+      "protected_test_access": "none",
+      "artifact_location": "ml/data/ensemble-benchmarks/P43-classical-ensemble-20260718T125724Z",
+      "computational_requirements": "three immutable pipelines; same output labels and cost as hard vote on this validation cohort",
+      "deployment_suitability": "not_suitable_without_separate_release_review",
+      "notes": "Near-equal OOF weights yielded the same labels as hard voting. No automatic promotion."
+    },
+    {
+      "model_id": "MDL-TL-SOFT-VOTE-v1.0.0-p43",
+      "model_version": "1.0.0-p43",
+      "status": "evaluated_research_only_challenger",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
+      "split_id": "SPL-TL-BFNK-EN-v1.0",
+      "experiment_id": "P43-classical-ensemble-20260718T125724Z",
+      "components": ["MDL-TL-MNB-TFIDF-v1.1.0-rc.1", "MDL-TL-LR-TFIDF-v1.1.0-rc.1"],
+      "ensemble_strategy": "mean component FAKE probability at threshold 0.5; LinearSVC excluded because its margin is uncalibrated",
+      "validation_metrics": {"accuracy": 0.5674195756, "precision_macro": 0.5446598799, "recall_macro": 0.54414074, "macro_f1": 0.5443117437, "weighted_f1": 0.5661553174, "roc_auc": 0.5688075375, "pr_auc": 0.4768594275, "mcc": 0.0887991024, "cohen_kappa": 0.0887691922, "confusion_matrix": [[579, 307], [325, 250]]},
+      "protected_test_access": "none",
+      "artifact_location": "ml/data/ensemble-benchmarks/P43-classical-ensemble-20260718T125724Z",
+      "computational_requirements": "two immutable probability-capable pipelines; no calibrated ensemble confidence evidence",
+      "deployment_suitability": "not_suitable_without_calibration_and_release_review",
+      "notes": "Best validation ROC-AUC and PR-AUC among evaluated variants, but lower accuracy/MCC and 106 additional false positives versus the incumbent."
+    },
+    {
+      "model_id": "MDL-TL-STACK-v1.0.0-p43",
+      "model_version": "1.0.0-p43",
+      "status": "evaluated_research_only_rejected",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
+      "split_id": "SPL-TL-BFNK-EN-v1.0",
+      "experiment_id": "P43-classical-ensemble-20260718T125724Z",
+      "components": ["MDL-TL-LSVM-TFIDF-v1.1.0-rc.1", "MDL-TL-MNB-TFIDF-v1.1.0-rc.1", "MDL-TL-LR-TFIDF-v1.1.0-rc.1"],
+      "ensemble_strategy": "Logistic Regression stacker trained on 6813 aligned train-only OOF score records",
+      "validation_metrics": {"accuracy": 0.6091718001, "precision_macro": 0.6169982699, "recall_macro": 0.5053096477, "macro_f1": 0.3944408513, "weighted_f1": 0.4712009951, "roc_auc": 0.5659142212, "pr_auc": 0.4722493631, "mcc": 0.0498485542, "cohen_kappa": 0.0128039609, "confusion_matrix": [[880, 6], [565, 10]]},
+      "protected_test_access": "none",
+      "artifact_location": "ml/data/ensemble-benchmarks/P43-classical-ensemble-20260718T125724Z",
+      "computational_requirements": "three immutable pipelines plus 895-byte meta-model; increases composite explanation complexity",
+      "deployment_suitability": "not_suitable",
+      "notes": "Rejected despite higher accuracy because it correctly identifies only 10 of 575 FAKE validation records."
     }
   ],
-  "policy": "No registry entry is approved for deployment. The current champion is packaged for internal service integration only. Phase 4.1 explanations describe an uncalibrated margin, not confidence or factual truth; global XAI uses the frozen train partition only. Phase 3.8 test evidence must not be reused after Phase 3.9 tuning; r1 artifacts are invalidated and are not registry candidates. Phase 4.2 transformer entries are research-only challengers: their test evidence, if produced, is non-selection evidence and cannot automatically replace the incumbent."
+  "policy": "No registry entry is approved for deployment. The current champion is packaged for internal service integration only. Phase 4.1 explanations describe an uncalibrated margin, not confidence or factual truth; global XAI uses the frozen train partition only. Phase 3.8 test evidence must not be reused after Phase 3.9 tuning; r1 artifacts are invalidated and are not registry candidates. Phase 4.2 transformer entries are research-only challengers: their test evidence, if produced, is non-selection evidence and cannot automatically replace the incumbent. Phase 4.3 ensembles use validation-only evidence and cannot automatically replace the incumbent; blending and classical-transformer hybrids were excluded because frozen-protocol prerequisites are absent."
 }

@@ -24,3 +24,9 @@ A model cannot be promoted just because a single metric is greater than 0.5398. 
 | RoBERTa base | `not_evaluated_resource_limited` | No; not started after lower-cost CPU limitation |
 
 The next decision remains pending until completed candidate artifacts can be reviewed on suitable compute. That review is explicitly outside automatic benchmark execution.
+
+## Phase 4.3 ensemble update
+
+Phase 4.3 evaluated immutable classical-component ensembles on frozen validation only under [RDL-014](../../research/decision-log/RDL-014-Ensemble-Evaluation-and-Validation-Only-Boundary.md). Hard and weighted voting reached Macro F1 0.5447, a +0.0049 difference from the LinearSVC's 0.5398; soft voting reached 0.5443 and the strongest ROC-AUC/PR-AUC. These variants remain within the Phase 3.9 practical Macro F1 tie tolerance (0.005) and trade reduced false negatives for more false positives and lower accuracy/MCC. The stacker is rejected because it predicted only 10 of 575 FAKE validation records correctly.
+
+**No champion change is approved.** All ensembles are validation-only research challengers, and the LinearSVC remains the integrated internal champion. Blending and classical-transformer hybrids were not evaluated because the frozen protocol lacks a blend-development partition and Phase 4.2 has no transformer prediction artifact. See [ENSEMBLE_EVALUATION.md](ENSEMBLE_EVALUATION.md) and [ENSEMBLE_COMPARISON.md](ENSEMBLE_COMPARISON.md).

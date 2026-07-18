@@ -76,3 +76,16 @@ RDL-013 adds independent transformer registry entries without changing the curre
 | `MDL-TL-ROBERTA-v1.0.0-p42` | `FacebookAI/roberta-base` | `not_evaluated_resource_limited` | None | Not started after lower-cost CPU limitation |
 
 See [TRANSFORMER_BENCHMARK.md](TRANSFORMER_BENCHMARK.md), [CLASSICAL_VS_TRANSFORMERS.md](CLASSICAL_VS_TRANSFORMERS.md), and [MODEL_SELECTION_UPDATE.md](MODEL_SELECTION_UPDATE.md) for protocol, result-state, and non-promotion limits.
+
+## Phase 4.3 ensemble challengers
+
+Each ensemble uses the immutable Phase 3.9 component pipelines, frozen preprocessing, and validation-only evidence. No ensemble has protected-test access, service integration, calibration evidence, or deployment approval.
+
+| Model ID | Strategy / components | Validation Macro F1 | Operational evidence | Disposition |
+| --- | --- | ---: | --- | --- |
+| `MDL-TL-HARD-VOTE-v1.0.0-p43` | Majority vote: LinearSVC + MultinomialNB + Logistic Regression | 0.5447 | 2.90 MiB components; three pipelines | Research challenger only |
+| `MDL-TL-WEIGHTED-VOTE-v1.0.0-p43` | OOF-Macro-F1 weighted hard vote, same components | 0.5447 | Same labels/cost as hard vote | Research challenger only |
+| `MDL-TL-SOFT-VOTE-v1.0.0-p43` | Mean MultinomialNB/LR probability; LinearSVC excluded | 0.5443 | Two component pipelines; best validation ROC/PR ranking | Research challenger only |
+| `MDL-TL-STACK-v1.0.0-p43` | OOF Logistic Regression stacker over three components | 0.3944 | Adds a meta-model and explainability complexity | Rejected as challenger due FAKE-recall collapse |
+
+The hard/soft validation gain is within the Phase 3.9 practical Macro F1 tie tolerance and does not change the incumbent. See [ENSEMBLE_EVALUATION.md](ENSEMBLE_EVALUATION.md), [PRODUCTION_DEPLOYMENT_IMPACT.md](PRODUCTION_DEPLOYMENT_IMPACT.md), and [HYBRID_MODEL_ANALYSIS.md](HYBRID_MODEL_ANALYSIS.md).

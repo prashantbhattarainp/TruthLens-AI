@@ -26,3 +26,7 @@ The model retains known source/template sensitivity, limited language and cohort
 ## Phase 4.2 benchmark relationship
 
 The LinearSVC remains the current internal research champion and is not retrained or re-tested by Phase 4.2. Transformer candidates are separate research-only challengers governed by [RDL-013](../../research/decision-log/RDL-013-Transformer-Benchmark-and-Champion-Challenger-Boundary.md). IndicBERT is access-limited; DistilBERT exceeded the CPU window before checkpoint selection; BERT base and RoBERTa were not started on this host. No challenger has a promotion or deployment approval, and no benchmark outcome can automatically replace this model. See [DATA_CARD.md](DATA_CARD.md) and [MODEL_SELECTION_UPDATE.md](MODEL_SELECTION_UPDATE.md).
+
+## Phase 4.3 ensemble relationship
+
+Hard/weighted voting achieved validation Macro F1 0.5447 and soft voting 0.5443, but all are validation-only research challengers. The gains are within the existing practical-tie tolerance and introduce false-positive, resource, and explanation trade-offs; the OOF stacker is rejected for a severe FAKE-recall collapse. The current service and this Model Card therefore remain LinearSVC-specific. No ensemble output is calibrated confidence, a factual verdict, or a deployment-approved replacement. See [ENSEMBLE_EVALUATION.md](ENSEMBLE_EVALUATION.md).

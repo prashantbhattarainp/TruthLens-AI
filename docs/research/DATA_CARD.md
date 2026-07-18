@@ -25,6 +25,10 @@ This derivative supports bounded internal research into a binary classification 
 
 The current transformer experiment reads the existing train, validation, and protected-test partitions without changing membership. Token budgets can truncate model input but never rewrite the stored text. Error cohorts use overlapping keyword/length heuristics only after prediction; they neither alter labels nor train a model. Raw text is not copied into tracked reports; ignored artifacts retain only the minimum run evidence, aggregate counts, and local identifiers necessary for audit.
 
+## Phase 4.3 handling
+
+Phase 4.3 reused only the frozen validation records for ensemble evaluation. Existing Phase 3.9 component pipelines received the same frozen preprocessing; the stacker learned only from their aligned train-only OOF scores. Test records were excluded from model transformation, prediction, label use, and selection. Ensemble error analysis retains aggregate source/cohort counts only. No data version, labels, split membership, or text derivative changed.
+
 ## Limitations
 
 The source, language, temporal, template, duplicate, and label limitations recorded during Phase 3 still apply. A public transformer repository’s pretraining language coverage does not make the derivative multilingual, repair label noise, or remove source/template sensitivity. Any data-scope expansion requires a new dataset/model version and governed decision.

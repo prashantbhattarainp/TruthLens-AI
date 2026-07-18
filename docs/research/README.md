@@ -52,6 +52,10 @@ This directory is the canonical home for the Phase 3 research package. It define
 | [Classical vs transformers](CLASSICAL_VS_TRANSFORMERS.md) | Separates incumbent validation evidence from transformer run outcomes. | In progress; incomplete candidates have no score |
 | [Resource comparison](RESOURCE_COMPARISON.md) | Records host constraints and measured per-candidate resource evidence. | CPU-only execution; timings pending completed runs |
 | [Model selection update](MODEL_SELECTION_UPDATE.md) | Documents the Phase 4.2 champion-challenger non-promotion boundary. | Current LinearSVC unchanged |
+| [Ensemble evaluation](ENSEMBLE_EVALUATION.md) | Reports Phase 4.3 validation-only classical ensemble evidence and error aggregates. | Complete; no protected-test access or promotion |
+| [Hybrid model analysis](HYBRID_MODEL_ANALYSIS.md) | Records classicalâ€“transformer hybrid feasibility and explainability limits. | Transformer hybrid excluded; no completed transformer artifact |
+| [Ensemble comparison](ENSEMBLE_COMPARISON.md) | Compares ensemble trade-offs with individual classical models. | Complete; LinearSVC remains champion |
+| [Production deployment impact](PRODUCTION_DEPLOYMENT_IMPACT.md) | Assesses resource, operational, and deployment implications of ensembles. | Complete; no ensemble integration/approval |
 | [Explainable AI framework](EXPLAINABLE_AI.md) | Defines reusable local SHAP/LIME explanations and global research analysis. | Complete for the existing LinearSVC champion |
 | [Explanation methodology](EXPLANATION_METHODOLOGY.md) | Freezes XAI data access, reference, configuration, and reproducibility controls. | Complete; training-only aggregation |
 | [XAI evaluation report](XAI_EVALUATION_REPORT.md) | Records technical validation and bounded research artifacts. | Complete; no validation/protected-test access |
