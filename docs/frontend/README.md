@@ -1,6 +1,6 @@
 # Frontend Documentation
 
-Phase 5.1 establishes the frontend design system and application shell. Phase 5.2 adds the responsive prediction and explainability workflow. Phase 5.3 adds an industrial analytics/research dashboard, still using dependency-free HTML, CSS, and ES modules and preserving the browser -> Node.js public API boundary.
+Phase 5.1 establishes the frontend design system and application shell. Phase 5.2 adds the responsive prediction and explainability workflow. Phase 5.3 adds an industrial analytics/research dashboard. Phase 5.4 hardens the existing dependency-free HTML, CSS, and ES-module frontend for accessibility, responsiveness, resilience, safe rendering, route-level loading, and maintainability while preserving the browser -> Node.js public API boundary.
 
 | Document | Purpose |
 | --- | --- |
@@ -16,3 +16,9 @@ Phase 5.1 establishes the frontend design system and application shell. Phase 5.
 | [Chart Guidelines](CHART_GUIDELINES.md) | Evidence-first visualization, accessibility, and maintenance rules |
 | [Analytics UI Component Reference](UI_COMPONENT_REFERENCE.md) | Reusable analytics page, chart, monitoring, and API components |
 | [Visual Asset Inventory](VISUAL_ASSET_INVENTORY.md) | Asset sources, licences, accessibility, and performance record |
+| [Accessibility Guide](ACCESSIBILITY_GUIDE.md) | Implemented accessibility behaviour, authoring rules, and release checks |
+| [Performance Optimization](PERFORMANCE_OPTIMIZATION.md) | Route loading, asset, DOM, and deployment performance guidance |
+| [UX Review](UX_REVIEW.md) | User-flow, state, notification, and remaining-UX review |
+| [Responsiveness Report](RESPONSIVENESS_REPORT.md) | Route/viewport QA matrix and responsive implementation details |
+| [Frontend Hardening](FRONTEND_HARDENING.md) | Security, resilience, cleanup, and deployment boundaries |
+| [Quality Assurance](QUALITY_ASSURANCE.md) | Repeatable automated and browser QA evidence |

@@ -2,7 +2,7 @@
 
 ## Scope
 
-Phase 5.1 establishes the dependency-free single-page application shell; Phase 5.2 adds the prediction/explainability workflow; Phase 5.3 adds the industrial analytics and research dashboard. None changes backend routes, ML inference, model package loading, XAI generation, persistence, or the frontend -> Node.js -> Python trust boundary.
+Phase 5.1 establishes the dependency-free single-page application shell; Phase 5.2 adds the prediction/explainability workflow; Phase 5.3 adds the industrial analytics and research dashboard; Phase 5.4 hardens the existing UI. None changes backend routes, ML inference, model package loading, XAI generation, persistence, or the frontend -> Node.js -> Python trust boundary.
 
 ## Structure
 
@@ -11,9 +11,9 @@ frontend/
   index.html                 static application shell
   public/config.js           optional public API base URL / timeout configuration
   src/css/                   tokens, base, layout, components, page patterns, analytics dashboard styles
-  src/js/app.js              route orchestration and shared shell composition
+  src/js/app.js              async route orchestration, loading/failure state, and shared shell composition
   src/js/routing/            hash-route configuration
-  src/js/pages/              route-level render functions, including analytics dashboard composition
+  src/js/pages/              lazy route-level render functions, including not-found and analytics dashboard composition
   src/js/components/         navigation, footer, breadcrumbs, icons, modal, toast
   src/js/api/                public Node API boundary, prediction and operational-status clients
   src/js/analytics/          frozen dashboard evidence and reusable chart renderers
@@ -23,7 +23,7 @@ frontend/
 
 ## Routing
 
-The static shell uses hash routes so it can work on simple static hosting without adding server rewrites or changing backend middleware. The route configuration contains `/`, `/predict`, `/dashboard`, `/history`, `/models`, `/research`, `/about`, and `/settings`, rendered as `#/`, `#/predict`, and so on. Home, prediction, research, models, and dashboard have content; history and settings remain explicit future placeholders.
+The static shell uses hash routes so it can work on simple static hosting without adding server rewrites or changing backend middleware. The route configuration contains `/`, `/predict`, `/dashboard`, `/history`, `/models`, `/research`, `/about`, and `/settings`, rendered as `#/`, `#/predict`, and so on. Home, prediction, research, models, and dashboard have content; history and settings remain explicit future placeholders. Unknown hashes render a dedicated not-found state instead of silently redirecting users to home.
 
 When a server rewrite strategy is approved later, the route configuration can be reused for pathname routes. Phase 5.1 intentionally does not alter Express to serve a frontend fallback.
 
@@ -37,8 +37,8 @@ Phase 5.3 adds an on-demand analytics client for the existing `GET /api/health`,
 
 ## Rendering lifecycle
 
-`app.js` derives the active route, renders navigation, page content, and footer, then initializes the prediction interface and analytics controller only when their route markup exists. Route changes reset the page shell, scroll to the top, and move focus to the main content region. Re-rendering does not retain prediction text, history, or operational snapshots.
+`app.js` derives the active route, renders navigation and footer, shows a lightweight page skeleton, and dynamically imports the active page renderer. It initializes only the prediction interface or analytics controller whose route is active. A render sequence prevents a slower earlier route from replacing a newer navigation. Route changes reset the page shell, scroll to the top, and move focus to the main content region after content has rendered. Re-rendering does not retain prediction text, history, or operational snapshots.
 
 ## Quality controls
 
-Route configuration, pure prediction-presentation helpers, and analytics chart/data helpers have Node built-in tests in `frontend/tests/`. Browser QA validates the dashboard at desktop and mobile widths. CSS files are separated by concern and reusable visual primitives live outside route templates.
+Route configuration, pure prediction-presentation helpers, and analytics chart/data helpers have Node built-in tests in `frontend/tests/`. Browser QA validates every route across mobile, tablet, laptop, desktop, and ultra-wide widths, plus key menu/form/dashboard states. CSS files are separated by concern and reusable visual primitives live outside route templates.
