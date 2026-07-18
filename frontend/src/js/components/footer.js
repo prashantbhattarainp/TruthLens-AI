@@ -21,7 +21,7 @@ export function renderFooter() {
             <a href="${getRouteHref('models')}">Models</a>
             <a href="${getRouteHref('about')}">About</a>
           </nav>
-          <p class="site-footer__meta">Prediction dashboard - Phase 5.2 - Research use only</p>
+          <p class="site-footer__meta">Analytics dashboard - Phase 5.3 - Research use only</p>
         </div>
       </div>
     </footer>

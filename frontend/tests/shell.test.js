@@ -12,7 +12,7 @@ test('application shell has baseline accessibility landmarks', () => {
 });
 
 test('application shell loads the tokenized CSS and module entrypoint', () => {
-  for (const stylesheet of ['tokens.css', 'base.css', 'layout.css', 'components.css', 'pages.css']) {
+  for (const stylesheet of ['tokens.css', 'base.css', 'layout.css', 'components.css', 'pages.css', 'analytics.css']) {
     assert.match(shell, new RegExp(`src/css/${stylesheet.replace('.', '\\.')}`));
   }
   assert.match(shell, /type="module" src="src\/js\/app\.js"/);
