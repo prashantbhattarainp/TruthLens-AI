@@ -7,8 +7,16 @@ function setStatus(item, { detail, state }) {
   const description = item.querySelector('[data-monitoring-detail]');
 
   item.dataset.state = state;
-  status.textContent = state === 'healthy' ? 'Healthy' : 'Unavailable';
+  status.textContent = { checking: 'Checking', healthy: 'Healthy', unavailable: 'Unavailable' }[state] ?? 'Unavailable';
   description.textContent = detail ?? 'No status detail returned.';
+}
+
+function setCheckingStatus(root) {
+  root.querySelectorAll('[data-monitoring-service]').forEach((item) => {
+    if (item.dataset.monitoringService !== 'database') {
+      setStatus(item, { detail: 'Contacting the existing public endpoint…', state: 'checking' });
+    }
+  });
 }
 
 function setMetricSelection(root, metricId) {
@@ -27,6 +35,8 @@ async function refreshOperationalStatus(root) {
 
   refreshButton.disabled = true;
   refreshButton.textContent = 'Checking services...';
+  root.setAttribute('aria-busy', 'true');
+  setCheckingStatus(root);
 
   try {
     const snapshot = await getOperationalSnapshot();
@@ -44,12 +54,13 @@ async function refreshOperationalStatus(root) {
       dateStyle: 'medium',
       timeStyle: 'medium',
     }).format(new Date());
-    notify('Operational status refreshed from the public API.');
+    notify('Operational status refreshed from the public API.', { tone: 'success' });
   } catch {
-    notify('Operational status could not be refreshed. The existing research evidence is still available.');
+    notify('Operational status could not be refreshed. The existing research evidence is still available.', { tone: 'error' });
   } finally {
     refreshButton.disabled = false;
     refreshButton.textContent = 'Refresh operational status';
+    root.setAttribute('aria-busy', 'false');
   }
 }
 

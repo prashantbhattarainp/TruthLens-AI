@@ -107,7 +107,7 @@ export function initializeDetectionInterface() {
         message: 'Prediction API connected',
         state: 'ready',
       });
-      notify('Prediction received. The result card now has focus.');
+      notify('Prediction received. The result card now has focus.', { tone: 'success' });
     } catch (error) {
       const errorDetails = getPredictionErrorPresentation(error);
 
@@ -118,7 +118,7 @@ export function initializeDetectionInterface() {
         message: 'Prediction API unavailable',
         state: 'error',
       });
-      notify(`${errorDetails.title}. ${errorDetails.message}`);
+      notify(`${errorDetails.title}. ${errorDetails.message}`, { tone: 'error' });
     } finally {
       setFormBusy(elements, false);
 

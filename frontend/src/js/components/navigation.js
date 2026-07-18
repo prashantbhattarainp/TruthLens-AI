@@ -30,6 +30,7 @@ export function renderNavigation(activeRouteId) {
           <button
             class="site-nav__toggle"
             type="button"
+            aria-label="Open navigation menu"
             aria-expanded="false"
             aria-controls="primary-navigation"
           >
@@ -49,6 +50,7 @@ export function renderNavigation(activeRouteId) {
 
   const setExpanded = (expanded) => {
     navigationToggle?.setAttribute('aria-expanded', String(expanded));
+    navigationToggle?.setAttribute('aria-label', expanded ? 'Close navigation menu' : 'Open navigation menu');
     navigationList?.setAttribute('data-expanded', String(expanded));
     document.body.dataset.menuOpen = String(expanded);
   };

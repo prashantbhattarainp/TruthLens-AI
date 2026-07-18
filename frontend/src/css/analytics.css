@@ -225,6 +225,11 @@
   color: var(--color-danger);
 }
 
+.monitoring-item[data-state="checking"] .monitoring-item__icon {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
 .monitoring-item__content {
   display: grid;
   gap: 0.1rem;
@@ -265,6 +270,12 @@
   border-color: #f2bcc7;
   background: var(--color-danger-soft);
   color: #891b31;
+}
+
+.monitoring-item[data-state="checking"] .status-pill {
+  border-color: #e6ca9e;
+  background: var(--color-warning-soft);
+  color: #765019;
 }
 
 .monitoring-item[data-state="not-instrumented"] .status-pill,

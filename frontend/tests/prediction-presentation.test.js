@@ -50,4 +50,12 @@ test('distinguishes unavailable explainability and model-service errors', () => 
     getPredictionErrorPresentation({ code: 'ML_SERVICE_TIMEOUT' }).title,
     'Request timed out',
   );
+  assert.equal(
+    getPredictionErrorPresentation({ code: 'INVALID_RESPONSE' }).title,
+    'Unexpected service response',
+  );
+  assert.equal(
+    getPredictionErrorPresentation({ status: 404 }).title,
+    'Service endpoint unavailable',
+  );
 });

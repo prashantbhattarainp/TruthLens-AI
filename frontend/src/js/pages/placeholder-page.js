@@ -1,4 +1,5 @@
 import { icon } from '../components/icon.js';
+import { getRouteHref } from '../routing/routes.js';
 
 const pageContent = {
   about: ['About TruthLens AI', 'A research platform built to make the limits, lineage, and interpretation of model outputs visible.', 'This route is ready for the future project and team narrative.'],
@@ -12,6 +13,6 @@ export function renderPlaceholderPage(route) {
 
   return `
     <header class="page-header"><div class="container page-header__content"><p class="eyebrow">Future route</p><h1>${title}</h1><p>${description}</p></div></header>
-    <section class="page-section"><div class="container"><div class="empty-state"><div class="card__icon">${icon('layers')}</div><h2>Foundation route ready</h2><p>${boundary}</p><span class="badge badge--muted">Planned for a later Phase 5 milestone</span></div></div></section>
+    <section class="page-section"><div class="container"><div class="empty-state"><div class="card__icon">${icon('layers')}</div><h2>Foundation route ready</h2><p>${boundary}</p><span class="badge badge--muted">Planned for a later Phase 5 milestone</span><a class="button button--secondary" href="${getRouteHref('dashboard')}">Open analytics dashboard</a></div></div></section>
   `;
 }

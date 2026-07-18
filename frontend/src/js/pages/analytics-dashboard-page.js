@@ -60,7 +60,7 @@ export function renderAnalyticsDashboardPage() {
           <article class="dashboard-card dashboard-card--monitoring" aria-labelledby="system-status-title">
             <div class="dashboard-card__header"><div><p class="eyebrow">System health</p><h2 id="system-status-title">Operational status</h2></div><span class="badge badge--muted">On demand</span></div>
             <p class="dashboard-card__intro">Checks use existing public health and model endpoints only. No monitoring database or telemetry retention is implied.</p>
-            <ul class="monitoring-list">
+            <ul class="monitoring-list" aria-live="polite">
               ${monitoringItem({ detail: 'Use refresh to check /api/health.', iconName: 'server', label: 'Backend API connectivity', service: 'api' })}
               ${monitoringItem({ detail: 'Use refresh to check /api/system/health.', iconName: 'activity', label: 'ML service', service: 'ml-service' })}
               ${monitoringItem({ detail: 'Use refresh to check /api/model/ready.', iconName: 'brain', label: 'Model package', service: 'model' })}

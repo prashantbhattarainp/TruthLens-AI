@@ -18,7 +18,7 @@ export function renderPredictPage() {
               <h2 id="prediction-form-title">Article input</h2>
               <p>Required fields are validated in the browser and again by the backend.</p>
             </div>
-            <span class="badge badge--research">Research only</span>
+            <div class="form-card__badges"><span class="badge badge--research">Research only</span><span class="status-badge status-badge--pending" data-backend-status aria-live="polite">Not checked</span></div>
           </div>
           <form data-detection-form novalidate>
             <div class="form-field">

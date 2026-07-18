@@ -30,11 +30,25 @@ export function getPredictionErrorPresentation(error = {}) {
     };
   }
 
+  if (error.code === 'INVALID_RESPONSE') {
+    return {
+      message: 'The backend returned an unexpected response. No prediction result is available; please try again.',
+      title: 'Unexpected service response',
+    };
+  }
+
   if (ML_SERVICE_ERROR_CODES.has(error.code)) {
     return {
       message:
         'The model service is currently unable to complete predictions. The submitted text was not classified.',
       title: 'Model service unavailable',
+    };
+  }
+
+  if (error.status === 404) {
+    return {
+      message: 'The requested prediction service endpoint is unavailable. Confirm the supported backend is running and try again.',
+      title: 'Service endpoint unavailable',
     };
   }
 

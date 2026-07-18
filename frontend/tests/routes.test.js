@@ -9,7 +9,7 @@ test('resolves each configured hash route', () => {
   }
 });
 
-test('falls back to home for unknown or empty routes', () => {
+test('resolves empty routes to home and unknown routes to a useful not-found state', () => {
   assert.equal(getRouteFromHash('').id, 'home');
-  assert.equal(getRouteFromHash('#/not-a-route').id, 'home');
+  assert.equal(getRouteFromHash('#/not-a-route').id, 'notFound');
 });
