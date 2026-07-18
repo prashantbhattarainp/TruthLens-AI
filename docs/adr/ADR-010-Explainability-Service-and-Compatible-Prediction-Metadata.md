@@ -1,20 +1,20 @@
-# ADR-010 - Explainability Service and Compatible Prediction Metadata
+# ADR-010 — Explainability Service and Prediction Metadata
 
-**Status:** Accepted
+**Status:** Accepted  
 **Date:** 2026-07-18
 
 ## Context
 
-The integrated Phase 3 champion is a sparse TF-IDF and LinearSVC pipeline. It exposes an uncalibrated decision margin, not a probability. Phase 4.1 requires local SHAP and LIME explanations for every successful prediction and publication-oriented global analysis without replacing the model, duplicating preprocessing, or changing the frontend → Node → Python trust boundary.
+Users need context for an automated classification without treating an explanation as proof of factual truth.
 
 ## Decision
 
-- Add an in-process `explainability` module to the Python ML service. It receives the same in-memory processed text and TF-IDF row used for the successful prediction.
-- Use `shap.LinearExplainer` with a documented all-zero TF-IDF reference for additive local contributions to the Fake-class margin.
-- Use `LimeTextExplainer` as a deterministic local surrogate over a two-column signed-margin adapter (`-margin`, `margin`), never a probability adapter.
-- Extend the successful prediction payload with an optional `explainability` object. Existing fields, including `confidence: null`, retain their Phase 3 meanings.
-- Generate global figures only from a deterministic, balanced reference cohort in the frozen training partition. Do not read the validation or protected-test partitions.
+- Provide optional local feature-contribution details with successful predictions.
+- Keep explanation generation inside the ML service.
+- Preserve the frontend → Node.js → Python service boundary.
+- Render explanations as contributing signals and display a clear independent-verification reminder.
+- Omit runtime-package identifiers from the public prediction response.
 
 ## Consequences
 
-The public request route and service topology are unchanged, while clients that accept additive response fields can consume SHAP/LIME metadata immediately. Explanation generation increases inference latency and must be monitored. Contributions describe model behaviour only; they do not establish truth, causality, confidence, or deployment readiness.
+The interface can present inspectable classification context while keeping the public API focused on product behavior and safe interpretation.

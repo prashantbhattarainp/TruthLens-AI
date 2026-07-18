@@ -1,29 +1,11 @@
-# Architecture Decision Records Index
+# Architecture Decision Records
 
-| ID      | Title                                    | Status   |
-| ------- | ---------------------------------------- | -------- |
+| ID | Title | Status |
+| --- | --- | --- |
 | ADR-006 | Backend Observability and API Resilience | Accepted |
-| ADR-007 | Frontend-to-Backend API Boundary         | Accepted |
-| ADR-008 | Backend-to-ML Prediction Delegation      | Accepted |
-| ADR-009 | Internal Model Package and Safe Inference Boundary | Accepted |
-| ADR-010 | Explainability Service and Compatible Prediction Metadata | Accepted |
+| ADR-007 | Frontend-to-Backend API Boundary | Accepted |
+| ADR-008 | Backend-to-ML Prediction Delegation | Accepted |
+| ADR-009 | Runtime Package and Safe Inference Boundary | Accepted |
+| ADR-010 | Explainability Service and Prediction Metadata | Accepted |
 
-## Phase 4.6 review
-
-Research finalization adds documentation and verification only. It does not change the frontend -> Node.js -> Python trust boundary, model package, API contract, or explainability service. ADR-009 and ADR-010 remain sufficient; no Phase 4.6 ADR is required.
-
-## Phase 5.1 review
-
-The UI foundation adds a static frontend shell and hash routing only. It preserves the browser -> Node.js public API boundary and does not modify the backend, ML service, model package, API contract, or explainability semantics. ADR-009 and ADR-010 remain sufficient; no Phase 5.1 ADR is required.
-
-## Phase 5.2 review
-
-The prediction dashboard consumes the existing public prediction envelope and optional explainability extension only. It preserves the browser -> Node.js -> Python boundary, request/response contract, model package, and Phase 4.1 explainability semantics. ADR-007, ADR-009, and ADR-010 remain sufficient; no Phase 5.2 ADR is required.
-
-## Phase 5.3 review
-
-The analytics dashboard adds a static evidence presentation layer and user-triggered reads of existing public health/model endpoints. It adds no persistence, polling, backend route, database integration, model/data change, or new monitoring/deployment semantics. ADR-007, ADR-009, and ADR-010 remain sufficient; no Phase 5.3 ADR is required.
-
-## Phase 5.5 review
-
-The release-candidate milestone adds verification, documentation, original SVG diagrams, and local RC evidence only. It does not alter the browser -> Node.js -> Python boundary, public/private endpoints, model package, persistence, or deployment decision. ADR-007, ADR-009, and ADR-010 remain sufficient; no Phase 5.5 ADR is required.
+These records describe durable architecture choices for the public product.
