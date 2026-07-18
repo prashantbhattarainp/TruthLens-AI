@@ -38,6 +38,15 @@ class ProductionPrediction:
     latency_ms: int
 
 
+@dataclass(frozen=True)
+class PreparedPrediction:
+    """Ephemeral inference context shared with the explainability service."""
+
+    prediction: ProductionPrediction
+    processed_text: str
+    feature_vector: Any
+
+
 class ProductionModelService:
     """A process-local lazy singleton; it never stores or logs submitted text."""
 
@@ -95,6 +104,9 @@ class ProductionModelService:
                 raise package_error from error
 
     def predict(self, *, headline: str, article: str) -> ProductionPrediction:
+        return self.predict_with_context(headline=headline, article=article).prediction
+
+    def predict_with_context(self, *, headline: str, article: str) -> PreparedPrediction:
         self.ensure_loaded()
         assert self._pipeline is not None and self._preprocessor is not None
         started = time.perf_counter()
@@ -102,16 +114,39 @@ class ProductionModelService:
         processed = self._preprocessor.process_document(InputDocument(document_id='request', text=combined_text))
         if not processed.processed_text.strip():
             raise ModelPackageError('EMPTY_PROCESSED_INPUT', 'Input becomes empty under the frozen preprocessing policy.')
-        predicted = int(self._pipeline.predict([processed.processed_text])[0])
-        score = float(self._pipeline.decision_function([processed.processed_text])[0])
+        vectorizer = self._pipeline.named_steps['tfidf']
+        classifier = self._pipeline.named_steps['classifier']
+        feature_vector = vectorizer.transform([processed.processed_text])
+        predicted = int(classifier.predict(feature_vector)[0])
+        score = float(classifier.decision_function(feature_vector)[0])
         labels = {'0': 'Real', '1': 'Fake'}
         if str(predicted) not in labels:
             raise ModelPackageError('INVALID_MODEL_OUTPUT', 'Model returned an unsupported label.')
-        return ProductionPrediction(
-            label=labels[str(predicted)],
-            decision_score=score,
-            latency_ms=round((time.perf_counter() - started) * 1000),
+        return PreparedPrediction(
+            prediction=ProductionPrediction(
+                label=labels[str(predicted)],
+                decision_score=score,
+                latency_ms=round((time.perf_counter() - started) * 1000),
+            ),
+            processed_text=processed.processed_text,
+            feature_vector=feature_vector,
         )
+
+    def explainability_components(self) -> tuple[Any, Any]:
+        """Expose immutable package components to trusted in-process explainers only."""
+
+        self.ensure_loaded()
+        assert self._pipeline is not None
+        return self._pipeline.named_steps['tfidf'], self._pipeline.named_steps['classifier']
+
+    def preprocess_text(self, *, document_id: str, text: str) -> str:
+        """Apply the frozen policy for offline, train-only global XAI aggregation."""
+
+        self.ensure_loaded()
+        assert self._preprocessor is not None
+        return self._preprocessor.process_document(
+            InputDocument(document_id=document_id, text=text)
+        ).processed_text
 
     def _load(self) -> None:
         missing = sorted(name for name in self.REQUIRED_FILES if not (self.package_directory / name).is_file())

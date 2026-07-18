@@ -35,6 +35,23 @@ def _read_package_directory(value: str | None) -> Path:
     return Path(value).expanduser().resolve() if value else default.resolve()
 
 
+def _read_bounded_integer(
+    name: str,
+    value: str | None,
+    *,
+    default: int,
+    minimum: int,
+    maximum: int,
+) -> int:
+    try:
+        parsed = int(value) if value is not None else default
+    except ValueError as error:
+        raise ValueError(f'{name} must be an integer.') from error
+    if not minimum <= parsed <= maximum:
+        raise ValueError(f'{name} must be between {minimum} and {maximum}.')
+    return parsed
+
+
 @dataclass(frozen=True)
 class Settings:
     environment: str
@@ -45,6 +62,9 @@ class Settings:
     model_package_directory: Path
     model_loading_mode: str
     service_version: str
+    xai_lime_random_seed: int
+    xai_lime_sample_count: int
+    xai_top_feature_count: int
 
 
 @lru_cache
@@ -59,4 +79,13 @@ def get_settings() -> Settings:
         model_package_directory=_read_package_directory(os.getenv('MODEL_PACKAGE_DIR')),
         model_loading_mode=_read_loading_mode(os.getenv('MODEL_LOADING_MODE'), environment),
         service_version=os.getenv('ML_SERVICE_VERSION', '0.2.0'),
+        xai_lime_random_seed=_read_bounded_integer(
+            'XAI_LIME_RANDOM_SEED', os.getenv('XAI_LIME_RANDOM_SEED'), default=42, minimum=0, maximum=2**31 - 1
+        ),
+        xai_lime_sample_count=_read_bounded_integer(
+            'XAI_LIME_SAMPLE_COUNT', os.getenv('XAI_LIME_SAMPLE_COUNT'), default=1000, minimum=100, maximum=5000
+        ),
+        xai_top_feature_count=_read_bounded_integer(
+            'XAI_TOP_FEATURE_COUNT', os.getenv('XAI_TOP_FEATURE_COUNT'), default=10, minimum=1, maximum=25
+        ),
     )
