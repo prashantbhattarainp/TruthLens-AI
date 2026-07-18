@@ -54,6 +54,8 @@ export async function requestJson(path, { body, method = 'GET', timeoutMs } = {}
         Accept: 'application/json',
         ...(body === undefined ? {} : { 'Content-Type': 'application/json' }),
       },
+      cache: 'no-store',
+      credentials: 'same-origin',
       method,
       signal: controller.signal,
     });
