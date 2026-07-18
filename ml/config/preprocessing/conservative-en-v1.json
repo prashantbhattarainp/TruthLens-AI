@@ -1,0 +1,54 @@
+{
+  "pipeline_version": "1.0.0",
+  "language": "en",
+  "spacy": {
+    "model_name": "en_core_web_sm",
+    "allow_blank_fallback": true,
+    "batch_size": 128
+  },
+  "unicode_normalization": {
+    "enabled": true,
+    "form": "NFC"
+  },
+  "html_removal": {
+    "enabled": true
+  },
+  "url_removal": {
+    "enabled": true
+  },
+  "email_removal": {
+    "enabled": true
+  },
+  "whitespace_normalization": {
+    "enabled": true
+  },
+  "lowercasing": {
+    "enabled": false
+  },
+  "special_character_handling": {
+    "enabled": false,
+    "mode": "preserve"
+  },
+  "number_handling": {
+    "enabled": false,
+    "mode": "preserve"
+  },
+  "punctuation_handling": {
+    "enabled": false,
+    "mode": "preserve"
+  },
+  "tokenization": {
+    "enabled": true
+  },
+  "stopword_removal": {
+    "enabled": false,
+    "preserve_negations": true
+  },
+  "lemmatization": {
+    "enabled": false
+  },
+  "validation": {
+    "max_empty_document_rate": 0.0,
+    "max_failures": 0
+  }
+}

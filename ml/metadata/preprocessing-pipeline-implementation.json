@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "preprocessing_pipeline_implementation",
+  "pipeline_version": "1.0.0",
+  "configuration": {
+    "path": "ml/config/preprocessing/conservative-en-v1.json",
+    "sha256": "52ce7a78fa4892adf302e3c4dcc0633aebc9dfb55ca4347647f1d1cd87d3976f",
+    "enabled_operations": [
+      "unicode_normalization",
+      "html_removal",
+      "url_removal",
+      "email_removal",
+      "whitespace_normalization",
+      "tokenization"
+    ]
+  },
+  "runtime_verification": {
+    "spacy_version": "3.8.14",
+    "configured_model": "en_core_web_sm",
+    "configured_model_available": false,
+    "blank_fallback_verified": "blank:en",
+    "lemmatization_policy": "disabled by default; requires a spaCy runtime with a lemmatizer when enabled"
+  },
+  "verification": {
+    "test_framework": "unittest",
+    "test_command": "ml-service/.venv/Scripts/python.exe -m unittest discover -s ml/tests -v",
+    "tests_run": 6,
+    "tests_passed": 6,
+    "fixture_only": true
+  },
+  "dataset_execution": {
+    "raw_dataset_read": false,
+    "processed_dataset_created": false,
+    "reason": "Phase 3.4 data-readiness gate remains unresolved; implementation is fixture-verified only."
+  }
+}
