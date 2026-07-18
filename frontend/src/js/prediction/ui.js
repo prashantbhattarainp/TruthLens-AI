@@ -59,29 +59,9 @@ export function setFormBusy(elements, isBusy) {
   }
 }
 
-function getUserFriendlyErrorMessage(error) {
-  if (error.code === 'VALIDATION_ERROR') {
-    return 'The backend could not accept this content. Review the headline and article requirements.';
-  }
-
-  if (error.code === 'REQUEST_TIMEOUT') {
-    return 'The backend took too long to respond. Please try again.';
-  }
-
-  if (error.code === 'NETWORK_ERROR') {
-    return 'The TruthLens backend is unavailable. Confirm it is running, then try again.';
-  }
-
-  if (error.status >= 500) {
-    return 'The backend encountered a problem while processing the request. Please try again.';
-  }
-
-  return 'The prediction request could not be completed. Please try again.';
-}
-
-export function showRequestError(elements, error) {
+export function showRequestError(elements, { message }) {
   elements.validationMessage.dataset.state = 'error';
-  elements.validationMessage.textContent = getUserFriendlyErrorMessage(error);
+  elements.validationMessage.textContent = message;
 }
 
 export function setBackendStatus(elements, { message, state }) {

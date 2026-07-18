@@ -1,4 +1,6 @@
 import { requestPrediction } from '../api/prediction-api.js';
+import { notify } from '../components/toast.js';
+import { getPredictionErrorPresentation } from '../prediction/error-presentation.js';
 import { PREDICTION_LOADING_STATE } from '../prediction/loading.js';
 import {
   showErrorState,
@@ -35,35 +37,6 @@ function getRequestPayload(elements) {
   return {
     article: elements.articleInput.value,
     headline: elements.headlineInput.value,
-  };
-}
-
-function getResultErrorDetails(error) {
-  if (error.code === 'VALIDATION_ERROR') {
-    return {
-      message:
-        'The backend rejected the submitted content. Review the field requirements and try again.',
-      title: 'Content needs attention',
-    };
-  }
-
-  if (error.code === 'REQUEST_TIMEOUT') {
-    return {
-      message: 'The backend did not respond before the request timeout. Please try again.',
-      title: 'Request timed out',
-    };
-  }
-
-  if (error.code === 'NETWORK_ERROR') {
-    return {
-      message: 'The TruthLens backend could not be reached. Confirm it is running and try again.',
-      title: 'Backend unavailable',
-    };
-  }
-
-  return {
-    message: 'The backend could not complete this prediction request. Please try again.',
-    title: 'Prediction unavailable',
   };
 }
 
@@ -134,16 +107,18 @@ export function initializeDetectionInterface() {
         message: 'Prediction API connected',
         state: 'ready',
       });
+      notify('Prediction received. The result card now has focus.');
     } catch (error) {
-      const errorDetails = getResultErrorDetails(error);
+      const errorDetails = getPredictionErrorPresentation(error);
 
       setPredictionStatus(state, PREDICTION_STATUS.ERROR);
       showErrorState(elements.resultCard, errorDetails);
-      showRequestError(elements, error);
+      showRequestError(elements, errorDetails);
       setBackendStatus(elements, {
         message: 'Prediction API unavailable',
         state: 'error',
       });
+      notify(`${errorDetails.title}. ${errorDetails.message}`);
     } finally {
       setFormBusy(elements, false);
 
