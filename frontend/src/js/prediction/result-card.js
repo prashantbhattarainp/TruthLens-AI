@@ -1,5 +1,9 @@
+import { getConfidencePresentation } from './confidence-badge.js';
+import { renderExplanationDashboard } from './explanation-panel.js';
+
 function getResultElements(resultCard) {
   return {
+    confidenceBadge: resultCard.querySelector('[data-confidence-badge]'),
     confidenceLabel: resultCard.querySelector('[data-confidence-label]'),
     confidenceProgress: resultCard.querySelector('[data-confidence-progress]'),
     confidenceProgressFill: resultCard.querySelector('[data-confidence-progress-fill]'),
@@ -39,29 +43,6 @@ function renderList(listElement, items, className, itemElementName = 'li') {
       return listItem;
     }),
   );
-}
-
-function getConfidencePercent(confidence) {
-  if (typeof confidence !== 'number') {
-    return null;
-  }
-
-  return Math.round(confidence * 100);
-}
-
-function getConfidenceLabel(confidence) {
-  if (typeof confidence !== 'number') {
-    return 'Not calibrated';
-  }
-  if (confidence >= 0.8) {
-    return 'High confidence';
-  }
-
-  if (confidence >= 0.6) {
-    return 'Moderate confidence';
-  }
-
-  return 'Low confidence';
 }
 
 function formatRiskLevel(riskLevel) {
@@ -124,27 +105,24 @@ export function showLoadingState(resultCard, loadingState) {
 export function showPredictionResult(resultCard, response) {
   const elements = getResultElements(resultCard);
   const { data } = response;
-  const confidencePercent = getConfidencePercent(data.confidence);
-  const confidenceLabel = getConfidenceLabel(data.confidence);
+  const confidence = getConfidencePresentation(data.confidence);
 
   hideAllResultStates(elements);
   elements.resultContent.hidden = false;
   elements.resultHeading.textContent = `Prediction: ${data.prediction}`;
   elements.resultPrediction.textContent = data.prediction;
-  elements.resultConfidence.textContent = confidencePercent === null ? 'Not calibrated' : `${confidencePercent}%`;
+  elements.resultConfidence.textContent = confidence.displayValue;
   elements.resultRisk.textContent = formatRiskLevel(data.risk_level);
   elements.decisionScore.textContent = formatDecisionScore(data.decision_score);
   elements.resultTime.textContent = `${data.processing_time_ms} ms`;
-  elements.confidenceLabel.textContent = confidenceLabel;
-  elements.confidenceProgress.setAttribute('aria-valuenow', String(confidencePercent ?? 0));
-  elements.confidenceProgress.setAttribute(
-    'aria-valuetext',
-    confidencePercent === null ? 'Not calibrated; decision score is not a probability.' : `${confidencePercent}% - ${confidenceLabel}`,
-  );
-  elements.confidenceProgress.dataset.status = 'unavailable';
+  elements.confidenceBadge.textContent = confidence.badgeLabel;
+  elements.confidenceLabel.textContent = confidence.label;
+  elements.confidenceProgress.setAttribute('aria-valuenow', String(confidence.ariaValueNow));
+  elements.confidenceProgress.setAttribute('aria-valuetext', confidence.ariaValueText);
+  elements.confidenceProgress.dataset.status = confidence.status;
   elements.confidenceProgressFill.style.setProperty(
     '--confidence-progress',
-    `${confidencePercent ?? 0}%`,
+    confidence.progress,
   );
   setResultStatus(elements, 'Response received from backend', 'success');
   elements.explanationSummary.textContent = data.explanation?.summary ?? 'Explanation metadata was unavailable.';
@@ -154,7 +132,8 @@ export function showPredictionResult(resultCard, response) {
   elements.responseTimestamp.textContent = formatTimestamp(response.timestamp);
   elements.requestId.textContent = response.requestId ?? 'Not provided';
   renderList(elements.explanationList, data.explanation?.reasons ?? [], 'explanation-list__item');
-  renderList(elements.keywordList, data.keywords, 'keyword-list__item', 'span');
+  renderList(elements.keywordList, data.keywords ?? [], 'keyword-list__item', 'span');
+  renderExplanationDashboard(resultCard, data.explainability);
   resultCard.setAttribute('aria-busy', 'false');
   resultCard.setAttribute('aria-labelledby', 'result-title-complete');
   resultCard.removeAttribute('aria-label');
