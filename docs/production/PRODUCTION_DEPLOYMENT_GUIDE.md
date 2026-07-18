@@ -1,5 +1,7 @@
 # Production Integration Deployment Guide
 
+> **RC1 companion:** Read the controlled [release-candidate deployment guide](../deployment/RELEASE_CANDIDATE_DEPLOYMENT.md) and [known limitations](../releases/KNOWN_LIMITATIONS.md) before using this guide. Neither document authorizes public deployment.
+
 ## Status first
 
 This guide supports running the integrated **internal candidate** service. It does not authorize external/public deployment. `TL-LSVM-TFIDF-v1.1.0-rc.1` remains `integrated_not_deployment_approved`: it was not tested after tuning, has weak absolute performance, and is restricted by data scope and licence evidence.

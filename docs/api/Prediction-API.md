@@ -15,7 +15,7 @@ Content-Type: application/json
 
 The frontend sends this request only through `frontend/src/js/api/prediction-api.js`. Its fetch implementation is isolated in `frontend/src/js/api/api.js`.
 
-For local development, `frontend/public/config.js` points the browser client to `http://127.0.0.1:3000` with an 8-second request timeout. The backend allows browser requests only from origins configured through `CORS_ALLOWED_ORIGINS`, for example:
+For local development, `frontend/public/config.js` points the browser client to `http://127.0.0.1:3000` with a 12-second request timeout. The backend allows browser requests only from origins configured through `CORS_ALLOWED_ORIGINS`, for example:
 
 ```text
 CORS_ALLOWED_ORIGINS=http://127.0.0.1:5500,http://localhost:5500
