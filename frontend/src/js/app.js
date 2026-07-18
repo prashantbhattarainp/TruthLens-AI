@@ -1,6 +1,7 @@
 import { renderFooter } from './components/footer.js';
 import { renderNavigation } from './components/navigation.js';
 import { initializeDetectionInterface } from './modules/detection-interface.js';
+import { initializeAnalyticsDashboard } from './modules/analytics-dashboard.js';
 import { renderPage } from './pages/page-renderer.js';
 import { getRouteFromHash } from './routing/routes.js';
 
@@ -18,6 +19,7 @@ function renderApplication({ moveFocus = false } = {}) {
   renderPage(appRoot, route);
   renderFooter();
   initializeDetectionInterface();
+  initializeAnalyticsDashboard();
 
   if (moveFocus) {
     window.scrollTo(0, 0);

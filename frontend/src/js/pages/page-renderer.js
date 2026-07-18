@@ -7,6 +7,7 @@ import { renderBreadcrumbs } from '../components/breadcrumbs.js';
 
 export function renderPage(root, route) {
   const pages = {
+    dashboard: renderAnalyticsDashboardPage,
     home: renderHomePage,
     models: renderModelsPage,
     predict: renderPredictPage,
@@ -16,3 +17,4 @@ export function renderPage(root, route) {
 
   root.innerHTML = `${renderBreadcrumbs(route)}${render()}`;
 }
+import { renderAnalyticsDashboardPage } from './analytics-dashboard-page.js';
