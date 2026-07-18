@@ -11,3 +11,7 @@
 ## Phase 4.6 review
 
 Research finalization adds documentation and verification only. It does not change the frontend -> Node.js -> Python trust boundary, model package, API contract, or explainability service. ADR-009 and ADR-010 remain sufficient; no Phase 4.6 ADR is required.
+
+## Phase 5.1 review
+
+The UI foundation adds a static frontend shell and hash routing only. It preserves the browser -> Node.js public API boundary and does not modify the backend, ML service, model package, API contract, or explainability semantics. ADR-009 and ADR-010 remain sufficient; no Phase 5.1 ADR is required.

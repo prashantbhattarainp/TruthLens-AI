@@ -1,6 +1,6 @@
 # TruthLens AI
 
-TruthLens AI is a research-oriented platform for transparent fake-news classification research in Indian digital-media contexts. **Phase 4 is complete.** The repository now contains the Phase 4.6 publication package; Phase 5 has not begun.
+TruthLens AI is a research-oriented platform for transparent fake-news classification research in Indian digital-media contexts. **Phase 4 is complete and Phase 5.1 is complete.** The repository now includes the Phase 4.6 publication package and a professional, accessible frontend foundation; Phase 5.2 has not begun.
 
 ## Research status
 
@@ -18,7 +18,7 @@ TruthLens AI is a research-oriented platform for transparent fake-news classific
 
 The model must not be described as a fact checker, factual-verdict tool, calibrated probability model, general Indian-media reliability assessor, Hindi/Hinglish detector, or autonomous moderation system. Public deployment remains blocked pending new governed data/model scope, post-tuning evaluation, calibration, robustness/fairness, rights, monitoring, and human-review evidence.
 
-## Final architecture
+## Current architecture
 
 ```text
 Frontend (HTML / CSS / JavaScript)
@@ -32,6 +32,19 @@ Versioned internal candidate package (preprocessing + TF-IDF + LinearSVC)
 
 The browser never calls the ML service directly. The response exposes an uncalibrated `decision_score`; `confidence` remains unavailable and `risk_level` is not assessed. Optional explanation metadata describes the model margin, not factual truth or confidence.
 
+## Frontend foundation
+
+Phase 5.1 adds a dependency-free single-page application shell under `frontend/`. It provides a responsive navigation/footer, reusable tokenized CSS primitives, accessible form/result states, hash routes for `/`, `/predict`, `/dashboard`, `/history`, `/models`, `/research`, `/about`, and `/settings`, and a research-aware prediction workspace that reuses the existing public API client.
+
+- [Frontend documentation](docs/frontend/README.md)
+- [UI guidelines](docs/frontend/UI_GUIDELINES.md)
+- [Design system](docs/frontend/DESIGN_SYSTEM.md)
+- [Component library](docs/frontend/COMPONENT_LIBRARY.md)
+- [Frontend architecture](docs/frontend/FRONTEND_ARCHITECTURE.md)
+- [Responsive design](docs/frontend/RESPONSIVE_DESIGN.md)
+
+The UI intentionally shows “Confidence unavailable” rather than a percentage, labels the decision score as an uncalibrated margin, and does not make a Hindi/Hinglish, fact-checking, or production-readiness claim.
+
 ## Phase 4 milestones
 
 | Milestone | Outcome |
@@ -42,6 +55,12 @@ The browser never calls the ML service directly. The response exposes an uncalib
 | 4.4 | Unicode/Hindi/Hinglish processing audit; no multilingual classifier claim |
 | 4.5 | Robustness, calibration-proxy, slice, error, and inference-only ablation assessment |
 | 4.6 | Research finalization, publication artifacts, reproducibility, and documentation QA |
+
+## Phase 5 milestones
+
+| Milestone | Outcome |
+| --- | --- |
+| 5.1 | Professional UI/UX foundation: design system, reusable components, responsive app shell, prepared routes, and frontend documentation |
 
 ## Publication and research documentation
 
@@ -56,7 +75,7 @@ The browser never calls the ML service directly. The response exposes an uncalib
 
 ## Project structure
 
-- `frontend/` - browser interface
+- `frontend/` - static application shell, reusable CSS/JS components, route renderers, and frontend tests
 - `backend/` - public Node.js API and ML-service client
 - `ml-service/` - FastAPI inference service and Git-ignored versioned packages
 - `ml/` - research protocols, multilingual/reliability harnesses, fixtures, and machine-readable registry
@@ -69,4 +88,4 @@ See the [reproducibility guide](docs/research/publication/REPRODUCIBILITY_GUIDE.
 
 ## Roadmap
 
-Phase 4 is closed. Future multilingual/external data, transformer compute, calibrated release evidence, robustness/fairness remediation, and deployment review require approval before Phase 5. See [future work](docs/research/publication/FUTURE_WORK.md).
+Phase 4 is closed and Phase 5.1 is the approved UI foundation. Future multilingual/external data, transformer compute, calibrated release evidence, robustness/fairness remediation, and deployment review remain separate governed research work. Phase 5.2 requires approval before it begins. See [future work](docs/research/publication/FUTURE_WORK.md).
