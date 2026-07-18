@@ -71,6 +71,8 @@ ml/data/ensemble-benchmarks/*
 !ml/data/ensemble-benchmarks/.gitkeep
 ml/data/multilingual-benchmarks/*
 !ml/data/multilingual-benchmarks/.gitkeep
+ml/data/reliability-evaluations/*
+!ml/data/reliability-evaluations/.gitkeep
 ml/logs/experiments/*
 !ml/logs/experiments/.gitkeep
 ml-service/artifacts/candidate/*
