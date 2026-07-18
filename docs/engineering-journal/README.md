@@ -1,1 +1,20 @@
 # Engineering Journal Index
+
+- [EJ-009 - Machine Learning Research Methodology](EJ-009-ML-Research-Methodology.md)
+- [EJ-010 - Dataset Landscape and Conditional Selection](EJ-010-Dataset-Landscape-and-Selection.md)
+- [EJ-011 - Dataset Acquisition and Validation](EJ-011-Dataset-Acquisition-and-Validation.md)
+- [EJ-012 - Exploratory Data Analysis and Dataset Assessment](EJ-012-Exploratory-Data-Analysis-and-Assessment.md)
+- [EJ-013 - Configurable Preprocessing Pipeline](EJ-013-Configurable-Preprocessing-Pipeline.md)
+- [EJ-014 - Feature Engineering Framework](EJ-014-Feature-Engineering-Framework.md)
+- [EJ-015 - Baseline Experiment Framework](EJ-015-Baseline-Experiment-Framework.md)
+- [EJ-016 - Dataset Finalization and Experiment Readiness](EJ-016-Dataset-Finalization-and-Experiment-Readiness.md)
+- [EJ-017 - Baseline Model Evaluation and Candidate Selection](EJ-017-Baseline-Model-Evaluation-and-Candidate-Selection.md)
+- [EJ-018 - Hyperparameter Optimization and Conditional Candidate](EJ-018-Hyperparameter-Optimization-and-Conditional-Candidate.md)
+- [EJ-019 - Internal Model Integration and Phase 3 Completion](EJ-019-Internal-Model-Integration-and-Phase3-Completion.md)
+
+- [EJ-002 — Backend Foundation](EJ-002-Backend-Foundation.md)
+- [EJ-004 — Frontend Foundation](EJ-004-Frontend-Foundation.md)
+- [EJ-005 — Frontend Mock Prediction Workflow](EJ-005-Frontend-Mock-Prediction-Workflow.md)
+- [EJ-006 — Mock Prediction API](EJ-006-Mock-Prediction-API.md)
+- [EJ-007 — Frontend-to-Backend Prediction Integration](EJ-007-Frontend-Backend-Prediction-Integration.md)
+- [EJ-008 — ML Microservice Prediction Delegation](EJ-008-ML-Microservice-Prediction-Delegation.md)

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://truthlens.ai/contracts/prediction-response.schema.json",
+  "title": "TruthLens Prediction Response Data",
+  "description": "The data payload returned inside the standardized successful response from POST /api/predict.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "prediction",
+    "confidence",
+    "confidence_status",
+    "decision_score",
+    "risk_level",
+    "explanation",
+    "keywords",
+    "processing_time_ms",
+    "model",
+    "model_version",
+    "dataset_version"
+  ],
+  "properties": {
+    "prediction": {
+      "type": "string",
+      "enum": ["Real", "Fake"]
+    },
+    "confidence": {
+      "type": "null",
+      "description": "Always null for the Linear SVM candidate because its decision score is not calibrated."
+    },
+    "confidence_status": {
+      "type": "string",
+      "const": "unavailable"
+    },
+    "decision_score": {
+      "type": "number",
+      "description": "Uncalibrated Linear SVM decision score; it is not a probability or factual-confidence value."
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["not_assessed"]
+    },
+    "explanation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "reasons"],
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "processing_time_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "model": {
+      "type": "string"
+    },
+    "model_version": {
+      "type": "string"
+    },
+    "dataset_version": {
+      "type": "string"
+    }
+  }
+}

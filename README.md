@@ -2,39 +2,68 @@
 
 TruthLens AI is a research-oriented platform for explainable fake news detection in Indian digital media.
 
-## Project overview
+## Project status
 
-The platform is being designed for a production-quality portfolio, future research publication, and an MS admissions profile. It separates the frontend, Node.js backend, and Python machine-learning service so each component can evolve independently.
+Phase 3 is complete at the **internal model-integration** boundary. `TL-LSVM-TFIDF-v1.1.0-rc.1` is packaged behind the Python service with integrity checks, readiness, lineage metadata, and privacy-safe logging. It remains **untested after tuning**, `integrated_not_deployment_approved`, and unsuitable as a fact checker or factual-verdict system. The Phase 3.8 protected test was not reused. See the [final selection report](docs/research/FINAL_MODEL_SELECTION_REPORT.md), [integration guide](docs/production/SERVICE_INTEGRATION.md), and [Phase 3 summary](docs/PHASE3_SUMMARY.md).
 
-## Development status
-
-Phase 1 - Milestone 1 is complete: the professional repository foundation and development standards are in place. No application functionality, API, dataset, or machine-learning implementation is included in this milestone.
-
-## Planned architecture
+## Current architecture
 
 ```text
-Frontend (HTML, CSS, JavaScript)
-        |
-Node.js and Express backend
-        |
-Python FastAPI machine-learning service
+Frontend (HTML / CSS / JavaScript)
+        ↓ public API
+Node.js Backend (Express: validation, API envelope, timeout/retry)
+        ↓ private API
+Python ML Microservice (FastAPI: readiness, metadata, integrity-checked inference)
+        ↓
+Versioned internal candidate package (preprocessing + TF-IDF + Linear SVM)
 ```
 
-## Repository structure
+The browser never calls the ML service directly. The current model response exposes an uncalibrated `decision_score`; `confidence` is intentionally unavailable and `risk_level` is not assessed.
 
-```text
-frontend/     Static web application
-backend/      Node.js and Express service
-ml-service/   Python machine-learning service
-datasets/     Governed data storage areas
-research/     Research records, notebooks, and reports
-docs/         Engineering and architecture documentation
-shared/       Cross-service contracts and shared definitions
-scripts/      Project automation scripts
-docker/       Container configuration
-tests/        Cross-project test resources
-```
+## Model information
 
-## Development workflow
+- Model: `TL-LSVM-TFIDF-v1.1.0-rc.1` (Linear SVM, TF-IDF unigram/bigram)
+- Dataset: `TL-BFNK-EN-v1.0`, `DER-20260718-r2`, `SPL-TL-BFNK-EN-v1.0`
+- Internal status: `integrated_not_deployment_approved`
+- Validation evidence: Macro F1 0.5398, MCC 0.1014; no post-tuning protected-test result
 
-Work is implemented through focused feature branches, reviewed through pull requests into `develop`, and only promoted to `main` after the integrated project is stable.
+## API overview
+
+- `POST /api/predict` – validated research-scope classification signal
+- `GET /api/health` and `GET /api/system/health` – process health
+- `GET /api/model/ready`, `/metadata`, and `/version` – model package state and governed lineage
+
+See the [API reference](docs/production/API_REFERENCE.md) and [deployment guide](docs/production/PRODUCTION_DEPLOYMENT_GUIDE.md).
+
+## Project structure
+
+- `frontend/` – browser interface
+- `backend/` – public Node.js API and ML-service client
+- `ml-service/` – FastAPI inference service and Git-ignored versioned packages
+- `ml/` – governed research pipeline, configurations, registries, and local artifacts
+- `docs/research/`, `docs/production/`, `research/decision-log/` – research, integration, and governance evidence
+
+## Planned platform
+
+- HTML5, CSS3, and vanilla JavaScript frontend
+- Node.js and Express backend
+- Python, FastAPI, spaCy, and scikit-learn ML service
+- SQLite initially, with a future PostgreSQL migration path
+
+## Documentation
+
+- [Research methodology](docs/research/RESEARCH_METHODOLOGY.md)
+- [Research documentation package](docs/research/README.md)
+- [Research decision log](research/decision-log/README.md)
+- [Engineering journal](docs/engineering-journal/README.md)
+- [Architecture decision records](docs/adr/README.md)
+
+## Setup
+
+Setup instructions will be added in a later milestone.
+
+## Development roadmap
+
+The implementation roadmap is maintained in the [research and implementation roadmap](docs/architecture/Research-Roadmap.md).
+
+Phase 4 may begin only after approval. Public deployment remains blocked pending a new governed release process, post-tuning evaluation plan, calibration, robustness/fairness evidence, rights review, monitoring, and human-review controls.

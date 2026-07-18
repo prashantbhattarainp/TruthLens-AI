@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "model_registry",
+  "status": "phase_3_complete_internal_candidate_integrated",
+  "current_model": {
+    "model_id": "MDL-TL-LSVM-TFIDF-v1.1.0-rc.1",
+    "model_version": "TL-LSVM-TFIDF-v1.1.0-rc.1",
+    "champion": true,
+    "production_model": false,
+    "deployment_status": "integrated_not_deployment_approved",
+    "package_location": "ml-service/artifacts/candidate/TL-LSVM-TFIDF-v1.1.0-rc.1",
+    "package_manifest_sha256": "20b6efe11714f263d90fe892640ac6d9dce1da90c2d9c364a23a3bf624850a9e"
+  },
+  "entries": [
+    {
+      "model_id": "MDL-linear-svm-1.0.0-EXP-20260717-linear-svm-177d71e9c9",
+      "model_version": "1.0.0",
+      "status": "historical_evaluated_baseline",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
+      "experiment_id": "EXP-20260717-linear-svm-177d71e9c9",
+      "selection_rule": "highest validation macro_f1",
+      "validation_macro_f1": 0.5273731497,
+      "protected_test_macro_f1": 0.5486345744,
+      "protected_test_mcc": 0.103733201,
+      "artifact_location": "ml/data/evaluation/TL-BFNK-EN-v1.0/EVAL-20260718-r2",
+      "model_sha256": "6d086bbf0bf57dff3bebd152a0e7482bf739ddaade494f9f232e592f82206fe5",
+      "feature_extractor_sha256": "a4cc36bad979312e3a3c7e2c9b5eaf5de0f75f423da0d12613ac9023b9fefe6e",
+      "notes": "Historical Phase 3.8 baseline with a one-time protected-test result. It is not post-tuning evidence and cannot be used to select a Phase 3.9 candidate."
+    },
+    {
+      "model_id": "MDL-TL-LSVM-TFIDF-v1.1.0-rc.1",
+      "model_version": "1.1.0-rc.1",
+      "status": "integrated_not_deployment_approved",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "dataset_hash": "978931f41ece219a3e3e27d052cfb35dfe557af02a604d6f913d4ad8e6ca59ad",
+      "optimization_id": "OPT-20260718-linear-svm-faafafe15e",
+      "selection_rule": "validation Macro F1 practical tie (0.005), then grouped OOF Macro F1, MCC, resource footprint, and documented safety gates",
+      "training_oof_macro_f1": 0.5346219364,
+      "validation_macro_f1": 0.5397794548,
+      "validation_mcc": 0.1014417439,
+      "protected_test_access": "none after tuning",
+      "artifact_location": "ml/data/optimization/TL-BFNK-EN-v1.0/phase-3-9-r1/OPT-20260718-linear-svm-faafafe15e/fitted-validation-candidate.joblib",
+      "model_sha256": "b4ab60adb156b5932f3c1b98fcd10dfe1b78722d7a883e45637b2e6e4204ec3b",
+      "package_location": "ml-service/artifacts/candidate/TL-LSVM-TFIDF-v1.1.0-rc.1",
+      "package_manifest_sha256": "20b6efe11714f263d90fe892640ac6d9dce1da90c2d9c364a23a3bf624850a9e",
+      "notes": "Integrated internal candidate only. Deployment, fact-checking, calibrated confidence, and post-tuning performance claims are prohibited."
+    },
+    {
+      "model_id": "MDL-TL-MNB-TFIDF-v1.1.0-rc.1",
+      "model_version": "1.1.0-rc.1",
+      "status": "primary_challenger",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "optimization_id": "OPT-20260718-multinomial-naive-bayes-60fad40e22",
+      "validation_macro_f1": 0.5399108734,
+      "validation_fake_recall": 0.4226086957,
+      "protected_test_access": "none after tuning",
+      "model_sha256": "ad5b327d0d0a265985fd802a879526cd78025a27e37509ddf8456f680adef02f"
+    },
+    {
+      "model_id": "MDL-TL-LR-TFIDF-v1.1.0-rc.1",
+      "model_version": "1.1.0-rc.1",
+      "status": "challenger",
+      "dataset_version": "TL-BFNK-EN-v1.0",
+      "optimization_id": "OPT-20260718-logistic-regression-15115d5c12",
+      "validation_macro_f1": 0.5371415941,
+      "validation_fake_recall": 0.4365217391,
+      "protected_test_access": "none after tuning",
+      "model_sha256": "ce71b623325bc6c3f358ce39631ec54142040c5c00f1d98f2b59d5a47d5a391f"
+    }
+  ],
+  "policy": "No registry entry is approved for deployment. The current champion is packaged for internal service integration only. Phase 3.8 test evidence must not be reused after Phase 3.9 tuning; r1 artifacts are invalidated and are not registry candidates."
+}

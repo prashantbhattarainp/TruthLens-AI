@@ -1,0 +1,51 @@
+.container {
+  width: min(var(--max-width), calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-7);
+}
+.section--surface {
+  background: var(--color-surface);
+}
+
+.content-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+.card-grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.section-heading {
+  max-width: 47rem;
+  margin-bottom: var(--space-5);
+}
+.section-heading > p:last-child {
+  margin-bottom: 0;
+  color: var(--color-ink-muted);
+}
+
+.prose {
+  color: var(--color-ink-muted);
+}
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 48rem) {
+  .container {
+    width: min(var(--max-width), calc(100% - 4rem));
+  }
+  .content-grid--two-column {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+  .card-grid--three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card-grid--four {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
